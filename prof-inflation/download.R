@@ -64,12 +64,6 @@ prof_2013 <- crawler(url_2013, year = 2013)
 prof_2014 <- crawler(url_2014, year = 2014)
 prof_2015 <- crawler(url_2015, year = 2015)
 
-profs <- do.call("rbind",
-                 list(prof_2001, prof_2002, prof_2003, prof_2004,
-                      prof_2005, prof_2006, prof_2007, prof_2009,
-                      prof_2010, prof_2011, prof_2012, prof_2013,
-                      prof_2014, prof_2015))
-
 ## 2016 ------------------------------------------------------------------------
 
 
@@ -81,14 +75,23 @@ prof_2016 <- rbind(prof_2016a, prof_2016b)
 rm(prof_2016a, prof_2016b)
 
 names(prof_2016) <- c("stt", "ho", "ten", "ngaysinh", "gioitinh",
-                      "nganh", "noi_lamviec", "quequan", "maso", "gsn")
-prof_2016$hoten <- table(paste(prof_2016$ho, prof_2016$ten))
+                      "nganh", "noi_lamviec", "quequan", "maso", "gcn")
+
+prof_2016$hoten <- paste(prof_2016$ho, prof_2016$ten)
+prof_2016$hoten <- trimws(prof_2016$hoten, which = "both")
+prof_2016$maso_gcn <- paste0(prof_2016$maso, prof_2016$gcn)
+prof_2016$nam <- 2016
+prof_2016 <- prof_2016[, c("stt", "hoten", "ngaysinh", "gioitinh",
+                           "nganh", "noi_lamviec", "quequan", "maso_gcn", "nam")]
 
 
-table(prof_2016$ten, useNA="ifany")
-head(prof_2016)
+## combine ---------------------------------------------------------------------
 
-
+profs <- do.call("rbind",
+                 list(prof_2001, prof_2002, prof_2003, prof_2004,
+                      prof_2005, prof_2006, prof_2007, prof_2009,
+                      prof_2010, prof_2011, prof_2012, prof_2013,
+                      prof_2014, prof_2015, prof_2016))
 profs$stt <- NULL
 rownames(profs) <- NULL
 
