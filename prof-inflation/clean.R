@@ -23,7 +23,7 @@ profs$ngaysinh <- as.Date(profs$ngaysinh, "%d/%m/%Y")
 profs$gioitinh[profs$gioitinh == ""] <- NA
 profs$gioitinh[profs$gioitinh == "Chưa rõ"] <- NA
 profs$gioitinh[profs$gioitinh == "NAM"] <- "Nam"
-
+profs$gioitinh[profs$gioitinh == " Nữ"] <- "Nữ"
 
 ## clean field -----------------------------------------------------------------
 
@@ -85,7 +85,7 @@ profs$quequan[grepl("cà (mau|mâu)", profs$quequan, ignore.case = TRUE)] <- "C�
 profs$quequan[grepl("cao bằng", profs$quequan, ignore.case = TRUE)] <- "Cao Bằng"
 profs$quequan[grepl("đắk lắk", profs$quequan, ignore.case = TRUE)] <- "Đắk Lắk"
 profs$quequan[grepl("đồng nai", profs$quequan, ignore.case = TRUE)] <- "Đồng Nai"
-profs$quequan[grepl("đồng tháp", profs$quequan, ignore.case = TRUE)] <- "Đồng Tháp"
+profs$quequan[grepl("(đồng|đông) tháp", profs$quequan, ignore.case = TRUE)] <- "Đồng Tháp"
 profs$quequan[grepl("thanh (hóa|hoá)", profs$quequan, ignore.case = TRUE)] <- "Thanh Hóa"
 profs$quequan[grepl("hà giang", profs$quequan, ignore.case = TRUE)] <- "Hà Giang"
 profs$quequan[grepl("hà nam|nam hà", profs$quequan, ignore.case = TRUE)] <- "Hà Nam"
@@ -133,17 +133,8 @@ profs$quequan[grepl("chưa rõ", profs$quequan, ignore.case = TRUE)] <- NA
 profs$quequan[grepl(" ", profs$quequan, ignore.case = TRUE)] <- NA
 
 
+## export csv ------------------------------------------------------------------
 
-## clean institutions ----------------------------------------------------------
-
-## profs$institution <- character(nrow(profs))
-
-## profs$institution[grepl("(trường|đại học|ĐH)", profs$noi_lamviec, ignore.case = TRUE)]
-
-## table(profs$noi_lamviec[grepl("(^trường|^ĐH)", profs$noi_lamviec, ignore.case = TRUE)])
-
-## sample(profs$noi_lamviec, 100)
-
-## write.csv(profs, na = "",
-##           file = "~/ownCloud/data_projects/prof-inflation/cleaned-profs.csv",
-##           row.names = FALSE)
+write.csv(profs, na = "",
+          file = "~/ownCloud/data_projects/prof-inflation/cleaned-profs.csv",
+          row.names = FALSE)
