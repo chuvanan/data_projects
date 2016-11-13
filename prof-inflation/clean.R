@@ -30,6 +30,10 @@ profs$gioitinh[profs$gioitinh == "Chưa rõ"] <- NA
 profs$gioitinh[profs$gioitinh == "NAM"] <- "Nam"
 profs$gioitinh[profs$gioitinh == " Nữ"] <- "Nữ"
 
+profs$gioitinh[profs$hoten == "Đỗ Hương Trà" & profs$ngaysinh == as.Date("1957-07-27")] <- "Nữ"
+profs$gioitinh[profs$hoten == "Lưu Cẩm Lộc" & profs$ngaysinh == as.Date("1954-01-25")] <- "Nam"
+profs$gioitinh[profs$hoten == "Thái Vĩnh Thắng" & profs$ngaysinh == as.Date("1954-10-25")] <- "Nam"
+
 ## clean field -----------------------------------------------------------------
 
 profs$nganh[grepl("âm nhạc", profs$nganh, ignore.case = TRUE)] <- "Âm nhạc"
@@ -140,13 +144,20 @@ profs$quequan[grepl(" ", profs$quequan, ignore.case = TRUE)] <- NA
 ## clean maso_gcn --------------------------------------------------------------
 
 profs$title <- character(nrow(profs))
-profs$title <- ifelse(grepl("/PGS$", profs$maso_gcn), "PGS",
-                      ifelse(grepl("/GS", profs$maso_gcn), "GS", NA))
+profs$title <- ifelse(grepl("/?PGS$", profs$maso_gcn), "PGS",
+                      ifelse(grepl("/?GS", profs$maso_gcn), "GS", NA))
 
 ## clean name ------------------------------------------------------------------
 
 profs$hoten <- gsub("\\s{2,}", " ", profs$hoten)
 profs$hoten <- trimws(profs$hoten, which = "both")
+
+## remove duplicates -----------------------------------------------------------
+
+profs$uni_id <- paste0(profs$hoten, profs$ngaysinh, profs$gioitinh, profs$nam)
+profs <- profs[!duplicated(profs$uni_id), ]
+profs$uni_id <- NULL
+profs <- profs[!(profs$hoten == "Đặng Hùng Thắng" & profs$nam == "1999"), ]
 
 ## export csv ------------------------------------------------------------------
 
