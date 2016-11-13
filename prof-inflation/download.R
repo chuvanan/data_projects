@@ -41,9 +41,21 @@ url_2015 <- "http://www.hdcdgsnn.gov.vn/index.php/danh-sach-cac-gs-pgs-duoc-cong
 prof_2001 <- readHTMLTable(url_2001, header = TRUE, stringsAsFactors = FALSE)
 prof_2001 <- prof_2001[sapply(prof_2001, ncol) == 9]
 prof_2001 <- do.call("rbind", prof_2001)
-
 names(prof_2001) <- c("stt", "hoten", "ngaysinh", "gioitinh", "nganh",
                       "nam", "noi_lamviec", "quequan", "maso_gcn")
+
+for (i in seq_along(prof_2001$stt)) {
+  if (i <= length(prof_2001$stt)) {
+    if (grepl("phó giáo sư", prof_2001$stt[i], ignore.case = TRUE)) {
+      prof_2001$maso_gcn[i] <- "PGS"
+    } else if (grepl("giáo sư", prof_2001$stt[i], ignore.case = TRUE)) {
+      prof_2001$maso_gcn[i] <- "GS"
+    } else {
+      prof_2001$maso_gcn[i] <- prof_2001$maso_gcn[i - 1]
+    }
+  }
+}
+
 prof_2001 <- prof_2001[!grepl("[a-z]", prof_2001$stt), ]
 prof_2001 <- prof_2001[, c("stt", "hoten", "ngaysinh", "gioitinh", "nganh",
                            "noi_lamviec", "quequan", "maso_gcn", "nam")]
@@ -98,5 +110,5 @@ rownames(profs) <- NULL
 ## export raw data
 write.csv(profs,
           na = "",
-          file = "~/ownCloud/data_projects/prof-inflation/raw-profs.csv",
+          file = "~/Documents/data_projects/prof-inflation/raw-profs.csv",
           row.names = FALSE)
