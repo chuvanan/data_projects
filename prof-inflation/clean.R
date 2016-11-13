@@ -15,8 +15,13 @@ profs$ngaysinh[profs$ngaysinh == "11/02/191947"] <- "11/02/1947"
 profs$ngaysinh[profs$ngaysinh == "10/101945"] <- "10/10/1945"
 profs$ngaysinh[profs$ngaysinh == "08/021954"] <- "08/02/1954"
 profs$ngaysinh[profs$ngaysinh == "(01/1959)"] <- "01/01/1959"
+
 profs$ngaysinh <- as.Date(profs$ngaysinh, "%d/%m/%Y")
 
+profs$ngaysinh[profs$ngaysinh == as.Date("1905-05-09") & profs$maso_gcn == "2342/PGS"] <- NA
+profs$ngaysinh[profs$ngaysinh == as.Date("1981-11-30") & profs$hoten == "Nguyễn Thị Ngọc Quyên"] <- as.Date("1944-11-30")
+profs$ngaysinh[profs$ngaysinh == as.Date("2026-10-28") & profs$hoten == "Bùi Phan  Kỳ"] <- as.Date("1926-10-28")
+profs$ngaysinh[profs$ngaysinh == as.Date("4364-10-02") & profs$hoten == "Nguyễn Văn Qui"] <- as.Date("1964-10-02")
 
 ## clean gender  ---------------------------------------------------------------
 
