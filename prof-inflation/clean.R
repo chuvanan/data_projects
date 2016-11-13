@@ -143,6 +143,11 @@ profs$title <- character(nrow(profs))
 profs$title <- ifelse(grepl("/PGS$", profs$maso_gcn), "PGS",
                       ifelse(grepl("/GS", profs$maso_gcn), "GS", NA))
 
+## clean name ------------------------------------------------------------------
+
+profs$hoten <- gsub("\\s{2,}", " ", profs$hoten)
+profs$hoten <- trimws(profs$hoten, which = "both")
+
 ## export csv ------------------------------------------------------------------
 
 write.csv(profs, na = "",
