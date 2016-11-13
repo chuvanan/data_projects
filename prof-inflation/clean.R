@@ -137,9 +137,14 @@ profs$quequan[grepl("(hcm|hồ chío{0,1} minh|sài gòn|gia định)", profs$qu
 profs$quequan[grepl("chưa rõ", profs$quequan, ignore.case = TRUE)] <- NA
 profs$quequan[grepl(" ", profs$quequan, ignore.case = TRUE)] <- NA
 
+## clean maso_gcn --------------------------------------------------------------
+
+profs$title <- character(nrow(profs))
+profs$title <- ifelse(grepl("/PGS$", profs$maso_gcn), "PGS",
+                      ifelse(grepl("/GS", profs$maso_gcn), "GS", NA))
 
 ## export csv ------------------------------------------------------------------
 
 write.csv(profs, na = "",
-          file = "~/ownCloud/data_projects/prof-inflation/cleaned-profs.csv",
+          file = "~/Documents/data_projects/prof-inflation/cleaned-profs.csv",
           row.names = FALSE)
