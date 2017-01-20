@@ -20,6 +20,7 @@ plot(passport$hdi, passport$vfs,
      pch = 19, col = rgb(0, 0, 0, alpha = 0.5),
      xlim = c(0.3, 1), ylim = c(10, 170), axes = FALSE,
      xlab = "", ylab = "")
+grid(NULL, NULL, equilogs = TRUE)
 points(vietnam$hdi, vietnam$vfs, col = "red", pch = 19)
 text(vietnam$hdi, vietnam$vfs - 4, labels = "Vietnam", col = "red", cex = 0.8)
 text(germany$hdi, germany$vfs + 4, labels = "Germany",
