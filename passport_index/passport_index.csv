@@ -1,0 +1,200 @@
+"countries","vfs","voa","hdi"
+"Germany",158,124,0.916
+"Sweden",157,123,0.907
+"Singapore",157,122,0.912
+"Denmark",156,123,0.923
+"Finland",156,123,0.883
+"France",156,122,0.888
+"Spain",156,121,0.876
+"Switzerland",156,120,0.93
+"Norway",156,117,0.944
+"United Kingdom",156,116,0.907
+"United States of America",156,113,0.915
+"Italy",155,122,0.873
+"Netherlands",155,121,0.922
+"Belgium",155,121,0.89
+"Austria",155,121,0.885
+"Luxembourg",155,120,0.892
+"Portugal",155,120,0.83
+"Japan",155,115,0.891
+"Malaysia",154,117,0.779
+"Ireland",154,116,0.916
+"Canada",154,111,0.913
+"New Zealand",154,107,0.913
+"Greece",153,120,0.865
+"South Korea",153,114,0.898
+"Australia",153,105,0.935
+"Czech Republic",152,120,0.87
+"Iceland",152,115,0.899
+"Hungary",151,119,0.828
+"Malta",150,120,0.839
+"Poland",150,116,0.843
+"Slovenia",149,117,0.88
+"Slovakia",149,117,0.844
+"Lithuania",149,116,0.839
+"Latvia",149,116,0.819
+"Estonia",148,116,0.861
+"Liechtenstein",147,110,0.908
+"Cyprus",145,116,0.85
+"Croatia",143,113,0.818
+"Bulgaria",143,111,0.782
+"Brazil",143,106,0.755
+"Monaco",143,105,0
+"Romania",142,112,0.793
+"Argentina",141,102,0.836
+"Hong Kong",140,107,0.91
+"Chile",140,103,0.832
+"San Marino",138,102,0
+"Andorra",138,96,0.846
+"Israel",137,102,0.894
+"Brunei",134,98,0.856
+"Barbados",132,103,0.785
+"Mexico",130,95,0.756
+"Vatican City",130,93,0
+"Bahamas",129,99,0.79
+"Uruguay",128,93,0.793
+"Seychelles",126,96,0.772
+"Antigua and Barbuda",124,95,0.783
+"Saint Kitts and Nevis",123,93,0.752
+"United Arab Emirates",122,88,0.835
+"Trinidad and Tobago",121,94,0.772
+"Costa Rica",121,89,0.766
+"Venezuela",121,86,0.762
+"St. Vincent and the Grenadines",120,92,0.72
+"Peru",119,80,0.734
+"Taiwan",119,78,0
+"Mauritius",118,93,0.777
+"Saint Lucia",118,88,0.729
+"Macao",116,85,0
+"Panama",116,84,0.78
+"Paraguay",116,81,0.679
+"Grenada",115,88,0.75
+"Vanuatu",113,82,0.594
+"Dominica",112,82,0.724
+"Serbia",111,79,0.771
+"El Salvador",111,78,0.666
+"Samoa",110,80,0.702
+"Honduras",110,78,0.606
+"Solomon Islands",109,79,0.506
+"Tonga",107,78,0.717
+"Tuvalu",107,78,0
+"Guatemala",107,75,0.627
+"Macedonia (FYROM)",106,72,0.747
+"Moldova",104,71,0.693
+"Turkey",104,70,0.761
+"Colombia",104,69,0.72
+"Kiribati",103,74,0.59
+"Russian Federation",103,71,0.798
+"Nicaragua",102,70,0.631
+"Marshall Islands",102,68,0
+"Montenegro",101,71,0.802
+"Bosnia and Herzegovina",99,68,0.733
+"Palau",99,63,0.78
+"Micronesia",99,63,0.64
+"Albania",94,63,0.733
+"South Africa",90,61,0.666
+"Ukraine",87,53,0.747
+"Timor-Leste",84,52,0.595
+"Belize",82,55,0.715
+"Kuwait",82,47,0.816
+"Qatar",77,47,0.85
+"Jamaica",76,48,0.719
+"Ecuador",75,41,0.732
+"Fiji",74,44,0.727
+"Guyana",74,41,0.636
+"Bahrain",73,40,0.824
+"Maldives",72,43,0.706
+"Nauru",70,38,0
+"Oman",70,37,0.793
+"Thailand",70,34,0.726
+"Suriname",70,33,0.714
+"Botswana",69,44,0.698
+"Kazakhstan",69,34,0.788
+"Saudi Arabia",67,35,0.837
+"Belarus",67,35,0.798
+"Papua New Guinea",67,34,0.505
+"Georgia",67,31,0.754
+"Bolivia",67,31,0.662
+"Lesotho",66,42,0.497
+"Malawi",65,40,0.445
+"Swaziland",64,41,0.531
+"Namibia",64,38,0.628
+"Kenya",64,38,0.548
+"Gambia",63,44,0.441
+"Cape Verde",63,33,0.646
+"Tanzania",62,40,0.521
+"Tunisia",61,32,0.721
+"Azerbaijan",61,30,0.751
+"Philippines",60,31,0.668
+"Cuba",60,27,0.769
+"Zambia",59,38,0.586
+"Zimbabwe",58,35,0.509
+"Armenia",58,28,0.733
+"Indonesia",58,26,0.684
+"Kyrgyzstan",58,24,0.655
+"Ghana",57,36,0.579
+"Uganda",57,33,0.483
+"Mongolia",57,28,0.727
+"China",57,22,0.727
+"Sierra Leone",56,38,0.413
+"Morocco",55,27,0.628
+"Benin",55,27,0.48
+"Guinea",54,31,0.411
+"Cote Divoire (Ivory Coast)",54,28,0.462
+"Uzbekistan",54,23,0.675
+"Tajikistan",54,23,0.624
+"Senegal",53,29,0.466
+"Sao Tome and Principe",53,19,0.555
+"Burkina Faso",52,27,0.402
+"Mauritania",52,25,0.506
+"Dominican Republic",52,17,0.715
+"Haiti",52,16,0.483
+"Mali",51,30,0.419
+"Togo",50,24,0.484
+"Niger",49,28,0.348
+"Madagascar",49,19,0.51
+"Turkmenistan",49,15,0.688
+"Mozambique",48,23,0.416
+"Rwanda",48,21,0.483
+"Viet Nam",48,19,0.666
+"Chad",48,19,0.392
+"Gabon",48,18,0.684
+"Cambodia",48,18,0.555
+"Egypt",48,15,0.69
+"Bhutan",48,15,0.605
+"Guinea-Bissau",47,23,0.42
+"Algeria",47,17,0.736
+"Comoros",47,14,0.503
+"India",46,21,0.609
+"Jordan",46,18,0.748
+"Laos",45,18,0.575
+"Liberia",44,23,0.43
+"Central African Republic",44,15,0.35
+"Angola",43,17,0.532
+"Cameroon",43,16,0.512
+"Congo",43,15,0.591
+"Equatorial Guinea",43,11,0.587
+"Burundi",42,16,0.4
+"Nigeria",41,20,0.514
+"Myanmar [Burma]",40,14,0.536
+"Yemen",40,12,0.498
+"Djibouti",40,10,0.47
+"Congo (Dem. Rep.)",39,12,0.433
+"Kosovo",39,12,0
+"North Korea",39,11,0
+"Lebanon",38,11,0.769
+"Palestinian Territories",37,13,0.677
+"Nepal",37,12,0
+"Libya",37,10,0.724
+"Iran",36,10,0.766
+"Eritrea",36,8,0.391
+"Sudan",36,6,0.479
+"Bangladesh",35,17,0.57
+"Sri Lanka",35,15,0.757
+"South Sudan",34,9,0.467
+"Ethiopia",34,7,0.442
+"Somalia",30,6,0
+"Syria",29,8,0.594
+"Iraq",28,5,0.654
+"Pakistan",26,6,0.538
+"Afghanistan",23,3,0.465
