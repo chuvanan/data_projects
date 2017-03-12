@@ -1,0 +1,52 @@
+---
+title: "Hanoi UseR Group Meetup"
+date: 03/2017
+output: beamer_presentation
+header-includes:
+- \usepackage[orientation=landscape,size=custom,width=16,height=9,scale=0.5,debug]{beamerposter}
+---
+
+
+# 
+
+\begin{center}
+\includegraphics[width=0.5\paperwidth]{/home/anchu/Dropbox/R_meetups/Rlogo.png}
+\end{center}
+
+# 
+
+\begin{center}
+\includegraphics[width=0.8\paperwidth]{/home/anchu/Dropbox/R_meetups/Rmeetups.pdf}
+\end{center}
+
+#
+
+\begin{center}
+\includegraphics[width=0.5\paperwidth]{/home/anchu/Dropbox/R_meetups/participants.pdf}
+\end{center}
+
+# 
+
+\begin{center}
+\includegraphics[width=0.8\paperwidth]{/home/anchu/Dropbox/R_meetups/agenda.pdf}
+\end{center}
+
+# 
+
+- Le Dang Trung, RTA
+
+- Hoang Duc Anh, VPBANK
+
+- Ninh, UTB.CZ
+
+- Nguyen Thi Le, UTEHY
+
+- Pham Vo Ky, KG HOSPITAL
+
+- Nguyen Chi Dung, RTA
+
+- Pham Dinh Khanh, NEU
+
+- Hoang Viet Anh, VAFS
+
+- Nguyen Ngoc Hieu, PAYMENTWALL VIETNAM
