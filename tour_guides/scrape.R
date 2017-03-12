@@ -25,4 +25,4 @@ download_hdvdl_profile <- function(urls) {
 
 ds_hdvl <- download_hdvdl_profile(pages)
 
-## write.csv(ds_hdvl, "~/Documents/data_projects/tour_guides/tour_guides_rawdb.csv", row.names = F)
+
