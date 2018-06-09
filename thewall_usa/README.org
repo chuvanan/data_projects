@@ -1,8 +1,8 @@
 
 
 This project started off when my former colleague introduced me this [[http://thewall-usa.com/index.asp][website]] a
-few months ago. You can read about his data collection
-([[http://rpubs.com/chidungkt/313857][here]]) and analysis ([[http://rpubs.com/chidungkt/343736][here]]).
+few months ago. You can read about his data collection ([[http://rpubs.com/chidungkt/313857][here]]) and analysis
+([[http://rpubs.com/chidungkt/343736][here]]).
 
 This is my attempt to rewrite the web crawling part to be a bit more elegantly.
 Just a weekend exercise. For playing with the data set, you can visit the USA's
