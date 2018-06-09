@@ -1,0 +1,4 @@
+
+
+A collection of my hobby weekend data projects including, but not limited to,
+data analysis, visualization, web scrapping.
