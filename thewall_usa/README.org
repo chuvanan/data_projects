@@ -5,8 +5,8 @@ This project started off when my former colleague introduced me this
 his data collection ([here](http://rpubs.com/chidungkt/313857)) and analysis
 ([here](http://rpubs.com/chidungkt/343736)).
 
-This is my attempt to rewrite the web crawling part to be a bit more elegantly,
-Just a weekend exercise. For playing wit the data set, you can visit the USA's
+This is my attempt to rewrite the web crawling part to be a bit more elegantly.
+Just a weekend exercise. For playing with the data set, you can visit the USA's
 National Archival Databases[fn:1].
 
 Though this project is solely interested in data stuffs, specifically web
