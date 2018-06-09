@@ -1,0 +1,21 @@
+
+
+This project started off when my former colleague introduced me this
+[website](http://thewall-usa.com/index.asp) a few months ago. You can read about
+his data collection ([here](http://rpubs.com/chidungkt/313857)) and analysis
+([here](http://rpubs.com/chidungkt/343736)).
+
+This is my attempt to rewrite the web crawling part to be a bit more elegantly,
+Just a weekend exercise. For playing wit the data set, you can visit the USA's
+National Archival Databases[fn:1].
+
+Though this project is solely interested in data stuffs, specifically web
+scraping and data tidying, I still want to take note of one non-data thing that
+I found along the way.
+
+- They, the US government, use the phrase 'Vietnam Conflict' in lieu of 'Vietnam
+  War' in their papers.
+
+* Footnotes
+
+[fn:1] https://catalog.archives.gov/id/2240992
