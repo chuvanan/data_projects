@@ -4,7 +4,8 @@ library(rvest)
 library(purrr)
 library(stringr)
 
-n_pages <- 58223
+## n_pages <- 58223
+n_pages <- 10000
 base_url <- "http://thewall-usa.com/info.asp?recid="
 urls <- paste0(base_url, 1:n_pages)
 
@@ -34,14 +35,10 @@ crawler <- function(.url) {
 
 }
 
-vnm_memorial <- vector("list", length = 3)
+safe_crawler <- purrr::safely(crawler)
+vnm_memorial <- vector("list", length = n_pages)
 
 for (i in seq_along(vnm_memorial)) {
   vnm_memorial[[i]] <- crawler(urls[i])
   Sys.sleep(2)
-}
-
-
-fun <- function() {
-    print("hello")
 }
