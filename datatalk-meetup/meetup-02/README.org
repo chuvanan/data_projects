@@ -3,6 +3,49 @@
 
 ** Data
 
+- Hanoi Air Quality Data: Hourly measurement of PM 2.5 articles from January
+  2015 to June 2018.
+
+- Raw data:
+
+#+BEGIN_SRC r
+## ./data/Hanoi_PM2.5_2015_12_MTD.csv
+## ./data/Hanoi_PM2.5_2015_YTD.csv
+## ./data/Hanoi_PM2.5_2016_12_MTD.csv
+## ./data/Hanoi_PM2.5_2016_YTD.csv
+## ./data/Hanoi_PM2.5_2017_YTD.csv
+## ./data/Hanoi_PM2.5_2018_06_MTD.csv
+## ./data/Hanoi_PM2.5_2018_12_MTD.csv
+## ./data/Hanoi_PM2.5_2018_YTD.csv
+#+END_SRC
+
+- Cleaned data:
+
+#+BEGIN_SRC r
+## ./data/hanoi-air-quality.csv
+#+END_SRC
+
+- Codebook:
 
 
 ** Scripts
+
+- ~clean-air-quality-data.R~ This script provides recipes to clean and combine
+  the raw data.
+
+** References
+
+- https://airnow.gov/index.cfm?action=airnow.global_summary#Vietnam$Hanoi
+  official data collected by US Embassy
+- http://www.aqivn.org/vi/ a personal non-profit project for collecting and
+  sharing data on air quality in Hanoi
+
+Some articles about Hanoi's air quality:
+
+- https://saigoneer.com/saigon-health/8196-hanoi-s-air-quality-ranked-second-worst-in-the-world-yesterday
+- http://www.thanhniennews.com/society/hanois-persistent-air-pollution-reaches-hazardous-level-59888.html
+- https://e.vnexpress.net/news/insight/air-pollution-in-hanoi-reaches-alarming-levels-3364977.html
+- http://www.wordvietnam.com/news-latest/briefings/the-reality-about-air-quality-in-hanoi
+- https://www.theguardian.com/cities/2016/jul/18/long-wait-hanoi-metro-vietnam-motorbike
+- https://tuoitrenews.vn/features/482/vietnam-air-pollution-among-the-worst-in-the-world
+- http://www.environnement-sa.com/hanois-air-quality-monitoring-network-one-year-after/
