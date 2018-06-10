@@ -9,21 +9,8 @@ library(dplyr)
 library(purrr)
 library(lubridate)
 
-csv_files <- list.files("./data", full.names = TRUE)
-dtfs <- map(csv_files, read_csv, col_types = cols(.default = col_character()))
-
-## Change `Value` --> `AQI`
-
-dtfs <- map_if(dtfs, function(x) any(names(x) == "Value"),
-               function(x) {names(x)[names(x) == "Value"] <- "AQI"; x})
-
-## Remove `24-hr. Midpoint Avg. Conc.`
-
-dtfs <- map_if(dtfs,
-               function(x) any(names(x) == "24-hr. Midpoint Avg. Conc."),
-               function(x) {x[["24-hr. Midpoint Avg. Conc."]] <- NULL; x})
-
-dta <- reduce(dtfs, bind_rows)
+csv_files <- list.files("./data", pattern = "_YTD", full.names = TRUE)
+dtfs <- map_dfr(csv_files, read_csv, col_types = cols(.default = col_character()))
 
 ## Missing values in variable `AQI`: -999 --> NA
 
