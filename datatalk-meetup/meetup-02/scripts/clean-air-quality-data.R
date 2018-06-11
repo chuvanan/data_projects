@@ -10,7 +10,7 @@ library(purrr)
 library(lubridate)
 
 csv_files <- list.files("./data", pattern = "_YTD", full.names = TRUE)
-dtfs <- map_dfr(csv_files, read_csv, col_types = cols(.default = col_character()))
+dta <- map_dfr(csv_files, read_csv, col_types = cols(.default = col_character()))
 
 ## Missing values in variable `AQI`: -999 --> NA
 
