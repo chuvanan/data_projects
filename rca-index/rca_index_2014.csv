@@ -1,0 +1,98 @@
+code,value2,rca,log_rca,product_lb
+'61,9485.913,23.6152112026899,3.16189104689013,"Articles of apparel, accessories, knit or crochet"
+'09,4457.674,18.6295601334503,2.92474957367724,"Coffee, tea, mate and spices"
+'64,14448.316,8.53212540541033,2.14383849874421,"Footwear, gaiters and the like, parts thereof"
+'03,4977.518,5.4910280772169,1.70311550159943,"Fish, crustaceans, molluscs, aquatic invertebrates nes"
+'62,11619.945,5.08440501944486,1.62617801566251,"Articles of apparel, accessories, not knit or crochet"
+'16,1731.826,4.81980430886136,1.57273332741702,"Meat, fish and seafood food preparations nes"
+'46,195.851,4.5033656132454,1.50482503128247,"Manufactures of plaiting material, basketwork, etc."
+'14,26.916,4.24381370380969,1.4454623234192,"Vegetable plaiting materials, vegetable products nes"
+'25,1086.674,3.90196457103181,1.36148016246514,"Salt, sulphur, earth, stone, plaster, lime and cement"
+'42,2849.585,3.43511440439872,1.23405023062151,"Articles of leather, animal gut, harness, travel goods"
+'08,2451.754,2.96296821714409,1.08619154195411,"Edible fruit, nuts, peel of citrus fruit, melons"
+'11,257.161,2.92097614272771,1.07191785587061,"Milling products, malt, starches, inulin, wheat gluten"
+'44,2672.521,2.5045769223248,0.918119826989237,"Wood and articles of wood, wood charcoal"
+'52,1581.002,2.50015981416397,0.916354655496584,Cotton
+'65,323.226,2.47764818160244,0.907309796372834,Headgear and parts thereof
+'41,440.511,2.23245388466154,0.80310137718856,Raw hides and skins (other than furskins) and leather
+'94,6268.593,2.12968161914672,0.755972493969892,"Furniture, lighting, signs, prefabricated buildings"
+'10,1853.902,1.92880404077404,0.656900142850508,Cereals
+'59,500.646,1.63701635688937,0.492875290330142,"Impregnated, coated or laminated textile fabric"
+'85,44470.134,1.57287945062866,0.452907984539696,"Electrical, electronic equipment"
+'50,62.368,1.56808657241793,0.449856132405322,Silk
+'40,2324.043,1.47789790684703,0.390620744935221,Rubber and articles thereof
+'63,1125.213,1.44154273116181,0.365713881196194,"Other made textile articles, sets, worn clothing etc"
+'53,51.702,1.42172916900337,0.351873855438124,"Vegetable textile fibres nes, paper yarn, woven fabric"
+'54,750.986,1.26996377664264,0.238988377735102,Manmade filaments
+'70,712.533,1.18601180513125,0.170596254262295,Glass and glassware
+'55,548.615,1.18278909181027,0.167875286608607,Manmade staple fibres
+'06,41.139,1.1642302993668,0.152060181428869,"Live trees, plants, bulbs, roots, cut flowers etc"
+'78,71.525,1.09113126501769,0.0872150158533817,Lead and articles thereof
+'80,50.362,0.988971742657597,-0.0110895193979387,Tin and articles thereof
+'07,544.464,0.954467486903255,-0.0466016993579832,Edible vegetables and certain roots and tubers
+'56,200.075,0.909069279363636,-0.0953339727873764,"Wadding, felt, nonwovens, yarns, twine, cordage, etc"
+'15,181.266,0.854792947341446,-0.156896006224614,"Animal,vegetable fats and oils, cleavage products, etc"
+'69,507.738,0.851120319688181,-0.161201774165275,Ceramic products
+'34,324.83,0.847435214251942,-0.165540886010015,"Soaps, lubricants, waxes, candles, modelling pastes"
+'95,950.669,0.810781039746253,-0.209757249302466,"Toys, games, sports requisites"
+'96,417.142,0.796076734149085,-0.228059698099125,Miscellaneous manufactured articles
+'21,346.001,0.792864287336388,-0.232103210282665,Miscellaneous edible preparations
+'68,315.91,0.777220771843443,-0.252030835326164,"Stone, plaster, cement, asbestos, mica, etc articles"
+'43,94.409,0.75168194344782,-0.28544199204263,"Furskins and artificial fur, manufactures thereof"
+'19,250.542,0.74218858442851,-0.298151911195414,"Cereal, flour, starch, milk preparations and products"
+'20,289.172,0.71389885358071,-0.33701398832918,"Vegetable, fruit, nut, etc food preparations"
+'23,323.443,0.671520271280287,-0.398211075417477,"Residues, wastes of food industry, animal fodder"
+'28,723.404,0.652474121464357,-0.426983801162815,"Inorganic chemicals, precious metal compound, isotopes"
+'73,1831.18,0.639663122363281,-0.446813612517803,Articles of iron or steel
+'17,109.474,0.636516084447549,-0.451745591158559,Sugars and sugar confectionery
+'24,80.315,0.612112944402843,-0.49083846381916,Tobacco and manufactured tobacco substitutes
+'27,8058.731,0.60889212468483,-0.49611416212701,"Mineral fuels, oils, distillation products, etc"
+'84,12968.065,0.583707083002318,-0.538355992183831,"Machinery, nuclear reactors, boilers, etc"
+'82,343.582,0.50568314037879,-0.681845010627779,"Tools, implements, cutlery, etc of base metal"
+'39,2487.231,0.479232900999467,-0.735568576358574,Plastics and articles thereof
+'72,1590.072,0.474795225444054,-0.744871672227991,Iron and steel
+'58,59.353,0.397337473577074,-0.922969300002712,"Special woven or tufted fabric, lace, tapestry etc"
+'48,471.236,0.388917499303747,-0.944388041908758,"Paper and paperboard, articles of pulp, paper and board"
+'33,246.337,0.372645164885448,-0.987128612687092,"Essential oils, perfumes, cosmetics, toileteries"
+'22,190.559,0.356606360007033,-1.03112273858305,"Beverages, spirits and vinegar"
+'45,0.608,0.351608084791451,-1.04523811914808,Cork and articles of cork
+'60,158.827,0.347569507500987,-1.05679061239337,Knitted or crocheted fabric
+'57,32.552,0.335169590189585,-1.0931186358811,Carpets and other textile floor coverings
+'76,416.499,0.323273536000746,-1.12925645346025,Aluminium and articles thereof
+'38,471.854,0.322053746623152,-1.13303683238775,Miscellaneous chemical products
+'35,71.22,0.317680210241193,-1.14671003035757,"Albuminoids, modified starches, glues, enzymes"
+'31,146.302,0.30439298858278,-1.189435686825,Fertilizers
+'90,1871.591,0.299318180323257,-1.20624812315751,"Optical, photo, technical, medical, etc apparatus"
+'83,194.176,0.298995726983431,-1.20732599671888,Miscellaneous articles of base metal
+'92,23.501,0.298501242023112,-1.20898118527669,"Musical instruments, parts and accessories"
+'91,65.314,0.28988700549397,-1.23826406815723,Clocks and watches and parts thereof
+'04,149.688,0.287621974771624,-1.24610824864238,"Dairy products, eggs, honey, edible animal product nes"
+'05,29.215,0.273963695066237,-1.29475968113119,"Products of animal origin, nes"
+'81,44.806,0.219149382736407,-1.51800166874731,"Other base metals, cermets, articles thereof"
+'67,31.833,0.207911630364246,-1.57064214357491,"Bird skin, feathers, artificial flowers, human hair"
+'74,266.862,0.18679381966465,-1.67774983904174,Copper and articles thereof
+'66,12.84,0.173543022913284,-1.75132973965312,"Umbrellas, walking-sticks, seat-sticks, whips, etc"
+'99,554.982,0.173014833977717,-1.75437794262436,Commodities not elsewhere specified
+'79,16.945,0.134366185173785,-2.00718648095861,Zinc and articles thereof
+'87,1689.227,0.130966115923813,-2.03281664630862,"Vehicles other than railway, tramway"
+'26,363.733,0.128054333498381,-2.05530062467276,"Ores, slag and ash"
+'89,239.35,0.127416614101267,-2.06029313538845,"Ships, boats and other floating structures"
+'32,71.25,0.124958454569241,-2.07977396037088,"Tanning, dyeing extracts, tannins, derivs,pigments etc"
+'18,16.799,0.124533001010192,-2.08318452984683,Cocoa and cocoa preparations
+'13,6.557,0.11907837147586,-2.12797341881101,"Lac, gums, resins, vegetable saps and extracts nes"
+'71,524.44,0.116437987547934,-2.15039644342194,"Pearls, precious stones, metals, coins, etc"
+'01,13.708,0.0925119049453573,-2.38041794063319,Live animals
+'37,16.793,0.0824532016560079,-2.49552439924461,Photographic or cinematographic goods
+'49,29.903,0.0766973222011896,-2.56788848384955,"Printed books, newspapers, pictures etc"
+'12,58.959,0.0607040162512497,-2.80174541751657,"Oil seed, oleagic fruits, grain, seed, fruit, etc, nes"
+'02,53.72,0.0566575196071139,-2.87073056232738,Meat and edible meat offal
+'88,185.782,0.0527438829202266,-2.94230747694786,"Aircraft, spacecraft, and parts thereof"
+'51,7.006,0.0510437810516119,-2.97507156252459,"Wool, animal hair, horsehair yarn and fabric thereof"
+'29,168.804,0.0460158696646977,-3.07876894927853,Organic chemicals
+'47,20.112,0.042065554669187,-3.16852605206399,"Pulp of wood, fibrous cellulosic material, waste etc"
+'30,66.432,0.0397057531694938,-3.22625918568016,Pharmaceutical products
+'97,6.101,0.0228916370820818,-3.77698362804331,"Works of art, collectors pieces and antiques"
+'86,4.445,0.00876946849686473,-4.73647907912504,"Railway, tramway locomotives, rolling stock, equipment"
+'36,0.458,0.00842619157633844,-4.77641037935119,"Explosives, pyrotechnics, matches, pyrophorics, etc"
+'75,1.862,0.00686508661084782,-4.98130662354932,Nickel and articles thereof
+'93,0.27,0.00206061473074223,-6.18475092771528,"Arms and ammunition, parts and accessories thereof"
