@@ -32,7 +32,7 @@ Two key variables:
 ~aqi~: Air Quality Index. It measures the quantity of PM2.5 articles in a
 particular region that show how polluted the air currently is.
 
-~aqi_category~: AQI Categories defined by [[https://www.airnow.gov/index.cfm?action=aqibasics.aqi][AirNow]] to indicate different level of
+~aqi_categ~: AQI Categories defined by [[https://www.airnow.gov/index.cfm?action=aqibasics.aqi][AirNow]] to indicate different level of
 health concern.
 
 ** Scripts
