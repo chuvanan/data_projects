@@ -1,0 +1,176 @@
+---
+title: "QRcode Generator"
+author: "@anchu"
+runtime: shiny
+output:
+    html_document:
+        theme: united
+---
+
+```{r setup, include=FALSE}
+
+## global setup
+knitr::opts_chunk$set(echo = FALSE, comment = "", warning = FALSE, message = FALSE)
+Sys.setlocale(category = "LC_ALL", "en_US.UTF-8")
+options(shiny.sanitize.errors = FALSE)
+sys_user <- Sys.info()["user"]
+
+## load packages
+pkgs <- c("qrencoder", "shiny")
+sapply(pkgs, require, character.only = TRUE)
+
+```
+
+```{r prepare-data, include=FALSE}
+
+upcase_letters <- LETTERS
+
+locase_letters <- letters
+
+digits <- 0:9
+
+minus <- "-"
+
+underscore <- "_"
+
+space <- " "
+
+special_char <- c("!", "@", "#", "$", "%", "^", "&", "*", "?", "/", "|", ",",
+                  ".", ";", ":", "+")
+
+brackets <- c("{", "}", "[", "]", "(", ")", "<", ">")
+
+char_set <- list(upcase_letters, locase_letters, digits, minus, underscore,
+                 space, special_char, brackets)
+
+```
+
+
+## {.tabset}
+
+### Settings ###
+
+
+```{r settings}
+
+tags$strong("HERE YOU CAN DEFINE PROPERTIES OF QRCODE STRING:")
+
+tags$br()
+tags$br()
+
+fluidRow(
+    column(
+        width = 12,
+        numericInput(
+            inputId = "length_ip",
+            label = "1. Length in character of QRcode string (min:5 - max:20):",
+            value = 8L,
+            min = 5L,
+            max = 20L
+        )
+    )
+)
+
+tags$br()
+
+tags$strong("2. Generate using character set:")
+
+fluidRow(
+    column(
+        width = 6,
+        checkboxInput(
+            inputId = "upcase_ip",
+            label = "Upper-case (A, B, C,...)",
+            value = TRUE
+        ),
+        checkboxInput(
+            inputId = "locase_ip",
+            label = "Lower-case (a, b, c,...)",
+            value = TRUE
+        ),
+        checkboxInput(
+            inputId = "digit_ip",
+            label = "Digits (0, 1, 2,...)",
+            value = TRUE
+        ),
+        checkboxInput(
+            inputId = "minus_ip",
+            label = "Minus (-)",
+            value = FALSE
+        )
+    ),
+    column(
+        width = 6,
+        checkboxInput(
+            inputId = "underline_ip",
+            label = "Underline (_)",
+            value = FALSE
+        ),
+        checkboxInput(
+            inputId = "space_ip",
+            label = "Space ( )",
+            value = FALSE
+        ),
+        checkboxInput(
+            inputId = "special_ip",
+            label = "Special character (!, $, %,...)",
+            value = FALSE
+        ),
+        checkboxInput(
+            inputId = "brackets_ip",
+            label = "Brackets ([, ], {, },...)",
+            value = FALSE
+        )
+    )
+)
+
+tags$br()
+
+fluidRow(
+    column(
+        width = 6,
+        numericInput(
+            inputId = "quant_ip",
+            label = "3. Quantity of QRcode strings (1x10):",
+            value = 1L,
+            min = 1L,
+            max = 100L
+        )
+    ),
+    column(
+        width = 6,
+        tags$br(),
+        actionButton(inputId = "gen_ip", label = "Generate")
+    )
+)
+
+```
+
+### Preview ###
+
+```{r}
+
+tags$strong("HERE YOU SEE A FEW SAMPLE QRCODE STRINGS MATCHING THE RULES SPECIFIED ON THE SETTINGS:")
+
+tags$br()
+tags$br()
+
+fluidRow(
+    column(
+        width = 12,
+        tableOutput("sample_qrcode_tbl")
+    )
+)
+
+```
+
+### Export ###
+
+```{r}
+
+tags$strong("HERE YOU VIEW A SAMPLE OF PDF FILE OF GENERATED QRCODE:")
+
+tags$br()
+tags$br()
+
+```
