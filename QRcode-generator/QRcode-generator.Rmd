@@ -148,7 +148,7 @@ fluidRow(
 
 ### Preview ###
 
-```{r}
+```{r preview}
 
 tags$strong("HERE YOU SEE A FEW SAMPLE QRCODE STRINGS MATCHING THE RULES SPECIFIED ON THE SETTINGS:")
 
@@ -166,7 +166,7 @@ fluidRow(
 
 ### Export ###
 
-```{r}
+```{r export}
 
 tags$strong("HERE YOU VIEW A SAMPLE OF PDF FILE OF GENERATED QRCODE:")
 
