@@ -1,6 +1,4 @@
 
-library(dplyr)
-library(purrr)
 
 thewall <- readRDS("thewall_usa.rds")
 
