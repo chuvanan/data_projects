@@ -1,0 +1,12 @@
+
+
+
+** Data
+
+- Internally displaced persons (IDPs) data set.
+
+** References
+
+- http://www.internal-displacement.org/
+- https://data.humdata.org/
+- https://github.com/idmc-labs/IDMC-Platform-API
