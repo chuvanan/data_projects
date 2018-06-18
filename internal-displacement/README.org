@@ -1,6 +1,6 @@
 
 
-Note: This project turned into R package ~[idmcapi](https://github.com/chuvanan/idmcapi)~
+Note: This project turned into R package [[%5B%5Bhttps://github.com/chuvanan/idmcapi%5D%5D][idmcapi]]
 
 ** Data
 
