@@ -1,0 +1,31 @@
+model,region,sales
+Vios,North,1066
+Vios,Central,290
+Vios,South,1102
+Mazda3,North,732
+Mazda3,Central,747
+Mazda3,South,629
+Mazda CX-5,North,600
+Mazda CX-5,Central,627
+Mazda CX-5,South,584
+Kia Morning,North,665
+Kia Morning,Central,501
+Kia Morning,South,349
+Ford Ranger,North,653
+Ford Ranger,Central,171
+Ford Ranger,South,573
+Toyota Innova,North,204
+Toyota Innova,Central,86
+Toyota Innova,South,1012
+Kia Cerato,North,407
+Kia Cerato,Central,414
+Kia Cerato,South,362
+Honda City,North,301
+Honda City,Central,203
+Honda City,South,470
+Honda CR-V,North,323
+Honda CR-V,Central,143
+Honda CR-V,South,271
+Toyota Altis,North,304
+Toyota Altis,Central,100
+Toyota Altis,South,280
