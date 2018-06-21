@@ -1,5 +1,10 @@
 
+library(dplyr)
+library(tidyr)
+library(purrr)
+library(ggplot2)
 
+setwd("~/Documents/data_projects/datatalk-meetup/meetup-02/")
 air_quality <- readr::read_csv("./data/hanoi-air-quality.csv")
 
 air_quality <- filter(air_quality, qc_name == "Valid" & !is.na(aqi))
@@ -35,36 +40,47 @@ p <- ggplot(new_air) +
                    color = 'gray1') +
     labs(x = NULL, y = "Air Quality Index (AQI)",
          title = 'The polluted city',
-         subtitle = "Data shows Hanoi's daily outdoor air quality from Dec, 2015 to Jun, 2018\n
-0-50: Good | 51-100: Moderate | 101-150: Unhealthy for Sensitive Groups | 151-200: Unhealthy | 201-300: Very Unhealthy | 300+: Hazardous",
-caption = "Data source: U.S. Embassy Hanoi Air Quality Monitor") +
+         subtitle = "The graph shows Hanoi's daily outdoor air quality from Dec, 2015 to Jun, 2018",
+         caption = "Data source: U.S. Embassy Hanoi Air Quality Monitor") +
     scale_y_continuous(breaks = c(50, 100, 150, 200, 300)) +
     scale_x_continuous(breaks = c(15,45,75,105,135,165,195,228,258,288,320,350),
                        labels = c("January", "February", "March", "April",
                                   "May", "June", "July", "August", "September",
                                   "October", "November", "December"),
                        expand = c(0, 0)) +
-    theme_minimal(base_family = 'Lato') +
+    theme_minimal(base_family = 'Roboto Slab') +
     theme(panel.grid = element_blank(),
           plot.title = element_text(size = 30L),
           plot.subtitle = element_text(size = 15L, color = 'gray30'),
           axis.text.x = element_text(size = 15L, color = "black"),
-          axis.text.y = element_text(size = 14L),
-          axis.title.y = element_text(size = 15, color = "gray30", vjust = 4),
+          axis.text.y = element_text(size = 13),
+          axis.title.y = element_text(size = 13, color = "gray30", vjust = 4),
           plot.caption = element_text(size = 14L, vjust = -4, color = "gray30"),
           plot.margin = unit(c(1.2, 1, 1, 1), "cm"))
-p + geom_linerange(aes(x = 181, ymin = 250, ymax = 350),
+p + geom_linerange(aes(x = 100, ymin = 250, ymax = 350),
                    size = 2, color = "wheat2") +
-    geom_linerange(aes(x = 181, ymin = 280, ymax = 320),
+    geom_linerange(aes(x = 100, ymin = 280, ymax = 320),
                    size = 2, color = "gray30") +
-    geom_linerange(aes(x = 185, ymin = 280, ymax = 320),
+    geom_linerange(aes(x = 104, ymin = 280, ymax = 320),
                    size = 0.35, color = "gray30") +
-    annotate("text", 194, 350, label = "Record High",
-             size = 5, color = "gray30") +
-    annotate("text", 194, 250, label = "Record Low",
-             size = 5, color = "gray30") +
-    annotate("text", 199, 300, label = "Normal Range",
-             size = 5, color = "gray30")
+    annotate("text", 112, 350, label = "Record High",
+             size = 4.5, color = "gray30") +
+    annotate("text", 112, 250, label = "Record Low",
+             size = 4.5, color = "gray30") +
+    annotate("text", 117, 300, label = "Normal Range",
+             size = 4.5, color = "gray30") +
+    annotate("segment", x = 102.5, xend = 104, y = 280, yend = 280, color = "gray30", size = 0.35) +
+    annotate("segment", x = 102.5, xend = 104, y = 320, yend = 320, color = "gray30", size = 0.35) +
+    annotate("text", 190, 370, label = "Pollution Level:", size = 4.5, color = "gray10", hjust = 0) +
+    annotate("text", 190, 350, label = "     300+: Hazardous", size = 4.5, color = "gray30", hjust = 0) +
+    annotate("text", 190, 330, label = "201-300: Very Unhealthy", size = 4.5, color = "gray30", hjust = 0) +
+    annotate("text", 190, 310, label = "151-200: Unhealthy", size = 4.5, color = "gray30", hjust = 0) +
+    annotate("text", 190, 290, label = "101-150: Unhealthy for Sensitive Groups", size = 4.5, color = "gray30", hjust = 0) +
+    annotate("text", 190, 270, label = "  51-100: Moderate", size = 4.5, color = "gray30", hjust = 0) +
+    annotate("text", 190, 250, label = "      0-50: Good", size = 4.5, color = "gray30", hjust = 0)
+
+
+
 
 dev.size("in")
 ## [1] 15.38542  6.48294
