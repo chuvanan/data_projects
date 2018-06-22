@@ -28,7 +28,8 @@ sm_nodes <- sm_xml %>%
 sm_links <- sm_nodes %>%
     map(function(x) keep(x, str_detect(x, "loc"))) %>%
     map_chr(function(x) str_replace_all(x, "\\s|</?loc>", "")) %>%
-    keep(function(x) str_detect(x, "sitemap-news"))
+    keep(function(x) str_detect(x, "sitemap-news")) %>%
+    map_chr(function(x) str_replace_all(x, "amp;", ""))
 
 ## -----------------------------------------------------------------------------
 ## extract daily headlines, publication dates, images, etc.
