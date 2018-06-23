@@ -1,7 +1,5 @@
 
 library(dplyr)
-library(tidyr)
-library(purrr)
 library(ggplot2)
 
 setwd("~/Documents/data_projects/datatalk-meetup/meetup-02/")
@@ -20,7 +18,9 @@ new_air <- air_quality %>%
     summarise(max_aqi = max(aqi),
               min_aqi = min(aqi),
               avg_aqi = mean(aqi),
-              se_aqi = sd(aqi) / sqrt(length(aqi))) %>%
+              se_aqi = sd(aqi) / sqrt(length(aqi)),
+              upper_hinge = fivenum(aqi)[4],
+              lower_hinge = fivenum(aqi)[2]) %>%
     mutate(upper_aqi = avg_aqi + (2.101 * se_aqi),
            lower_aqi = avg_aqi - (2.101 * se_aqi)) %>%
     ungroup()
@@ -78,9 +78,6 @@ p + geom_linerange(aes(x = 100, ymin = 250, ymax = 350),
     annotate("text", 190, 290, label = "101-150: Unhealthy for Sensitive Groups", size = 4.5, color = "gray30", hjust = 0) +
     annotate("text", 190, 270, label = "  51-100: Moderate", size = 4.5, color = "gray30", hjust = 0) +
     annotate("text", 190, 250, label = "      0-50: Good", size = 4.5, color = "gray30", hjust = 0)
-
-
-
 
 dev.size("in")
 ## [1] 15.38542  6.48294
