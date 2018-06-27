@@ -58,3 +58,8 @@ Source: https://www.kaggle.com/abecklas/fifa-world-cup
 - QualifiedTeams: Total participating teams
 - MatchesPlayed: Total matches played in the cup
 - Attendance: Total attendance of the worldcup
+
+** Further reading
+
+- https://rviews.rstudio.com/2018/06/14/player-data-for-the-2018-fifa-world-cup/
+- https://www.mango-solutions.com/blog/another-prediction-of-fifa-world-cup-2018
