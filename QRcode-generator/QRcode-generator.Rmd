@@ -45,6 +45,49 @@ char_set <- list(upcase_letters, locase_letters, digits, minus, underscore,
 
 ```
 
+```{r server-processing, include=FALSE, eval=FALSE}
+
+re_qrcode <- eventReactive(input$gen_ip, {
+
+    ## check NULL selection
+    shiny::validate(
+               need(any(c(input$upcase_ip, input$locase_ip, input$digit_ip,
+                          input$minus_ip, input$underline_ip, input$space_ip,
+                          input$special_ip, input$brackets_ip)),
+                    "At least one set of character must be selected.")
+           )
+
+    chars <- char_set[c(input$upcase_ip, input$locase_ip, input$digit_ip,
+                        input$minus_ip, input$underline_ip, input$space_ip,
+                        input$special_ip, input$brackets_ip)]
+    chars <- unlist(chars)
+
+    shiny::validate(
+               need(!is.null(input$quant_ip),
+                    "Please specify a positive number of QRcode to be generated.")
+           )
+
+    ##
+    r <- replicate(n = input$quant_ip * 10,
+                   rep_sample(x = v, size = input$length_ip, replace = TRUE))
+    while (anyDuplicated(r)) {
+        r <- replicate(n = input$quant_ip * 10,
+                       rep_sample(x = v, size = input$length_ip, replace = TRUE))
+    }
+
+    ##
+    r <- as.data.frame.matrix(r, stringsAsFactors = FALSE)
+    r[] <- lapply(r, paste0, collapse = "")
+    r <- r[1, ]
+    r <- t(r)
+    rownames(r) <- NULL
+    colnames(r) <- "qrcode_id"
+
+    stopifnot(!anyDuplicated(r))
+})
+
+```
+
 
 ## {.tabset}
 
@@ -136,13 +179,17 @@ fluidRow(
             min = 1L,
             max = 100L
         )
-    ),
+    )
+)
+
+fluidRow(
     column(
         width = 6,
         tags$br(),
         actionButton(inputId = "gen_ip", label = "Generate")
     )
 )
+
 
 ```
 
