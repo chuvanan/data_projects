@@ -63,3 +63,6 @@ Source: https://www.kaggle.com/abecklas/fifa-world-cup
 
 - https://rviews.rstudio.com/2018/06/14/player-data-for-the-2018-fifa-world-cup/
 - https://www.mango-solutions.com/blog/another-prediction-of-fifa-world-cup-2018
+- https://www.inwt-statistics.com/read-blog/prediction-who-will-win-the-2018-world-cup.html
+- https://www.eloratings.net/
+- https://www.statworx.com/de/blog/data-science/comparing-predictions-world-cup-scores/
