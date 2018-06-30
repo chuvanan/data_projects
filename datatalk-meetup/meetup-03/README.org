@@ -66,3 +66,5 @@ Source: https://www.kaggle.com/abecklas/fifa-world-cup
 - https://www.inwt-statistics.com/read-blog/prediction-who-will-win-the-2018-world-cup.html
 - https://www.eloratings.net/
 - https://www.statworx.com/de/blog/data-science/comparing-predictions-world-cup-scores/
+- https://data.world/sawya/football-world-cup-2018-dataset
+- https://github.com/fivethirtyeight/data/tree/master/world-cup-2018
