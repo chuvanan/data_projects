@@ -1,0 +1,334 @@
+Camry 2.5Q,Toyota,Sedan,Lắp ráp,1.383,1.354,2.5 I4 Dual VVT-i,178,231
+Camry 2.5G,Toyota,Sedan,Lắp ráp,1.236,1.218,2.5 I4 Dual VVT-i,178,231
+Camry 2.0E,Toyota,Sedan,Lắp ráp,1.098,1.075,2.0 I4 VVT-i,165,199
+Altis 1.8AT,Toyota,Sedan,Lắp ráp,797,750,1.8 I4 Dual VVT-i,138,173
+Altis 1.8MT,Toyota,Sedan,Lắp ráp,747,726,1.8 I4 Dual VVT-i,138,173
+Altis 2.0,Toyota,Sedan,Lắp ráp,933,877,2.0 I4Dual VVT-i,143,187
+Vios 1.5G CVT,Toyota,Sedan,Lắp ráp,622,620,1.5 I4 Dual VVT-i,107,141
+Vios 1.5E CVT,Toyota,Sedan,Lắp ráp,588,584,1.5 I4 Dual VVT-i,107,141
+Vios 1.5E MT,Toyota,Sedan,Lắp ráp,564,562,1.5 I4 Dual VVT-i,107,141
+Vios Limo,Toyota,Sedan,Lắp ráp,532,530,1.3 I4 VVT-i,84,121
+Yaris E,Toyota,Hatchback,Nhập khẩu,592,580,1.3 I4 VVT-i,84,121
+Yaris G,Toyota,Hatchback,Nhập khẩu,642,637,1.3 I4 VVT-i,84,121
+Innova G,Toyota,MPV,Lắp ráp,859,859,2.0 I4 Dual VVT-i,137,183
+Innova E,Toyota,MPV,Lắp ráp,793,793,2.0 I4 Dual VVT-i,137,183
+Innova V,Toyota,MPV,Lắp ráp,995,971,2.0 I4 Dual VVT-i,137,183
+Fortuner 2.7V (4x4),Toyota,SUV,Lắp ráp,1.308,1.303,2.7 I4 VVT-i,164,245
+Fortuner 2.7V (4x2),Toyota,SUV,Lắp ráp,1.149,1.143,2.7 I4 VVT-i,164,245
+Fortuner 2.4G,Toyota,SUV,Lắp ráp,981,981,2.4 I4 common rail,148,400
+Land Cruiser 200,Toyota,SUV,Nhập khẩu,3.65,3.577,4.6 V8 VVT-i kép,304,439
+Land Prado,Toyota,SUV,Nhập khẩu,2.167,2.123,2.7 I4 Dual VVT-i,164,246
+Hilux 2.8G 4x4 AT,Toyota,Pick-up,Nhập khẩu,870,852,2.8 I4 diesel,174,450
+Hilux 2.8G 4x4 MT,Toyota,Pick-up,Nhập khẩu,806,787,2.8 I4 diesel,174,450
+Hilux 2.4E 4x2 MT,Toyota,Pick-up,Nhập khẩu,697,683,2.4 I4 diesel,147,400
+Civic 1.5 Turbo,Honda,Sedan,Nhập khẩu,950,932,1.5 I4 Turbo,170,220
+CR-V 2.0AT,Honda,SUV,Lắp ráp,1.008,986,2.0 I4 i-VTEC,153,190
+CR-V 2.4AT,Honda,SUV,Lắp ráp,1.158,1.131,2.35 I4 i-VTEC,188,222
+City 1.5MT,Honda,Sedan,Lắp ráp,533,518,1.5 I4 i-VTEC,118,145
+City 1.5AT,Honda,Sedan,Lắp ráp,583,567,1.5 I4 i-VTEC,118,145
+Accord,Honda,Sedan,Nhập khẩu,1.39,1.387,2.4 I4 i-VTEC,173,225
+Odyssey,Honda,MPV,Nhập khẩu,1.99,1.95,2.4 I4 i-VTEC,173,255
+Grand i10 1.0 Base,Hyundai,Hatchback,Nhập khẩu,359,346,1.0 Kappa,65,94
+Grand i10 Hatchback 1.0 MT,Hyundai,Hatchback,Nhập khẩu,387,381,1.0 Kappa,65,94
+Grand i10 Hatchback 1.0 AT,Hyundai,Hatchback,Nhập khẩu,417,407,1.0 Kappa,65,94
+Grand i10 Hatchback 1.2 Base,Hyundai,Hatchback,Nhập khẩu,387,372,1.2 Kappa,86,120
+Grand i10 Hatchback 1.2 MT,Hyundai,Hatchback,Nhập khẩu,429,420,1.2 Kappa,86,120
+Grand i10 Hatchback 1.2 AT,Hyundai,Hatchback,Nhập khẩu,457,449,1.2 Kappa,86,120
+Grand i10 Sedan MT,Hyundai,Sedan,Nhập khẩu,439,432,1.2 Kappa,86,120
+Grand i10 Sedan AT,Hyundai,Sedan,Nhập khẩu,479,468,1.2 Kappa,86,120
+i20 Active Hatchback,Hyundai,Hatchback,Nhập khẩu,619,592,1.4 Kappa MPI,100,133
+Accent Blue Sedan MT,Hyundai,Sedan,Nhập khẩu,551,524,1.4 DOHC,100,133
+Accent Blue Sedan AT,Hyundai,Sedan,Nhập khẩu,599,571,1.4 DOHC,100,133
+Accent Blue Hatchback,Hyundai,Sedan,Nhập khẩu,569,542,1.4 DOHC,100,133
+Elantra 1.6 MT,Hyundai,Sedan,Lắp ráp,615,587,Gamma 1.6 D-CVVT,128,155
+Elantra 1.6 AT,Hyundai,Sedan,Lắp ráp,689,665,Gamma 1.6 D-CVVT,128,155
+Elantra 2.0 AT,Hyundai,Sedan,Lắp ráp,739,710,Nu 1.8D-CVVT,156,196
+Sonata,Hyundai,Sedan,Nhập khẩu,1.073,1.019,2.0 Dual CVVT,155,196
+Creta xăng,Hyundai,SUV,Nhập khẩu,806,792,1.6 xăng,121,151
+Creta dầu,Hyundai,SUV,Nhập khẩu,846,830,1.6 diesel,126,260
+Tucson 2WD,Hyundai,SUV,Nhập khẩu,925,902,2.0 Nu MPI,154,196
+Tucson 2WD Limited,Hyundai,SUV,Nhập khẩu,995,981,2.0 Nu MPI,154,196
+SantaFe 2016 Gas 2WD,Hyundai,SUV,Lắp ráp,1.1,1.074,Theta II 2.4 MPI,174,226
+SantaFe 2016 Gas Limited 4WD,Hyundai,SUV,Lắp ráp,1.25,1.226,Theta II 2.4 MPI,174,226
+SantaFe 2016 Diesel 2WD,Hyundai,SUV,Lắp ráp,1.15,1.122,R 2.2 eVGT,199,441
+SantaFe 2016 Diesel Limited 4WD,Hyundai,SUV,Lắp ráp,1.3,1.275,R 2.2 eVGT,199,441
+Sunny XL,Nissan,Sedan,Lắp ráp,498,491,1.5 I4 HR15,99,134
+Sunny XV,Nissan,Sedan,Lắp ráp,538,522,1.5 I4 HR15,99,134
+Teana 2.5 SL,Nissan,Sedan,Nhập khẩu,1.3,1.287,2.5 I4 QR25,180,243
+Juke,Nissan,SUV,Nhập khẩu,1.06,1.05,1.6 I4 DOHC,115,158
+Navara NP300E 4x2MT,Nissan,pick-up,Nhập khẩu,625,605,2.5 I4,161,403
+Navara NP300SL 4x4 MT,Nissan,pick-up,Nhập khẩu,725,695,2.5 I4,188,450
+Navara NP300 VL 4x4 AT,Nissan,pick-up,Nhập khẩu,795,782,2.5 I4,188,450
+X-Trail 2.0 2WD,Nissan,SUV,Lắp ráp,998,979,2.0 I4,142,200
+X-Trail 2.0 SL 2WD,Nissan,SUV,Lắp ráp,1.048,1.038,2.0 I4,142,200
+X-Trail 2.5 SV 4WD,Nissan,SUV,Lắp ráp,1.198,1.18,2.5 I4,169,233
+Morning 1.0MT,Kia,Hatchback,Lắp ráp,327,318,1 lít I3,66,94
+Morning 1.25 EXMT,Kia,Hatchback,Lắp ráp,341,332,1.25 I4 Kappa,86,120
+Morning 1.25 LX,Kia,Hatchback,Lắp ráp,365,356,1.25 I4 Kappa,86,120
+Morning 1.25 Si AT,Kia,Hatchback,Lắp ráp,416,404,1.25 I4 Kappa,86,120
+Morning 1.25 Si MT,Kia,Hatchback,Lắp ráp,388,380,1.25 I4 Kappa,86,120
+Sorento GAT 2WD,Kia,SUV,Lắp ráp,868,850,2.4 I4 Theta II,174,227
+Sorento DATH 2WD,Kia,SUV,Lắp ráp,1.006,978,2.2 I4 CRDi,195,437
+Sorento GATH 2WD,Kia,SUV,Lắp ráp,966,939,2.4 I4 Theta II,174,227
+Carens,Kia,MPV,Lắp ráp,555,538,2.0 I4 Theta,143,189
+Rondo 2.0 GAT,Kia,MPV,Lắp ráp,690,676,2.0 I4 Nu,150,194
+Rondo 2.0 GATH,Kia,MPV,Lắp ráp,794,778,2.0 I4 Nu,150,194
+Rondo 1.7 DAT,Kia,MPV,Lắp ráp,732,716,1.7 I4 U2,135,331
+Sedona 2.2 DAT,Kia,MPV,Lắp ráp,1.18,1.156,2.2 I4 CRDi,190,440
+Sedona 3.3 GAT,Kia,MPV,Lắp ráp,1.298,1.272,3.3 V6 Lambda,266,318
+Sedona 2.2 DATH,Kia,MPV,Lắp ráp,1.298,1.272,2.2 I4 CRDi,190,440
+Sedona 3.3 GATH,Kia,MPV,Lắp ráp,1.398,1.37,3.3 V6 Lambda,266,318
+Rio hatchback,Kia,Hatchback,Nhập khẩu,615,602,1.4 I4 CVVT,106,135
+Rio sedan 1.4 MT,Kia,Sedan,Nhập khẩu,502,486,1.4 I4 CVVT,106,135
+Rio sedan 1.4 AT,Kia,Sedan,Nhập khẩu,565,553,1.4 I4 CVVT,106,135
+Cerato Koup,Kia,Sedan,Nhập khẩu,830,808,2.0 I4 Nu,159,194
+Cerato Hatchback 1.6,Kia,Hatchback,Lắp ráp,725,706,1.6 I4 Gamma,128,157
+Optima,Kia,Sedan,Nhập khẩu,958,933,2.0 I4 Nu,164,194
+Soul,Kia,SUV,Nhập khẩu,775,759,2.0 I4 Nu,156,192
+Soul (Sunroof),Kia,SUV,Nhập khẩu,795,779,2.0 I4 Nu,156,192
+Cerato 1.6MT,Kia,Sedan,Lắp ráp,612,593,1.6 I4 Gamma,128,157
+Cerato 1.6AT,Kia,Sedan,Lắp ráp,679,658,1.6 I4 Gamma,128,157
+Cerato 2.0AT,Kia,Sedan,Lắp ráp,729,708,2.0 I4 Nu,159,194
+Fiesta 1.5 Titanium,Ford,Sedan,Lắp ráp,579,542,1.5 Duratec,112,140
+Fiesta 1.5 Sport,Ford,Hatchback,Lắp ráp,584,540,1.5 Duratec,112,140
+Fiesta 1.0 Sport,Ford,Hatchback,Lắp ráp,637,596,1.0 Ecoboost,125,170
+Focus 1.5 Titanium,Ford,Sedan,Lắp ráp,848,791,1.5 Ecoboost,180,240
+Focus 1.5 Sport,Ford,Hatchback,Lắp ráp,848,792,1.5 Ecoboost,180,240
+EcoSport 1.5MT Trend,Ford,SUV,Lắp ráp,585,550,1.5 Duratec,110,140
+EcoSport 1.5AT Titanium,Ford,SUV,Lắp ráp,658,600,1.5 Duratec,110,140
+EcoSport 1.5AT Titanium Black,Ford,SUV,Lắp ráp,664,614,1.5 Duratec,110,140
+Everest Trend 2.2AT 4x2,Ford,SUV,Nhập khẩu,1.249,1.224,2.2 I4,160,385
+Everest Titanium 2.2AT 4x2,Ford,SUV,Nhập khẩu,1.329,1.302,2.2 I4,160,385
+Everest Titanium 3.2AT 4WD,Ford,SUV,Nhập khẩu,1.936,1.897,3.2 I5,200,470
+Ranger XL 2.2L- 4x4 MT,Ford,Pick-up,Nhập khẩu,619,602,2.2 I4,125,320
+Ranger XLS 2.2L - 4x2 MT,Ford,Pick-up,Nhập khẩu,659,643,2.2 I4,125,320
+Ranger XLS 2.2L - 4x2 AT,Ford,Pick-up,Nhập khẩu,685,671,2.2 I4,150,375
+Ranger XLT 2.2L - 4x4 MT,Ford,Pick-up,Nhập khẩu,790,774,2.2 I4,160,385
+Ranger Wildtrak 2.2L - 4x2 AT,Ford,Pick-up,Nhập khẩu,830,806,2.2 I4,160,385
+Ranger Wildtrak 2.2L - 4x2 AT (Canopy),Ford,Pick-up,Nhập khẩu,862,844,2.2 I4,160,385
+Ranger Wildtrak 3.2L - 4x4 AT,Ford,Pick-up,Nhập khẩu,918,891,3.2 I5,200,470
+Ranger Wildtrak 3.2L - 4x4 AT (Canopy),Ford,Pick-up,Nhập khẩu,921,902,3.2 I5,200,470
+Focus 1.5 Trend,Ford,Hatchback,Lắp ráp,699,699,1.5 Ecoboost,180,240
+Focus 1.5 Trend,Ford,Sedan,Lắp ráp,699,699,1.5 Ecoboost,180,240
+Spark Van,Chevrolet,Van,Lắp ráp,279,273,1.2 I4,80,108
+Spark LS,Chevrolet,Hatchback,Lắp ráp,339,332,1.2 I4,80,108
+Aveo LT,Chevrolet,Sedan,Lắp ráp,459,449,1.4 I4,84,128
+Aveo LTZ,Chevrolet,Sedan,Lắp ráp,495,485,1.4 I4,84,128
+Cruze LS 1.6,Chevrolet,Sedan,Lắp ráp,589,577,1.6 I4,107,139
+Cruze LTZ 1.8,Chevrolet,Sedan,Lắp ráp,699,682,1.8 I4,150,176
+Orlando LTZ 1.8,Chevrolet,MPV,Lắp ráp,699,683,1.8 I4,140,176
+Captiva 2.4,Chevrolet,SUV,Lắp ráp,879,859,2.4 I4,165,230
+Colorado High Country 2.8 AT 4x4,Chevrolet,Pick-up,Nhập khẩu,839,815,2.8 Diesel,193,500
+Colorado LTZ 2.8 AT 4x4,Chevrolet,Pick-up,Nhập khẩu,809,792,2.8 Diesel,193,500
+Colorado LTZ 2.8 MT 4x4,Chevrolet,Pick-up,Nhập khẩu,789,773,2.8 Diesel,193,440
+Colorado LT 2.5 MT 4x4,Chevrolet,Pick-up,Nhập khẩu,649,636,2.5 Diesel,161,380
+Colorado LT 2.5 MT 4x2,Chevrolet,Pick-up,Nhập khẩu,619,606,2.5 Diesel,161,380
+ES250,Lexus,Sedan,Nhập khẩu,2.28,2.234,2.5 I4,181,235
+ES350,Lexus,Sedan,Nhập khẩu,3.21,3.145,3.5 V6,272,346
+GS350,Lexus,Sedan,Nhập khẩu,4.39,4.302,3.5 V6,316,380
+LS460L,Lexus,Sedan,Nhập khẩu,7.54,7.389,4.6 V8,382,493
+NX200t,Lexus,SUV,Nhập khẩu,2.577,2.525,2.0 I4,235,350
+GX460,Lexus,SUV,Nhập khẩu,5.06,4.958,4.6 V8,292,438
+RX200t,Lexus,SUV,Nhập khẩu,3.06,2.998,2.0 I4,234,350
+RX350,Lexus,SUV,Nhập khẩu,3.81,3.733,3.5 V6,295,370
+LX570,Lexus,SUV,Nhập khẩu,7.81,7.653,5.7 V8,367,530
+GS200t,Lexus,Sedan,Nhập khẩu,3.13,3.067,2.0 I4 turbo,241,350
+QX60,Infiniti,SUV,Nhập khẩu,3.399,3.331,3.5 V6,265,334
+QX70,Infiniti,SUV,Nhập khẩu,3.899,3.821,3.7 V6,325,360
+QX80,Infiniti,SUV,Nhập khẩu,6.999,6.859,5.6 V8,400,560
+Mirage CVT,Mitsubishi,Hatchback,Nhập khẩu,522,490,1.2 I3,78,100
+Mirage MT,Mitsubishi,Hatchback,Nhập khẩu,448,416,1.2 I3,78,100
+Attrage CVT,Mitsubishi,Sedan,Nhập khẩu,541,516,1.2 I3,78,100
+Attrage MT,Mitsubishi,Sedan,Nhập khẩu,492,457,1.2 I3,78,100
+Outlander Sport CVT,Mitsubishi,Crossover,Nhập khẩu,978,970,2.0 I4,150,197
+Pajero Sport G 4x4 AT,Mitsubishi,SUV,Nhập khẩu,1.049,1.028,3.0 V6,220,281
+Pajero Sport G 4x2 AT,Mitsubishi,SUV,Nhập khẩu,982,940,3.0 V6,220,281
+Pajero Sport D 4x2 MT,Mitsubishi,SUV,Nhập khẩu,804,780,2.5 Diesel,136,314
+Pajero 3.0,Mitsubishi,SUV,Nhập khẩu,2.12,2.077,3.0 V6,184,267
+Triton 4x4 AT,Mitsubishi,Pick-up,Nhập khẩu,785,769,2.5 Diesel,178,400
+Triton 4x4 MT,Mitsubishi,Pick-up,Nhập khẩu,690,630,2.5 Diesel,178,400
+Triton 4x2 AT,Mitsubishi,Pick-up,Nhập khẩu,630,612,2.5 Diesel,136,324
+Triton 4x2 MT,Mitsubishi,Pick-up,Nhập khẩu,596,557,2.5 Diesel,136,324
+Outlander 2.0 STD,Mitsubishi,Crossover,Nhập khẩu,975,950,2.0 I4,145,196
+Outlander CVT,Mitsubishi,Crossover,Nhập khẩu,1.123,1.093,2.0 I4,145,196
+Outlander 2.4 CVT,Mitsubishi,Crossover,Nhập khẩu,1.275,1.25,2.4 I4,167,222
+Pajero Sport 4x2 mới,Mitsubishi,SUV,Nhập khẩu,1.329,1.319,3.0 V6,200,285
+Pajero Sport 4x4 mới,Mitsubishi,SUV,Nhập khẩu,1.488,1.47,3.0 V6,200,285
+A200,Mercedes,Hatchback,Nhập khẩu,1.339,1.312,1.6 I4,154,250
+A250,Mercedes,Hatchback,Nhập khẩu,1.699,1.665,2.0 I4,208,350
+A45 AMG,Mercedes,Hatchback,Nhập khẩu,2.249,2.204,2.0 I4,381,475
+C200,Mercedes,Sedan,Lắp ráp,1.479,1.449,2.0 I4,181,300
+C250,Mercedes,Sedan,Lắp ráp,1.679,1.645,2.0 I4,208,350
+C300 Coupe,Mercedes,Coupe,Lắp ráp,2.699,2.645,2.0 I4,241,370
+CLA200,Mercedes,Coupe 4 cửa,Nhập khẩu,1.529,1.529,1.6 I4,154,250
+CLA250,Mercedes,Coupe 4 cửa,Nhập khẩu,1.869,1.869,2.0 I4,208,350
+E200,Mercedes,Sedan,Lắp ráp,2.099,2.092,2.0 I4,184,300
+E300 AMG,Mercedes,Sedan,Nhập khẩu,3.049,3.049,2.0 I4,245,370
+GLA200,Mercedes,SUV,Nhập khẩu,1.519,1.519,1.6 I4,154,250
+GLA250 4Matic,Mercedes,SUV,Nhập khẩu,1.749,1.739,2.0 I4,208,350
+GLA45 AMG 4Matic,Mercedes,SUV,Nhập khẩu,2.279,2.279,2.0 I4,355,450
+GLE400 4Matic Coupe,Mercedes,SUV-Coupe,Nhập khẩu,3.999,3.821,3.0 V6,329,480
+GLE450 AMG 4Matic Coupe,Mercedes,SUV-Coupe,Nhập khẩu,4.469,4.379,3.0 V6,362,520
+GLE400 4Matic,Mercedes,SUV,Nhập khẩu,3.599,3.527,3.0 V6,329,480
+Mercedes-Maybach S600,Mercedes,Sedan,Nhập khẩu,14.169,13.885,6.0 V12,523,830
+S400L,Mercedes,Sedan,Lắp ráp,3.939,3.939,3.0 V6,329,480
+S500L,Mercedes,Sedan,Lắp ráp,6.539,6.539,4.7 V8,449,700
+S500 4Matic Coupe,Mercedes,Coupe,Nhập khẩu,10.479,10.479,4.7 V8,449,700
+GLC250 4Matic,Mercedes,SUV,Lắp ráp,1.789,1.789,2.0 I4,211,350
+GLC300 4Matic,Mercedes,SUV,Lắp ráp,2.039,2.039,2.0 I4,245,370
+S500 Cabriolet,Mercedes,Convertible,Nhập khẩu,10.799,10.799,4.7 V8,455,700
+SLC43 AMG,Mercedes,Convertible,Nhập khẩu,3.619,3.546,3.0 V6,367,520
+SL400,Mercedes,Convertible,Nhập khẩu,6.709,6.574,3.0 V6,367,500
+A250 Motorsport Edition,Mercedes,Hatchback,Nhập khẩu,1.958,1.958,2.0 I4,208,350
+C300 AMG,Mercedes,Sedan,Lắp ráp,1.889,1.889,2.0 I4,241,370
+GLE400 4Matic Exclusive,Mercedes,SUV,Nhập khẩu,3.899,3.899,3.0 V6,329,480
+GLS350d 4Matic,Mercedes,SUV,Nhập khẩu,4.029,4.029,3.0 V6,258,620
+GLS400 4Matic,Mercedes,SUV,Nhập khẩu,4.399,4.399,3.0 V6,333,480
+GLS400 4Matic,Mercedes,SUV,Nhập khẩu,7.829,7.829,4.7 V8,455,700
+GLS63 AMG 4 Matic,Mercedes,SUV,Nhập khẩu,11.949,11.949,5.5 V8,585,760
+V220d Avantgarde,Mercedes,MPV,Nhập khẩu,2.569,2.569,2.1 I4,163,380
+V250 Advantgarde,Mercedes,MPV,Nhập khẩu,2.569,2.569,2.0 I4,211,350
+Vito Tourer 121,Mercedes,MPV,Nhập khẩu,1.849,1.849,2.0 I4,211,350
+Macan,Porsche,SUV,Nhâp khẩu,2.972,2.912,2.0 I4,237,350
+Macan S,Porsche,SUV,Nhâp khẩu,3.379,3.311,3.0 V6,340,460
+Macan GTS,Porsche,SUV,Nhập khẩu,3.962,3.882,3.0 V6,360,500
+Macan Turbo,Porsche,SUV,Nhập khẩu,5.04,4.939,3.6 V6,400,550
+Cayenne,Porsche,SUV,Nhập khẩu,4.418,4.329,3.6 V6,300,400
+Cayenne S,Porsche,SUV,Nhập khẩu,5.573,5.461,3.6 V6,420,550
+Cayenne GTS,Porsche,SUV,Nhập khẩu,6.607,6.474,3.6 V6,440,600
+Cayenne Turbo,Porsche,SUV,Nhập khẩu,9.17,8.986,4.8 V8,520,750
+Cayenne Turbo S,Porsche,SUV,Nhập khẩu,11.623,11.39,5.0 V8,570,800
+Panamera,Porsche,Coupe 4 cửa,Nhập khẩu,4.779,4.683,3.6 V6,330,450
+Panamera 4,Porsche,Coupe 4 cửa,Nhập khẩu,5.186,5.082,3.6 V6,330,450
+Panamera 4 Excutive,Porsche,Coupe,Nhập khẩu,5.659,5.545,3.0 V6,330,450
+Panamera 4S,Porsche,Coupe 4 cửa,Nhập khẩu,6.792,6.656,3.0 V6,440,550
+Panamera 4S Executive,Porsche,Coupe 4 cửa,Nhập khẩu,7.936,7.777,3.0 V6,440,550
+Panamera Turbo,Porsche,Coupe 4 cửa,Nhập khẩu,10.664,10.45,4.8 V8,550,770
+Panamera Turbo Executive,Porsche,Coupe 4 cửa,Nhập khẩu,11.566,11.334,4.8 V8,550,770
+Panamera Turbo S,Porsche,Coupe 4 cửa,Nhập khẩu,14.35,14.063,4.8 V8,570,750
+Panamera Turbo S Executive,Porsche,Coupe 4 cửa,Nhập khẩu,15.65,15.337,4.8 V8,570,750
+911 Carrera,Porsche,Coupe,Nhập khẩu,6.1,5.978,3.0 Flat 6,370,450
+911 Carrera S,Porsche,Coupe,Nhập khẩu,6.93,6.791,3.0 Flat 6,420,500
+911 Carrera Cabriolet,Porsche,Roadster,Nhập khẩu,6.86,6.722,3.0 Flat 6,370,450
+911 Carrera Cabriolet S,Porsche,Roadster,Nhập khẩu,7.7,7.546,3.0 Flat 6,420,500
+911 Carrera 4,Porsche,Coupe,Nhập khẩu,6.53,6.399,3.0 Flat 6,370,450
+911 Carrera 4S,Porsche,Coupe,Nhập khẩu,7.36,7.212,3.0 Flat 6,420,500
+911 Carrera 4 Cabriolet,Porsche,Roadster,Nhập khẩu,7.3,7.154,3.0 Flat 6,370,450
+911 Carrera 4S Cabriolet,Porsche,Roadster,Nhập khẩu,8.13,7.967,3.0 Flat 6,420,500
+911 Targa 4,Porsche,Roadster,Nhập khẩu,7.89,7.732,3.4 Flat 6,370,450
+911 Targa 4S,Porsche,Roadster,Nhập khẩu,8.79,8.614,3.8 Flat 6,420,500
+911 Turbo,Porsche,Coupe,Nhập khẩu,11.81,11.573,3.8 Flat 6,540,660
+911 Turbo Cabriolet,Porsche,Roadster,Nhập khẩu,12.68,12.426,3.8 Flat 6,540,660
+911 Turbo S,Porsche,Coupe,Nhập khẩu,13.68,13.406,3.8 Flat 6,580,700
+911 Turbo S Cabriolet,Porsche,Roadster,Nhập khẩu,14.54,14.249,3.8 Flat 6,580,700
+911 GT3,Porsche,Coupe,Nhập khẩu,9.93,9.731,3.8 Flat 6,475,440
+GT3 RS,Porsche,Coupe,Nhập khẩu,13.12,12.857,4.0 Flat 6,500,460
+718 Boxster,Porsche,Roadster,Nhập khẩu,3.57,3.498,2.0 Flat 4,300,380
+718 Boxster S,Porsche,Roadster,Nhập khẩu,4.44,4.351,2.5 Flat 4,350,420
+Cayman,Porsche,Coupe,Nhập khẩu,3.45,3.381,2.7 Flat 6,275,290
+Cayman S,Porsche,Coupe,Nhập khẩu,4.32,4.233,3.4 Flat 6,325,370
+116i,BMW,Hatchback,Nhập khẩu,1.248,1.223,2.0 I4,136,220
+218i,BMW,Hatchback,Nhập khẩu,1.368,1.34,2.0 I4,136,220
+320i,BMW,Sedan,Nhập khẩu,1.399,1.368,2.0 I4,184,290
+330i,BMW,Sedan,Nhập khẩu,1.698,1.664,2.0 I4,252,350
+320i GT,BMW,Sedan,Nhập khẩu,1.898,1.86,2.0 I4,184,270
+328i GT,BMW,Sedan,Nhập khẩu,2.048,2.007,2.0 I4,245,350
+420i Gran,BMW,Coupe 4 cửa,Nhập khẩu,2.098,2.056,2.0 I4,180,270
+420i Cabrio,BMW,Roadster,Nhập khẩu,2.688,2.634,2.0 I4,184,270
+420i,BMW,Coupe,Nhập khẩu,1.889,1.851,2.0 I4,184,270
+428i Gran,BMW,Coupe 4 cửa,Nhập khẩu,2.098,2.056,2.0 I4,245,350
+428i Cabrio,BMW,Roadster,Nhập khẩu,2.898,2.84,2.0 I4,245,350
+520i,BMW,Sedan,Nhập khẩu,2.036,1.995,2.0 I4,184,270
+528i,BMW,Sedan,Nhập khẩu,2.499,2.449,2.0 I4,245,350
+528i GT,BMW,Sedan,Nhập khẩu,2.798,2.742,2.0 I4,245,350
+640i Gran Coupe,BMW,Coupe 4 cửa,Nhập khẩu,3.888,3.81,3.0 I6,320,450
+730Li,BMW,Sedan,Nhập khẩu,4.098,4.016,2.0 I4,258,400
+740Li,BMW,Sedan,Nhập khẩu,4.868,4.77,3.0 I6,326,450
+Z4 sDrive 20i,BMW,Roadster,Nhập khẩu,2.594,2.542,2.0 I4,184,270
+X1 sDrive 20i,BMW,SUV,Nhập khẩu,1.775,1.739,2.0 I4,192,280
+X3 xDrive 20i,BMW,SUV,Nhập khẩu,2.063,2.021,2.0 I4,184,270
+X3 xDrive 28i,BMW,SUV,Nhập khẩu,2.479,2.429,2.0 I4,245,350
+X4 xDrive 28i,BMW,SUV-Coupe,Nhập khẩu,2.798,2.742,2.0 I4,245,350
+X5 xDrive 30d,BMW,SUV,Nhập khẩu,3.568,3.496,3.0 I6,258,560
+X5 xDrive 35i,BMW,SUV,Nhập khẩu,3.788,3.712,3.0 I6,306,400
+X6 xDrive 30d,BMW,SUV-Coupe,Nhập khẩu,3.389,3.297,3.0 I6,258,560
+Phantom,Rolls-Royce,Sedan,Nhập khẩu,26,25.48,6.7 V12,720,453
+Phantom Drophead,Rolls-Royce,Roadster,Nhập khẩu,30.2,29.596,6.7 V12,720,453
+Phantom Coupé,Rolls-Royce,Coupé,Nhập khẩu,28,27.44,6.7 V12,720,453
+Phantom EWB,Rolls-Royce,Sedan,Nhập khẩu,30,29.4,6.7 V12,720,453
+Ghost Series II,Rolls-Royce,Sedan,Nhập khẩu,17,16.66,6.6 V12,780,563
+Ghost Series II EWB,Rolls-Royce,sedan,Nhập khẩu,19,18.62,6.6 V12,780,563
+Wraith,Rolls-Royce,coupe,Nhập khẩu,18,17.64,6.6 V12,800,623
+Huracan LP580-2,Lamborghini,Siêu xe,Nhập khẩu,14.388,14.1,5.2 V10,580,540
+Huracan LP610-4,Lamborghini,Siêu xe,Nhập khẩu,16,15.68,5.2 V10,610,560
+Aventador LP700-4,Lamborghini,Siêu xe,Nhập khẩu,26,25.464,6.5 V12,700,690
+Mazda2 sedan,Mazda,Sedan,Lắp ráp,580,568,1.5 I4 Skyactiv,109,141
+Mazda2 hatchback,Mazda,Hatchback,Lắp ráp,635,616,1.5 I4 Skyactiv,109,141
+Mazda3 1.5AT HB,Mazda,Hatchback,Lắp ráp,705,690,1.5 I4 Skyactiv,110,144
+Mazda3 1.5AT SD,Mazda,Sedan,Lắp ráp,685,670,1.5 I4 Skyactiv,110,144
+Mazda3 2.0AT SD,Mazda,Sedan,Lắp ráp,829,790,2.0 I4 Skyactiv,153,200
+Mazda6 2.0AT,Mazda,Sedan,Lắp ráp,975,940,2.0 I4 Skyactiv,153,200
+Mazda6 2.5AT Premium,Mazda,Sedan,Lắp ráp,1.175,1.14,2.5 I4 Skyactiv,185,250
+CX-5 2.0AT,Mazda,SUV,Lắp ráp,959,919,2.0 i4 Skyactiv-G,153,200
+CX-5 2.5AT 2WD,Mazda,SUV,Lắp ráp,990,958,2.5 i4 Skyactiv-G,185,250
+CX-5 2.5 AT AWD,Mazda,SUV,Lắp ráp,1.025,990,2.5 i4 Skyactiv-G,185,250
+BT-50 2.2MT 4WD,Mazda,Pick-up,Nhập khẩu,674,660,2.2 I4 diesel,148,375
+BT-50 2.2AT 2WD,Mazda,Pick-up,Nhập khẩu,699,684,2.2 I4 diesel,148,375
+CX-9,Mazda,SUV,Nhập khẩu,1.855,1.817,3.7 V6,274,367
+Mazda6 2.0AT Premium,Mazda,Sedan,Lắp ráp,1.02,1,2.0 I4 Skyactiv,153,200
+Levorg GT-S,Subaru,Station Wagon,Nhập khẩu,1.489,1.459,1.6 H4,168,250
+Outback 2.5i-S,Subaru,SUV-Wagon,Nhập khẩu,1.733,1.698,2.5 H4,175,235
+Outback 3.6R,Subaru,SUV-Wagon,Nhập khẩu,1.897,1.859,3.6 H6,256,350
+Forester 2.0i-L,Subaru,SUV,Nhập khẩu,1.445,1.416,2.0 H4,150,198
+Forester 2.0XT,Subaru,SUV,Nhập khẩu,1.666,1.632,2.0 H4 Turbo,240,350
+XV,Subaru,SUV,Nhập khẩu,1.368,1.34,2.0 H4,148,196
+Impreza WRX,Subaru,Sedan,Nhập khẩu,1.81,1.773,2.0 H4 Turbo,264,350
+Impreza WRX STI,Subaru,Sedan,Nhập khẩu,1.81,1.78,2.5 H4 Turbo,296,407
+Legacy 2.5i-S,Subaru,Sedan,Nhập khẩu,1.567,1.535,2.5 H4,175,235
+Legacy 3.6R,Subaru,Sedan,Nhập khẩu,1.666,1.632,3.6 H6,256,350
+Polo Sedan,Volkswagen,Sedan,Nhập khẩu,695,681,1.6 I4,105,153
+Polo Hatchback,Volkswagen,Hatchback,Nhập khẩu,730,715,1.6 I4,105,153
+New Passat,Volkswagen,Sedan,Nhập khẩu,1.299,1.273,1.8 TSI,180,250
+Tiguan,Volkswagen,SUV,Nhập khẩu,1.29,1.264,2.0 TSI,170,280
+Touareg GP,Volkswagen,SUV,Nhập khẩu,2.889,2.831,3.6 V6 FSI,280,360
+Sharan,Volkswagen,MPV,Nhập khẩu,1.9,1.862,2.0 I4,220,350
+Swift,Suzuki,Hatchback,Lắp ráp,569,557,1.4 I4,94,130
+Swift Special,Suzuki,Hatchback,Lắp ráp,575,562,1.4 I4,94,130
+Vitara,Suzuki,Crossover,Nhập khẩu,759,740,1.6 I4,115,151
+New Ertiga,Suzuki,MPV,Nhập khẩu,639,621,1.4 I4,94,130
+Ciaz,Suzuki,Sedan,Nhập khẩu,580,568,1.4 I4,91,130
+Logan,Renault,Sedan,Nhập khẩu,599,589,1.6 I4,102,145
+Sandero,Renault,SUV,Nhập khẩu,669,656,1.6 I4,102,145
+Duster,Renault,SUV,Nhập khẩu,849,824,2.0 I4,143,195
+Megan Hatchback,Renault,Hatchback,Nhập khẩu,980,960,1.6 I4,120,152
+Latitude 2.0,Renault,Sedan,Nhập khẩu,1.378,1.35,2.0 I4,141,195
+Latitude 2.5,Renault,Sedan,Nhập khẩu,1.49,1.46,2.5 I4,180,237
+Koleos 4x2,Renault,SUV,Nhập khẩu,1.419,1.39,2.5 I4,170,226
+Koleos 4x4,Renault,SUV,Nhập khẩu,1.494,1.464,2.5 I4,170,226
+Talisman,Renault,sedan,Nhập khẩu,1.499,1.47,1.6 I4 TCe,190,260
+208 Hatchback,Peugeot,Hatchback,Nhập khẩu,895,847,1.6 I4,120,160
+308,Peugeot,Hatchback,Nhập khẩu,1.28,1.28,1.6 I4,156,240
+3008 SUV,Peugeot,SUV,Lắp ráp,1.19,1.146,1.6 I4,167,245
+2008 Crossover,Peugeot,Crossover,Nhập khẩu,1.1,1.1,1.6 I4,120,160
+508 Sedan,Peugeot,Sedan,Nhập khẩu,1.465,1.409,1.6 I4,156,240
+mu-X 2.5 MT,Isuzu,SUV,Nhập khẩu,899,881,2.5 I4,136,320
+mu-X 3.0 AT,Isuzu,SUV,Nhập khẩu,960,932,3.0 I4,163,380
+D-Max LS 4x2 MT,Isuzu,Pick-up,Nhập khẩu,619,605,2.5 I4,136,320
+D-Max LS 4x2 AT,Isuzu,Pick-up,Nhập khẩu,663,649,2.5 I4,136,320
+D-Max LS 4x4 MT,Isuzu,Pick-up,Nhập khẩu,663,649,2.5 I4,136,320
+D-Max LS 4x4 AT,Isuzu,Pick-up,Nhập khẩu,707,692,2.5 I4,136,320
+D-Max LS 3.0 4x4 AT,Isuzu,Pick-up,Nhập khẩu,785,769,3.0 I4,163,380
+Quattroporte,Maserati,Sedan,Nhập khẩu,6.118,5.995,3.0 V6,350,500
+Quattroporte S,Maserati,Sedan,Nhập khẩu,6.898,6.76,3.0 V6,410,550
+Quattroporte S Q4,Maserati,Sedan,Nhập khẩu,7.138,6.995,3.0 V6,410,550
+Quattroporte GTS,Maserati,Sedan,Nhập khẩu,10.379,10.171,3.8 V8,530,710
+Ghibli,Maserati,Sedan,Nhập khẩu,4.568,4.476,3.0 V6,350,500
+Ghibli S,Maserati,Sedan,Nhập khẩu,5.238,5.133,3.0 V6,410,550
+Ghibli S Q4,Maserati,Sedan,Nhập khẩu,5.416,5.307,3.0 V6,410,550
+Levante,Maserati,SUV,Nhập khẩu,4.99,4.89,3.0 V6,350,500
+Levante S,Maserati,SUV,Nhập khẩu,6.099,5.982,3.0 V6,430,580
+S90 Momentum,Volvo,Sedan,Nhập khẩu,2.368,2.36,2.0 I4,254,350
+S90 Inscription,Volvo,Sedan,Nhập khẩu,2.699,2.69,2.0 I4,254,350
+XC60 R-Design,Volvo,SUV,Nhập khẩu,1.96,1.955,2.0 I4,245,350
+XC90 Momentum,Volvo,SUV,Nhập khẩu,3.399,3.39,2.0 I4,320,400
+XC90 Inscription,Volvo,SUV,Nhập khẩu,3.99,3.98,2.0 I4,320,400
