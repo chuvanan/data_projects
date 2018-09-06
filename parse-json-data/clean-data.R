@@ -16,7 +16,6 @@ dta[, head(.SD)]
 dta[, names(.SD)]
 
 dta[, submission_date := as.Date(submission_date, "%d-%m-%Y")]
-
 dta[, month := lubridate::month(submission_date)]
 dta[, year := lubridate::year(submission_date)]
 
