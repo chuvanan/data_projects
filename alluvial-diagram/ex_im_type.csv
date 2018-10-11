@@ -1,0 +1,66 @@
+type,commodity,country,amount
+NHẬP KHẨU,"Máy vi tính, sản phẩm điện tử và linh kiện",Hàn quốc,15335
+NHẬP KHẨU,"Máy vi tính, sản phẩm điện tử và linh kiện",Trung Quốc,7077
+NHẬP KHẨU,"Máy vi tính, sản phẩm điện tử và linh kiện",Đài Loan,3939
+NHẬP KHẨU,"Máy vi tính, sản phẩm điện tử và linh kiện",ASEAN,3223
+NHẬP KHẨU,"Máy vi tính, sản phẩm điện tử và linh kiện",Nhật bản,3189
+NHẬP KHẨU,"Máy vi tính, sản phẩm điện tử và linh kiện",Hoa Kỳ,2784
+NHẬP KHẨU,"Máy vi tính, sản phẩm điện tử và linh kiện",Khác,856
+NHẬP KHẨU,Máy móc thiết bị,Trung Quốc,10909
+NHẬP KHẨU,Máy móc thiết bị,Hàn quốc,8687
+NHẬP KHẨU,Máy móc thiết bị,Nhật bản,4317
+NHẬP KHẨU,Máy móc thiết bị,EU,3643
+NHẬP KHẨU,Máy móc thiết bị,ASEAN,2212
+NHẬP KHẨU,Máy móc thiết bị,Đài Loan,1351
+NHẬP KHẨU,Máy móc thiết bị,Hoa Kỳ,1008
+NHẬP KHẨU,Máy móc thiết bị,Khác,1754
+NHẬP KHẨU,Điện thoại di động,Trung Quốc,8749
+NHẬP KHẨU,Điện thoại di động,Hàn quốc,6176
+NHẬP KHẨU,Điện thoại di động,Nhật bản,314
+NHẬP KHẨU,Điện thoại di động,ASEAN,311
+NHẬP KHẨU,Điện thoại di động,Hong Kong,193
+NHẬP KHẨU,Điện thoại di động,Khác,692
+NHẬP KHẨU,Vải các loại,Trung Quốc,6078
+NHẬP KHẨU,Vải các loại,Hàn quốc,2046
+NHẬP KHẨU,Vải các loại,Đài Loan,1567
+NHẬP KHẨU,Vải các loại,Nhật bản,671
+NHẬP KHẨU,Vải các loại,ASEAN,386
+NHẬP KHẨU,Vải các loại,Khác,633
+NHẬP KHẨU,Sắt thép,Trung Quốc,4104
+NHẬP KHẨU,Sắt thép,Nhật bản,1411
+NHẬP KHẨU,Sắt thép,Hàn quốc,1218
+NHẬP KHẨU,Sắt thép,Đài Loan,902
+NHẬP KHẨU,Sắt thép,Ấn Độ,811
+NHẬP KHẨU,Sắt thép,Khác,632
+XUẤT KHẨU,Điện thoại di động,EU,11955
+XUẤT KHẨU,Điện thoại di động,Trung Quốc,7152
+XUẤT KHẨU,Điện thoại di động,Hàn Quốc,3971
+XUẤT KHẨU,Điện thoại di động,UAE,3894
+XUẤT KHẨU,Điện thoại di động,Hoa Kỳ,3703
+XUẤT KHẨU,Điện thoại di động,ASEAN,3214
+XUẤT KHẨU,Điện thoại di động,Khác,11381
+XUẤT KHẨU,Dệt may,Hoa Kỳ,12275
+XUẤT KHẨU,Dệt may,EU,3785
+XUẤT KHẨU,Dệt may,Nhật Bản,3110
+XUẤT KHẨU,Dệt may,Hàn Quốc,2642
+XUẤT KHẨU,Dệt may,Trung Quốc,1103
+XUẤT KHẨU,Dệt may,Khác,3206
+XUẤT KHẨU,"Máy vi tính, sản phẩm điện tử và linh kiện",Trung Quốc,6861
+XUẤT KHẨU,"Máy vi tính, sản phẩm điện tử và linh kiện",EU,4613
+XUẤT KHẨU,"Máy vi tính, sản phẩm điện tử và linh kiện",Hoa Kỳ,3439
+XUẤT KHẨU,"Máy vi tính, sản phẩm điện tử và linh kiện",ASEAN,2532
+XUẤT KHẨU,"Máy vi tính, sản phẩm điện tử và linh kiện",Hong Kong,1850
+XUẤT KHẨU,"Máy vi tính, sản phẩm điện tử và linh kiện",Hàn Quốc,4855
+XUẤT KHẨU,"Máy vi tính, sản phẩm điện tử và linh kiện",Khác,4855
+XUẤT KHẨU,Giày dep,Hoa Kỳ,5113
+XUẤT KHẨU,Giày dep,EU,4649
+XUẤT KHẨU,Giày dep,Trung Quốc,1141
+XUẤT KHẨU,Giày dep,Nhật Bản,751
+XUẤT KHẨU,Giày dep,Hàn Quốc,403
+XUẤT KHẨU,Giày dep,Khac,2623
+XUẤT KHẨU,Máy móc thiết bị,Hoa Kỳ,2427
+XUẤT KHẨU,Máy móc thiết bị,EU,1864
+XUẤT KHẨU,Máy móc thiết bị,Nhật Bản,1716
+XUẤT KHẨU,Máy móc thiết bị,Trung Quốc,1574
+XUẤT KHẨU,Máy móc thiết bị,Hong Kong,1039
+XUẤT KHẨU,Máy móc thiết bị,Khác,2722
