@@ -46,3 +46,20 @@ sorted_tags <- by_tag_year_fraction %>%
     summarise(tag_total = sum(number)) %>%
     ungroup() %>%
     arrange(desc(tag_total))
+
+## Get the six largest tags
+highest_tags <- head(sorted_tags$tag)
+
+by_tag_subset <- by_tag_year_fraction %>%
+    filter(tag %in% highest_tags)
+
+ggplot(by_tag_subset, aes(year, fraction, color = tag)) +
+    geom_line()
+
+## Some more tags
+my_tags <- c("android", "ios", "windows-phone")
+by_tag_subset <- by_tag_year_fraction %>%
+    filter(tag %in% my_tags)
+
+ggplot(by_tag_subset, aes(year, fraction, color = tag)) +
+    geom_line()
