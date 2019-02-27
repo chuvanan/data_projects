@@ -29,4 +29,32 @@ national_trend_plot <- national_trend %>%
           panel.grid.minor.x = element_blank()) +
     theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave(filename = "figures/national_trend.pdf", national_trend_plot)
+## ggsave(filename = "figures/national_trend.pdf", national_trend_plot)
+## ==> changes in national numbers seem to be small and steady.
+## How did they come up with those numbers?
+
+regions <- c("CẢ NƯỚC", "Đồng bằng sông Hồng", "Trung du và miền núi phía Bắc",
+             "Bắc Trung Bộ và duyên hải miền Trung", "Tây Nguyên",
+             "Đông Nam Bộ", "Đồng bằng sông Cửu Long")
+
+## average of all provinces?
+gender_stats %>%
+    filter(!province %in% regions) %>%
+    summarise_if(is.numeric, mean, na.rm = TRUE) # Nope
+
+## median of all provinces?
+gender_stats %>%
+    filter(!province %in% regions) %>%
+    summarise_if(is.numeric, median, na.rm = TRUE) # Nope
+
+## average of all regions
+gender_stats %>%
+    filter(province %in% regions[regions != "CẢ NƯỚC"]) %>%
+    summarise_if(is.numeric, mean, na.rm = TRUE) # Nope
+
+## median of all regions
+gender_stats %>%
+    filter(province %in% regions[regions != "CẢ NƯỚC"]) %>%
+    summarise_if(is.numeric, median, na.rm = TRUE) # Nope
+
+## ==> there must be a weighted formula to calculate the national statistics?
