@@ -44,3 +44,8 @@ for (i in seq_len(len)) {
         gender_stats$region[i] <- gender_stats$region[i - 1]
     }
 }
+
+## export data
+write.csv(gender_stats,
+          file = "./gender-imbalance-vietnam.csv",
+          row.names = FALSE)
