@@ -1,7 +1,8 @@
 
 
 library(tidyr)
-library(dplyr)
+library(dplyr)                          # >= 0.8.0
+library(purrr)
 library(ggplot2)
 
 gender_stats <- read.csv("gender-imbalance-vietnam.csv",
@@ -58,3 +59,37 @@ gender_stats %>%
     summarise_if(is.numeric, median, na.rm = TRUE) # Nope
 
 ## ==> there must be a weighted formula to calculate the national statistics?
+
+## Which provinces have shown incresing trend? Are there any difference betwwen
+## regions?
+
+province_only <- gender_stats %>%
+    filter(!province %in% regions)
+
+## demo for Hanoi only
+hanoi <- province_only %>%
+    filter(province == "Hà Nội") %>%
+    gather(year, bal, y2005:y2017) %>%
+    mutate(year = as.numeric(gsub("y", "", year)))
+
+hanoi %>%
+    ggplot(aes(year, bal)) +
+    geom_point() +
+    geom_smooth(se = FALSE, method = "lm")
+
+lm(bal ~ year, hanoi)$coefficients[2]   # slope of the fitted line
+## negative: downtrend
+## positive: uptrend
+
+province_model <- province_only %>%
+    gather(year, bal, y2005:y2017) %>%
+    mutate(year = as.numeric(gsub("y", "", year))) %>%
+    group_by(province) %>%
+    nest() %>%
+    mutate(model = map(data, ~ lm(bal ~ year, data = .x))) %>%
+    mutate(slope = map_dbl(model, ~ .x[["coefficients"]][2]))
+
+## number of provinces have positive trend
+sum(province_model$slope > 0)           # 43
+## number of provinces have negative trend
+sum(province_model$slope < 0)           # 21
