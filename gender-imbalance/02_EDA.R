@@ -4,6 +4,7 @@ library(tidyr)
 library(dplyr)                          # >= 0.8.0
 library(purrr)
 library(ggplot2)
+library(ggalt)                          # for geom_xspline()
 
 gender_stats <- read.csv("gender-imbalance-vietnam.csv",
                          stringsAsFactors = FALSE)
@@ -91,5 +92,22 @@ province_model <- province_only %>%
 
 ## number of provinces have positive trend
 sum(province_model$slope > 0)           # 43
+province_model$province[province_model$slope > 0]
+
 ## number of provinces have negative trend
 sum(province_model$slope < 0)           # 21
+province_model$province[province_model$slope < 0]
+
+## How to visualize the trend of all provinces?
+
+province_model %>%
+    select(province, data, slope) %>%
+    unnest() %>%
+    mutate(slope_sign = if_else(slope > 0, "up", "down")) %>%
+    ggplot(aes(year, bal, group = province, color = slope_sign)) +
+    geom_xspline(alpha = 0.5, spline_shape = 1) +
+    scale_x_continuous(breaks = c(2005, 2007:2017)) +
+    scale_color_viridis_d(guide = FALSE, option = "inferno") +
+    facet_wrap( ~ slope_sign) +
+    bigger_font_theme +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
