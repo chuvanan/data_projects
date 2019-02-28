@@ -7,6 +7,7 @@
 
 library(dplyr)
 library(purrr)
+library(ggplot2)
 churn <- readr::read_csv("../data/WA_Fn-UseC_-Telco-Customer-Churn.csv")
 
 dim(churn)
@@ -132,3 +133,36 @@ churn$TotalCharges <- NULL
 ## Export cleaned data
 
 save(churn, file = "../data/churn.RDA")
+
+## -----------------------------------------------------------------------------
+## Vis
+
+table(churn$Churn, churn$Contract) %>%
+    barplot()
+
+table(churn$Churn, churn$gender) %>%
+    barplot()
+
+table(churn$Churn, churn$Dependents) %>%
+    barplot()
+
+
+ggcount <- function(dta, col) {
+    col_q <- enquo(col)
+    ggplot(dta, aes(!!col_q)) +
+        geom_bar() +
+        coord_flip() +
+        theme(text = element_text(size = 15))
+}
+
+ggcount(churn, gender)
+ggcount(churn, SeniorCitizen)
+ggcount(churn, Partner)
+ggcount(churn, Dependents)
+ggcount(churn, tenure_grp)
+ggcount(churn, PhoneService)
+ggcount(churn, MultipleLines)
+ggcount(churn, InternetService)
+ggcount(churn, OnlineBackup)
+ggcount(churn, OnlineSecurity)
+ggcount(churn, Contract)
