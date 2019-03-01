@@ -46,7 +46,26 @@ smarket_test <- Smarket[Smarket$Year == 2005, ]
 glm_fits <- glm(Direction ~ Lag1 + Lag2,
                 data = smarket_train,
                 family = binomial)
+summary(glm_fits)
+
 glm_preds <- predict(glm_fits, newdata = smarket_test, type = "response")
 glm_results <- rep("Down", length(glm_preds))
 glm_results[glm_preds > 0.5] <- "Up"
 sum(diag(table(glm_results, smarket_test$Direction))) / nrow(smarket_test) # accuracy: 56%
+
+## -----------------------------------------------------------------------------
+## LDA
+
+library(MASS)
+lda_fits <- lda(Direction ~ Lag1 + Lag2,
+                data = smarket_train)
+lda_fits
+
+lda_preds <- predict(lda_fits, smarket_test)
+names(lda_preds)
+
+table(lda_preds$class, smarket_test$Direction)
+sum(diag(table(lda_preds$class, smarket_test$Direction))) / nrow(smarket_test) # accuracy: 56%
+
+## -----------------------------------------------------------------------------
+## QDA
