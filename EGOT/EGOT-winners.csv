@@ -1,61 +1,16 @@
-winner,prize,year
-Richard Rodgers,emmy,1962
-Helen Hayes,emmy,1953
-Rita Moreno,emmy,1977
-John Gielgud,emmy,1991
-Audrey Hepburn,emmy,1993
-Marvin Hamlisch,emmy,1995
-Jonathan Tunick,emmy,1982
-Mel Brooks,emmy,1967
-Mike Nichols,emmy,2001
-Whoopi Goldberg,emmy,2002
-Scott Rudin,emmy,1984
-Robert Lopez,emmy,2008
-John Legend,emmy,2018
-Andrew Lloyd Webber,emmy,2018
-Tim Rice,emmy,2018
-Richard Rodgers,grammy,1960
-Helen Hayes,grammy,1977
-Rita Moreno,grammy,1972
-John Gielgud,grammy,1979
-Audrey Hepburn,grammy,1994
-Marvin Hamlisch,grammy,1974
-Jonathan Tunick,grammy,1988
-Mel Brooks,grammy,1998
-Mike Nichols,grammy,1961
-Whoopi Goldberg,grammy,1986
-Scott Rudin,grammy,2012
-Robert Lopez,grammy,2012
-John Legend,grammy,2006
-Andrew Lloyd Webber,grammy,1980
-Tim Rice,grammy,1980
-Richard Rodgers,oscar,1945
-Helen Hayes,oscar,1932
-Rita Moreno,oscar,1961
-John Gielgud,oscar,1981
-Audrey Hepburn,oscar,1953
-Marvin Hamlisch,oscar,1973
-Jonathan Tunick,oscar,1977
-Mel Brooks,oscar,1968
-Mike Nichols,oscar,1967
-Whoopi Goldberg,oscar,1991
-Scott Rudin,oscar,2008
-Robert Lopez,oscar,2014
-John Legend,oscar,2015
-Andrew Lloyd Webber,oscar,1996
-Tim Rice,oscar,1993
-Richard Rodgers,tony,1950
-Helen Hayes,tony,1947
-Rita Moreno,tony,1975
-John Gielgud,tony,1961
-Audrey Hepburn,tony,1954
-Marvin Hamlisch,tony,1976
-Jonathan Tunick,tony,1997
-Mel Brooks,tony,2001
-Mike Nichols,tony,1964
-Whoopi Goldberg,tony,2002
-Scott Rudin,tony,1994
-Robert Lopez,tony,2004
-John Legend,tony,2017
-Andrew Lloyd Webber,tony,1980
-Tim Rice,tony,1980
+name,year_span,emmy,grammy,oscar,tony,completion_year,age,categoty
+Richard Rodgers,17,1962,1960,1945,1950,1962,59.9,Composer
+Helen Hayes,45,1953,1977,1932,1947,1977,76.4,Actress
+Rita Moreno,16,1977,1972,1961,1975,1977,45.8,Actress/Singer
+John Gielgud,30,1991,1979,1981,1961,1991,87.4,Actor/Director
+Audrey Hepburn,41,1993,1994,1953,1954,1994,63.7,Actress
+Marvin Hamlisch,23,1995,1974,1973,1976,1995,51.3,Composer
+Jonathan Tunick,20,1982,1988,1977,1997,1997,59.1,Composer/Conductor
+Mel Brooks,34,1967,1998,1968,2001,2001,74.9,Writer/Composer/Actor
+Mike Nichols,40,2001,1961,1967,1964,2001,70,Director/Comedian
+Whoopi Goldberg,17,2002,1986,1991,2002,2002,46.6,Comedian/Actress/Host
+Scott Rudin,28,1984,2012,2008,1994,2012,53.6,Producer
+Robert Lopez,10,2008,2012,2014,2004,2014,39,Composer
+John Legend,12,2018,2006,2015,2017,2018,39.7,Singer/Composer/Producer
+Andrew Lloyd Webber,38,2018,1980,1996,1980,2018,70.5,Composer/Producer
+Tim Rice,38,2018,1980,1993,1980,2018,73.8,Lyricist/Producer
