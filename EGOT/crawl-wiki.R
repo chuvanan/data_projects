@@ -23,6 +23,8 @@ wiki_table[] <- map_at(wiki_table,
 wiki_table$age <- gsub("\\syears[0-9]?", "", wiki_table$age)
 wiki_table$age <- as.numeric(wiki_table$age)
 
+wiki_table$name <- gsub("[0-9]", "", wiki_table$name)
+
 wiki_table %>%
     select(winner = name, emmy, grammy, oscar, tony) %>%
     gather(prize, year, -winner) %>%
