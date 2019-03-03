@@ -98,11 +98,11 @@ egot_winners <- egot_raw %>%
     ggplot(aes(year_span, age, label = name)) +
     geom_smooth(se = FALSE, method = "lm", color = "lightblue") +
     geom_point() +
-    geom_text_repel(size = 4, color = "white") +
+    geom_text_repel(size = 4) +
     scale_color_ipsum() +
     labs(x = "years taken to win all four awards",
          y = "age at the time of completion",
          title = "EGOT Winners") +
-    theme_modern_rc()
+    theme_ipsum_rc()
 
-ggsave(filename = "EGOT-winners.pdf", egot_winners)
+## ggsave(filename = "EGOT-winners.pdf", egot_winners)
