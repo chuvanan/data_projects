@@ -1,4 +1,5 @@
 
+## https://towardsdatascience.com/machine-learning-for-retail-price-suggestion-with-python-64531e64186d
 
 ## -----------------------------------------------------------------------------
 ## Load packages and import data
