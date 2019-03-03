@@ -106,3 +106,4 @@ egot_winners <- egot_raw %>%
     theme_ipsum_rc()
 
 ## ggsave(filename = "EGOT-winners.pdf", egot_winners)
+## ggsave(filename = "EGOT-winners.png", egot_winners)
