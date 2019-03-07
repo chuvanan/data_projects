@@ -60,3 +60,19 @@ fulltime_employment_by_gender <- ggplot(employed_gender) +
     bigger_font()
 
 ## ggsave(filename = "fulltime-employment-by-gender.pdf", fulltime_employment_by_gender)
+
+fulltime_employment_8290 <- ggplot(employed_gender) +
+    geom_rect(aes(xmin = 1982, xmax = 1990, ymin = 70, ymax = 95),
+              fill = "gray95", alpha = 0.1) +
+    geom_line(aes(year, full_time_male, color = "male"), size = 1.5) +
+    geom_line(aes(year, full_time_female, color = "female"), size = 1.5) +
+    scale_color_manual(name = NULL,
+                       values = c(male = "orange", female = "blue")) +
+    labs(x = NULL, y = "Full-time employed (%)",
+         title = "What happened form 1982 to 1990?") +
+    theme_minimal() +
+    bigger_font() +
+    theme(legend.position = "bottom")
+
+## ggsave(filename = "fulltime-employment-8290.pdf", fulltime_employment_8290)
+## rate of increase in female employment from 1982 to 1990 is quite phenomenal
