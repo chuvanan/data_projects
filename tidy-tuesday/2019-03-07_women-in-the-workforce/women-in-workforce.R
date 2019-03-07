@@ -63,7 +63,7 @@ fulltime_employment_by_gender <- ggplot(employed_gender) +
 
 fulltime_employment_8290 <- ggplot(employed_gender) +
     geom_rect(aes(xmin = 1982, xmax = 1990, ymin = 70, ymax = 95),
-              fill = "gray95", alpha = 0.1) +
+              fill = "gray90", alpha = 0.3) +
     geom_line(aes(year, full_time_male, color = "male"), size = 1.5) +
     geom_line(aes(year, full_time_female, color = "female"), size = 1.5) +
     scale_color_manual(name = NULL,
