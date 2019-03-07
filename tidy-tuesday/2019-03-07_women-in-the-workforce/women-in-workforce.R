@@ -76,3 +76,18 @@ fulltime_employment_8290 <- ggplot(employed_gender) +
 
 ## ggsave(filename = "fulltime-employment-8290.pdf", fulltime_employment_8290)
 ## rate of increase in female employment from 1982 to 1990 is quite phenomenal
+
+## how about part-time employment?
+
+parttime_employment_by_gender <- ggplot(employed_gender) +
+    geom_line(aes(year, part_time_male, color = "male"), size = 1.5) +
+    geom_line(aes(year, part_time_female, color = "female"), size = 1.5) +
+    scale_color_manual(name = NULL,
+                       values = c(male = "orange", female = "blue")) +
+    labs(x = NULL, y = "Part-time employed (%)",
+         title = "More men were taking part-time jobs") +
+    theme_minimal() +
+    bigger_font() +
+    theme(legend.position = "bottom")
+
+## ggsave(filename = "parttime_employment_by_gender.pdf", parttime_employment_by_gender)
