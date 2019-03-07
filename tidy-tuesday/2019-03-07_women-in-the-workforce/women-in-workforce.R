@@ -91,3 +91,19 @@ parttime_employment_by_gender <- ggplot(employed_gender) +
     theme(legend.position = "bottom")
 
 ## ggsave(filename = "parttime_employment_by_gender.pdf", parttime_employment_by_gender)
+
+## -----------------------------------------------------------------------------
+## explore earnings
+
+
+earnings_female <- earnings_female[earnings_female$group != "Total, 16 years and older", ]
+
+earnings_female_trend <- ggplot(earnings_female,
+                                aes(Year, percent,
+                                    group = group, color = group)) +
+    geom_line(size = 1.5) +
+    labs(x = NULL, y = "female salary percent of male salary") +
+    scale_color_viridis_d(name = NULL) +
+    bigger_font()
+
+## ggsave(filename = "earnings-female-trend.pdf", earnings_female_trend)
