@@ -48,3 +48,15 @@ employment_trend <- ggplot(employed_gender) +
 ## ggsave(filename = "employment-trend.pdf", employment_trend)
 ## slight decrease in full-time workforce and a gradual increase of
 ## part-time workers
+
+## Are there significant difference in employment trend between genders?
+
+fulltime_employment_by_gender <- ggplot(employed_gender) +
+    geom_line(aes(year, full_time_male, color = "male"), size = 1.5) +
+    geom_line(aes(year, full_time_female, color = "female"), size = 1.5) +
+    scale_color_manual(values = c(male = "orange", female = "blue")) +
+    labs(x = NULL, y = "Full-time employed (%)",
+         title = "After 4 decades, female employment back to its peak") +
+    bigger_font()
+
+## ggsave(filename = "fulltime-employment-by-gender.pdf", fulltime_employment_by_gender)
