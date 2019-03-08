@@ -120,7 +120,7 @@ jobs_gender$occupation <- factor(jobs_gender$occupation)
 jobs_gender$major_category <- factor(jobs_gender$major_category)
 jobs_gender$minor_category <- factor(jobs_gender$minor_category)
 
-## Which occupational has the highest earnings?
+## Which occupation has the highest earnings?
 
 best_occp <- jobs_gender
 best_occp$major_category <- forcats::fct_reorder(best_occp$major_category,
@@ -136,3 +136,23 @@ best_earning_by_occp <- ggplot(best_occp,
     bigger_font()
 
 ## ggsave(filename = "best-earning-by-occp.pdf", best_earning_by_occp)
+
+## Which occupation has the largest pay gap?
+
+pay_gap <- jobs_gender
+pay_gap$major_category <- forcats::fct_reorder(pay_gap$major_category,
+                                               pay_gap$wage_percent_of_male,
+                                               median, na.rm = TRUE)
+levels(pay_gap$major_category)
+
+gender_paygap <- ggplot(pay_gap,
+                        aes(major_category, wage_percent_of_male)) +
+    geom_boxplot() +
+    labs(x = NULL, y = NULL,
+         title = "Gender Pay Gap",
+         subtitle = "data from 2013 to 2016") +
+    scale_y_continuous(label = scales::percent_format(scale = 1)) +
+    bigger_font() +
+    coord_flip()
+
+## ggsave(filename = "gender-pay-gap.pdf", gender_paygap)
