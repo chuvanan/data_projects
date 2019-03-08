@@ -107,3 +107,32 @@ earnings_female_trend <- ggplot(earnings_female,
     bigger_font()
 
 ## ggsave(filename = "earnings-female-trend.pdf", earnings_female_trend)
+
+## -----------------------------------------------------------------------------
+## explore jobs_gender
+
+
+table(jobs_gender$major_category)
+table(jobs_gender$minor_category)
+sapply(jobs_gender, class)
+
+jobs_gender$occupation <- factor(jobs_gender$occupation)
+jobs_gender$major_category <- factor(jobs_gender$major_category)
+jobs_gender$minor_category <- factor(jobs_gender$minor_category)
+
+## Which occupational has the highest earnings?
+
+best_occp <- jobs_gender
+best_occp$major_category <- forcats::fct_reorder(best_occp$major_category,
+                                                 best_occp$total_earnings,
+                                                 median)
+
+best_earning_by_occp <- ggplot(best_occp,
+                               aes(major_category, total_earnings)) +
+    geom_boxplot() +
+    labs(x = NULL, y = NULL) +
+    coord_flip() +
+    scale_y_continuous(label = scales::comma) +
+    bigger_font()
+
+## ggsave(filename = "best-earning-by-occp.pdf", best_earning_by_occp)
