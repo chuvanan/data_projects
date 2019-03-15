@@ -1,8 +1,5 @@
 
 
-library(rvest)
-`%>%` <- magrittr::`%>%`
-
 ngocentre <- "https://www.ngocentre.org.vn/jobs?page="
 first_page <- 0
 last_page <- 1581
