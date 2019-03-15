@@ -2,9 +2,10 @@
 
 library(ggplot2)
 library(ggrepel)
+library(hrbrthemes)
 load("../data/cleaned-baaa-aircraft-accidents.RData")
 
-big_font <- function() theme(text = element_text(size = 16))
+big_font <- function() theme(text = element_text(size = 18))
 
 
 ## In term of number of accidents, how Boeing 737 MAX compare to other types?
@@ -26,14 +27,19 @@ boeing <- boeing[boeing$AC_Type != "Other", ]
 accidents_by_ac_type <- data.frame(table(boeing$AC_Type, dnn = c("AC_Type")))
 accidents_by_ac_type$AC_Type <- forcats::fct_reorder(accidents_by_ac_type$AC_Type,
                                                      accidents_by_ac_type$Freq)
+accidents_by_ac_type$is_MAX <- FALSE
+accidents_by_ac_type$is_MAX[accidents_by_ac_type$AC_Type == "Boeing 737 MAX 8"] <- TRUE
 
-ggplot(accidents_by_ac_type,
-       aes(AC_Type, Freq)) +
+accidents_by_ac_type_chart <- ggplot(accidents_by_ac_type,
+                                     aes(AC_Type, Freq, fill = is_MAX)) +
     geom_col() +
-    labs(x = NULL, y = "Number of Accidents") +
+    labs(x = NULL, y = "Number of Accidents",
+         title = "Count of Boeing's Commercial Aircraft Accidents") +
+    scale_fill_manual(values = c("gray", "red4"), guide = FALSE) +
     coord_flip() +
-    big_font()
+    theme_ipsum_rc(base_size = 13, axis_title_size = 14)
 
+## ggsave(filename = "../figures/accidents_by_ac_type.png", accidents_by_ac_type_chart)
 
 ## Did more accidents happen recently?
 range(boeing$Date)                      # from 1959
@@ -69,12 +75,21 @@ accidents_vs_fatalities$Decade <- ifelse(accidents_vs_fatalities$Year < 1970, "6
                                          accidents_vs_fatalities$Year < 2010, "00s",
                                   ifelse(accidents_vs_fatalities$Year >= 2010, "10s", NA))))))
 
-ggplot(accidents_vs_fatalities,
-       aes(Freq, Fatalities, label = Year)) +
-    ## geom_smooth(method = "lm", se = FALSE, linetype = 2) +
+accidents_vs_fatalities$Decade <- factor(accidents_vs_fatalities$Decade,
+                                         levels = c("60s", "70s", "80s", "90s", "00s", "10s"),
+                                         ordered = TRUE)
+
+accidents_vs_fatalities_chart <- ggplot(accidents_vs_fatalities,
+                                        aes(Freq, Fatalities, label = Year)) +
+    geom_smooth(method = "lm", se = FALSE, color = "gray", linetype = 2) +
     geom_point() +
-    geom_line(aes(group = Decade, color = Decade)) +
-    geom_text_repel(aes(color = Decade), size = 5) +
-    scale_color_brewer(type = "qual") +
-    big_font() +
+    geom_text_repel(aes(color = Decade), size = 5.5) +
+    labs(x = "Number of accidents",
+         title = "Boeing's Aircraft Accidents/Fatalities") +
+    scale_color_ipsum(guide = FALSE) +
+    theme_ipsum_rc(axis_text_size = 13,
+                   axis_title_size = 14,
+                   strip_text_face = "bold") +
     facet_wrap( ~ Decade)
+
+## ggsave(filename = "../figures/accidents-vs-fatalities.png", accidents_vs_fatalities_chart)
