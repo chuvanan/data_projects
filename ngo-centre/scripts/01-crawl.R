@@ -1,3 +1,5 @@
+## 2019-03-16
+## @ancv
 
 
 ngocentre <- "https://www.ngocentre.org.vn/jobs?page="
@@ -36,4 +38,16 @@ crawl_job_listings_possibly <- purrr::possibly(crawl_job_listings,
                                                otherwise = NULL)
 
 ## demo
-crawl_job_listings_possibly(ngocentre_pages[1])
+jobs_data <- vector("list", 10)
+for (i in seq_along(jobs_data)) {
+    jobs_data[[i]] <- crawl_job_listings_possibly(ngocentre_pages[i])
+    Sys.sleep(1)
+}
+
+## check whether the list has NULL
+any(sapply(jobs_data, is.null))
+sapply(jobs_data, ncol)
+jobs_data <- do.call("rbind", jobs_data)
+
+## export
+## save(jobs_data, file = "../data/jobs-data-demo.RData")
