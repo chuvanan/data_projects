@@ -31,3 +31,23 @@ count(policing, location, sort = TRUE)
 
 ## how many states?
 count(policing, state, sort = TRUE)     # only 17
+
+count(policing, driver_race)
+## only study three major groups of races: Black, Hispanic, White
+
+## distribution of stop_per_year
+par(cex = 1.3)
+hist(log10(policing$stops_per_year), breaks = 30,
+     xlab = "Stops Per Year (Log10)", main = "SPY For All Counties",
+     col = "steelblue", border = "gray")
+box()
+
+par(cex = 1.3)
+hist(log10(policing$stop_rate), breaks = 30,
+     col = "steelblue", border = "gray",
+     xlab = "Stop Rate (Log10)",
+     main = "Stop Rate for All Counties")
+box()
+
+quantile(policing$stop_rate, probs = seq(0, 1, 0.01), na.rm = TRUE)
+## why stop_rate > 1?
