@@ -1,0 +1,27 @@
+---
+title: "WOE"
+output:
+  pdf_document:
+    latex_engine: pdflatex
+---
+
+
+Normally, the WOE (Weight Of Evidence) formula is presented as follow:
+
+$$WOE_a = \ln(DistGood_i / DistBad_i)$$
+
+And the corresponding formula of IV (Information Value) is:
+
+$$IV_a = \sum_{i=1}^n(DistGood_i - DistBad_i) * \ln(DistGood_i / DistBad_i)$$
+
+These concepts are widely used in credit scorecard development for performing
+variable selection. 
+
+However, one can use another form of WOE and IV:
+
+$$WOE_b = \ln(DistBad_i / DistGood_i)$$
+
+$$IV_b = \sum_{i=1}^n(DistBad_i - DistGood_i) * \ln(DistBad_i / DistGood_i)$$
+
+Just bear in mind that there's a small caution when interpreting the WOE result 
+because $WOE_a = -WOE_b$. IV remains identical $IV_a = IV_b$.
