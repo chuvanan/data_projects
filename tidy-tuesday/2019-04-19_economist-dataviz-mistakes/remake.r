@@ -112,3 +112,19 @@ barplot(health$percent_women,
         main = "Women among researchers with papers published 2011-15")
 mtext(side = 1, "% of total, in health science", line = 2.2, cex = 1.3)
 ## R.devices::toSVG("women-search-health-science", width = 8.614583, height = 5.215442)
+
+## ------------------------------
+
+
+par(cex = 1.3, family = "Lato", mai = c(0.7, 1.2, 0.8, 1.2), bg = "gray96")
+plot(dogs$year, dogs$avg_neck, type = "l", col = "blue", las = 1,
+     ylim = c(38, 45), lwd = 5, ylab = "", xlab = "")
+mtext(side = 2, "Neck size, cm", line = 2.5, cex = 1.4, col = "blue")
+title(main = "Fit as a butcher's dog", cex.main = 1.4)
+par(new = TRUE)
+plot(dogs$year, dogs$avg_weight, xaxt = "n",
+     yaxt = "n", xlab = "", ylab = "", ylim = c(18, 23),
+     type = "l", lwd = 5, col = "red4")
+axis(4, las = 1)
+mtext(side = 4, "Weight, kg", line = 2.5, cex = 1.4, col = "red4")
+## R.devices::toSVG("dog", width = 7.958333, height = 7.043963)
