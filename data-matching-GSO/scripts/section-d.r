@@ -16,12 +16,19 @@ fisf <- fisf %>%
     mutate(D1_7_LABEL = onehot_encoding(select(fisf, matches("D1_[0-9]$")), 7))
 
 D1_1 <- count_response(fisf, D1_1_LABEL, index = "D1_1")
+D1_1 <- add_rsp(D1_1, c("Có", "Không"))
 D1_2 <- count_response(fisf, D1_2_LABEL, index = "D1_2")
+D1_2 <- add_rsp(D1_2, c("Có", "Không"))
 D1_3 <- count_response(fisf, D1_3_LABEL, index = "D1_3")
+D1_3 <- add_rsp(D1_3, c("Có", "Không"))
 D1_4 <- count_response(fisf, D1_4_LABEL, index = "D1_4")
+D1_4 <- add_rsp(D1_4, c("Có", "Không"))
 D1_5 <- count_response(fisf, D1_5_LABEL, index = "D1_5")
+D1_5 <- add_rsp(D1_5, c("Có", "Không"))
 D1_6 <- count_response(fisf, D1_6_LABEL, index = "D1_6")
+D1_6 <- add_rsp(D1_6, c("Có", "Không"))
 D1_7 <- count_response(fisf, D1_7_LABEL, index = "D1_7")
+D1_7 <- add_rsp(D1_7, c("Có", "Không"))
 
 D1 <- bind_cols(
     select(D1_1, STT, `Phân loại ngừơi trả lời`, `Mục đích - Dự phòng ốm đau` = `Có`),
@@ -54,6 +61,10 @@ fisf <- fisf %>%
                              ordered = TRUE))
 
 D2 <- count_response(fisf, D2_LABEL, index = "D2")
+D2 <- add_rsp(D2, c("Để dành/tiết kiệm tiền hàng tháng",
+                    "Để dành/tiết kiệm tiền hàng quý",
+                    "Để dành/tiết kiệm tiền hàng năm",
+                    "Không theo định kỳ", "Từ chối trả lời"))
 
 D1_2 <- bind_cols(
     select(D1, -contains("Không")),
