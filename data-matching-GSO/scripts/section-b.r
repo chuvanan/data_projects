@@ -39,17 +39,17 @@ B1A <- B1A %>%
     rename(`Điện thoại cố định để gọi và nhận cuộc gọi cá nhân - Có` = `Có`,
            `Điện thoại cố định để gọi và nhận cuộc gọi cá nhân - Không` = `Không`)
 
-B1B <- count_response(fisf, B1B_LABEL, index = "B1B")
+B1B <- count_response(fisf, B1B_LABEL, index = "B1")
 B1B <- B1B %>%
     rename(`Điện thoại di động để gọi và nhận cuộc gọi cá nhân - Có` = `Có`,
            `Điện thoại di động để gọi và nhận cuộc gọi cá nhân - Không` = `Không`)
 
-B1C <- count_response(fisf, B1C_LABEL, index = "B1C")
+B1C <- count_response(fisf, B1C_LABEL, index = "B1")
 B1C <- B1C %>%
     rename(`Điện thoại di động, máy tính hoặc các thiết bị khác để kết nối Internet - Có` = `Có`,
            `Điện thoại di động, máy tính hoặc các thiết bị khác để kết nối Internet - Không` = `Không`)
 
-B1D <- count_response(fisf, B1D_LABEL, index = "B1D")
+B1D <- count_response(fisf, B1D_LABEL, index = "B1")
 B1D <- B1D %>%
     rename(`Không có điện thoại di động, cố định và thiết bị để kết nối internet` = `Có`)
 
@@ -85,15 +85,30 @@ fisf <- fisf %>%
               function(x) factor(x, levels = c("Có", "Không", "Không biết"),
                                  ordered = TRUE))
 
-fisf <- mutate(fisf, B2A_LABEL = paste("Nhà của ông/bà đang ở là của gia đình?", "-", B2A_LABEL))
-fisf <- mutate(fisf, B2B_LABEL = paste("Ông/bà sẽ bán nhà nếu như cần một khoản tiền lớn?", "-", B2B_LABEL))
-fisf <- mutate(fisf, B2C_LABEL = paste("Ông/bà sẽ dùng nhà để thế chấp khi vay tiền", "-", B2C_LABEL))
-fisf <- mutate(fisf, B2D_LABEL = paste("Ông/bà có nhà cho thuê hay đầu tư sinh lời?", "-", B2D_LABEL))
 
 B2A <- count_response(fisf, B2A_LABEL, index = "B2")
-B2B <- count_response(fisf, B2B_LABEL, index = "B2B")
-B2C <- count_response(fisf, B2C_LABEL, index = "B2C")
-B2D <- count_response(fisf, B2D_LABEL, index = "B2D")
+B2A <- add_rsp(B2A, c("Có", "Không", "Không biết"))
+names(B2A)[!names(B2A) %in% c("STT", "Phân loại ngừơi trả lời")] <-
+    paste("Nhà của ông/bà đang ở là của gia đình?", "-",
+          names(B2A)[!names(B2A) %in% c("STT", "Phân loại ngừơi trả lời")])
+
+B2B <- count_response(fisf, B2B_LABEL, index = "B2")
+B2B <- add_rsp(B2B, c("Có", "Không", "Không biết"))
+names(B2B)[!names(B2B) %in% c("STT", "Phân loại ngừơi trả lời")] <-
+    paste("Ông/bà sẽ bán nhà nếu như cần một khoản tiền lớn?", "-",
+          names(B2B)[!names(B2B) %in% c("STT", "Phân loại ngừơi trả lời")])
+
+B2C <- count_response(fisf, B2C_LABEL, index = "B2")
+B2C <- add_rsp(B2C, c("Có", "Không", "Không biết"))
+names(B2C)[!names(B2C) %in% c("STT", "Phân loại ngừơi trả lời")] <-
+    paste("Ông/bà sẽ dùng nhà để thế chấp khi vay tiền", "-",
+          names(B2C)[!names(B2C) %in% c("STT", "Phân loại ngừơi trả lời")])
+
+B2D <- count_response(fisf, B2D_LABEL, index = "B2")
+B2D <- add_rsp(B2D, c("Có", "Không", "Không biết"))
+names(B2D)[!names(B2D) %in% c("STT", "Phân loại ngừơi trả lời")] <-
+    paste("Ông/bà có nhà cho thuê hay đầu tư sinh lời?", "-",
+          names(B2D)[!names(B2D) %in% c("STT", "Phân loại ngừơi trả lời")])
 
 B2 <- bind_cols(
     B2A,
@@ -101,6 +116,9 @@ B2 <- bind_cols(
     select(B2C, -STT, -`Phân loại ngừơi trả lời`),
     select(B2D, -STT, -`Phân loại ngừơi trả lời`)
 )
+
+## BO SUNG B2_TT
+## Bo SUNG B2_NT
 
 ## B3 ------------------------------
 
@@ -213,7 +231,6 @@ B3_0_NT <- tibble(STT = NA, `Phân loại ngừơi trả lời` = "Khu vực nô
            )) %>%
     rename(`Các loại tiện ích tại khu vực thành thị/nông thôn` = `Phân loại ngừơi trả lời`)
 
-
 B3_1_TT <- bind_rows(
     count_all(filter(fisf, TTNT == 1), B3A_LABEL, index = "B3a.1"),
     count_all(filter(fisf, TTNT == 1), B3B_LABEL, index = "B3a.2"),
@@ -277,6 +294,7 @@ B3_2 <- B3_1 %>%
     mutate(`Khoảng thời gian` = ((`Dưới 15 phút` * 15) + (`Từ 15 phút đến dưới 30 phút` * 22.5) +
                                  (`Từ 30 phút đến dưới 1 tiếng` * 45) + (`Từ 1 tiếng đến dưới 3 tiếng` * 120) +
                                  (`Từ 3 tiếng trở lên` * 180)) / nrow(fisf)) %>%
+    mutate(`Khoảng thời gian` = round(`Khoảng thời gian`, 1)) %>%
     select(STT, `Các loại tiện ích tại khu vực thành thị/nông thôn`,
            `Khoảng thời gian`) %>%
     mutate(`Khoảng thời gian` = if_else(is.na(STT), NA_real_, `Khoảng thời gian`))
@@ -303,6 +321,7 @@ B4A <- bind_rows(
     count_by_median_income(fisf, B4_LABEL, index = "B4f")
 )
 
+B4A <- add_rsp(B4A, c("Có", "Không", "Không biết"))
 B4A <- rename(B4A, `Tổng mẫu/cả nước - Có` = `Có`,
               `Tổng mẫu/cả nước - Không` = `Không`,
               `Tổng mẫu/cả nước - Không biết` = `Không biết`)
@@ -317,6 +336,7 @@ B4B <- bind_rows(
     count_by_median_income(filter(fisf, TTNT == 1), B4_LABEL, index = "B4f")
 )
 
+B4B <- add_rsp(B4B, c("Có", "Không", "Không biết"))
 B4B <- rename(B4B, `Tại khu vực thành thị - Có` = `Có`,
               `Tại khu vực thành thị - Không` = `Không`,
               `Tại khu vực thành thị - Không biết` = `Không biết`)
@@ -332,6 +352,7 @@ B4C <- bind_rows(
     count_by_median_income(filter(fisf, TTNT == 2), B4_LABEL, index = "B4f")
 )
 
+B4C <- add_rsp(B4C, c("Có", "Không", "Không biết"))
 B4C <- rename(B4C, `Tại khu vực nông thôn - Có` = `Có`,
               `Tại khu vực nông thôn - Không` = `Không`,
               `Tại khu vực nông thôn - Không biết` = `Không biết`)
