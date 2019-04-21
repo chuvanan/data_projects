@@ -1,3 +1,4 @@
+## @ancv
 
 ## -----------------------------------------------------------------------------
 ## E - Tin Dung
@@ -57,10 +58,9 @@ E2 <- bind_cols(
     select(E2_9, `Lý do khác` = `Có`)
 )
 
-E1_2 <- left_join(
+E1_2 <- bind_cols(
     select(E1, -`Có vay tiền 1 triệu đồng trở lên`),
-    select(E2, -STT),
-    by = "Phân loại ngừơi trả lời"
+    select(E2, -STT, -`Phân loại ngừơi trả lời`)
 )
 
 ## E4 ------------------------------
@@ -98,10 +98,9 @@ E4 <- bind_cols(
     select(E4_9, `Lý do khác` = `Có`)
 )
 
-E1_4 <- left_join(
+E1_4 <- bind_rows(
     select(E1, -`Không vay tiền`),
-    select(E4, -STT),
-    by = "Phân loại ngừơi trả lời"
+    select(E4, -STT, -`Phân loại ngừơi trả lời`)
 )
 
 ## E3 ------------------------------
@@ -220,9 +219,9 @@ E8 <- E8 %>%
 
 E5_6_7_8 <- bind_cols(
     E5,
-    select(G6, -STT, -`Phân loại ngừơi trả lời`),
-    select(G7, -STT, -`Phân loại ngừơi trả lời`),
-    select(G8, -STT, -`Phân loại ngừơi trả lời`)
+    select(E6, -STT, -`Phân loại ngừơi trả lời`),
+    select(E7, -STT, -`Phân loại ngừơi trả lời`),
+    select(E8, -STT, -`Phân loại ngừơi trả lời`)
 )
 
 ## Export ------------------------------
