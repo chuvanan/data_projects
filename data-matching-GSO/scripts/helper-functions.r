@@ -40,7 +40,7 @@ count_by_age <- function(dta, what, pct = TRUE, index) {
 
     if (pct) {
         out <- dta %>%
-            count(!!what_q, AGE_BINS) %>%
+            count(!!what_q, AGE_BINS, .drop = FALSE) %>%
             mutate(perct = round(n * 100 / nrow(dta), 1)) %>%
             select(-n) %>%
             spread(!!what_q, perct) %>%
@@ -48,7 +48,7 @@ count_by_age <- function(dta, what, pct = TRUE, index) {
             select(STT, everything())
     } else {
         out <- dta %>%
-            count(!!what_q, AGE_BINS) %>%
+            count(!!what_q, AGE_BINS, .drop = FALSE) %>%
             spread(!!what_q, n) %>%
             mutate(STT = paste0(index, ".", 1:n())) %>%
             select(STT, everything())
@@ -69,7 +69,7 @@ count_by_region <- function(dta, what, pct = TRUE, index) {
 
     if (pct) {
         out <- dta %>%
-            count(!!what_q, TTNT_LABEL) %>%
+            count(!!what_q, TTNT_LABEL, .drop = FALSE) %>%
             mutate(perct = round(n * 100 / nrow(dta), 1)) %>%
             select(-n) %>%
             spread(!!what_q, perct) %>%
@@ -77,7 +77,7 @@ count_by_region <- function(dta, what, pct = TRUE, index) {
             select(STT, everything())
     } else {
         out <- dta %>%
-            count(!!what_q, TTNT_LABEL) %>%
+            count(!!what_q, TTNT_LABEL, .drop = FALSE) %>%
             spread(!!what_q, n) %>%
             mutate(STT = paste0(index, ".", 1:n())) %>%
             select(STT, everything())
@@ -270,6 +270,18 @@ onehot_encoding <- function(dta, val) {
 }
 
 add_rsp <- function(x, rsp) {
-    if (!any(names(x) %in% rsp)) x[[rsp]] <- NA
+    stopifnot(length(rsp) >= 1)
+    stopifnot(is.character(rsp))
+    for (i in seq_along(rsp)) {
+        chk <- rsp[i]
+        if (!any(names(x) %in% chk)) x[[chk]] <- NA
+    }
+    x
+}
+
+adjust_colnames <- function(x, prefix) {
+    fixed_colnames <- c("STT", "Phân loại ngừơi trả lời")
+    names(x)[!names(x) %in% fixed_colnames] <-
+        paste(prefix, "-", names(x)[!names(x) %in% fixed_colnames])
     x
 }
