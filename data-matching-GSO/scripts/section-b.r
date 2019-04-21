@@ -88,27 +88,21 @@ fisf <- fisf %>%
 
 B2A <- count_response(fisf, B2A_LABEL, index = "B2")
 B2A <- add_rsp(B2A, c("Có", "Không", "Không biết"))
-names(B2A)[!names(B2A) %in% c("STT", "Phân loại ngừơi trả lời")] <-
-    paste("Nhà của ông/bà đang ở là của gia đình?", "-",
-          names(B2A)[!names(B2A) %in% c("STT", "Phân loại ngừơi trả lời")])
+B2A <- adjust_colnames(B2A, "Nhà của ông/bà đang ở là của gia đình?")
+
 
 B2B <- count_response(fisf, B2B_LABEL, index = "B2")
 B2B <- add_rsp(B2B, c("Có", "Không", "Không biết"))
-names(B2B)[!names(B2B) %in% c("STT", "Phân loại ngừơi trả lời")] <-
-    paste("Ông/bà sẽ bán nhà nếu như cần một khoản tiền lớn?", "-",
-          names(B2B)[!names(B2B) %in% c("STT", "Phân loại ngừơi trả lời")])
+B2B <- adjust_colnames(B2B, "Ông/bà sẽ bán nhà nếu như cần một khoản tiền lớn?")
 
 B2C <- count_response(fisf, B2C_LABEL, index = "B2")
 B2C <- add_rsp(B2C, c("Có", "Không", "Không biết"))
-names(B2C)[!names(B2C) %in% c("STT", "Phân loại ngừơi trả lời")] <-
-    paste("Ông/bà sẽ dùng nhà để thế chấp khi vay tiền", "-",
-          names(B2C)[!names(B2C) %in% c("STT", "Phân loại ngừơi trả lời")])
+B2C <- adjust_colnames(B2C, "Ông/bà sẽ dùng nhà để thế chấp khi vay tiền")
+
 
 B2D <- count_response(fisf, B2D_LABEL, index = "B2")
 B2D <- add_rsp(B2D, c("Có", "Không", "Không biết"))
-names(B2D)[!names(B2D) %in% c("STT", "Phân loại ngừơi trả lời")] <-
-    paste("Ông/bà có nhà cho thuê hay đầu tư sinh lời?", "-",
-          names(B2D)[!names(B2D) %in% c("STT", "Phân loại ngừơi trả lời")])
+B2D <- adjust_colnames(B2D, "Ông/bà có nhà cho thuê hay đầu tư sinh lời?")
 
 B2 <- bind_cols(
     B2A,

@@ -43,9 +43,7 @@ A1_1 <- bind_rows(
     count_by_median_income(fisf, what = AGE_BINS, pct = FALSE, index = "A3"),
     count_by_income_per_capita(fisf, what = AGE_BINS, pct = FALSE, index = "A4")
 )
-
-names(A1_1)[!names(A1_1) %in% c("STT", "Phân loại ngừơi trả lời")] <-
-    paste("Theo độ tuổi", "-", names(A1_1)[!names(A1_1) %in% c("STT", "Phân loại ngừơi trả lời")])
+A1_1 <- adjust_colnames(A1_1, "Theo độ tuổi")
 
 A1_2 <- bind_rows(
     count_all(fisf, A4_LABEL, index = "A"),
@@ -54,9 +52,7 @@ A1_2 <- bind_rows(
     count_by_median_income(fisf, what = A4_LABEL, pct = FALSE, index = "A3"),
     count_by_income_per_capita(fisf, what = A4_LABEL, pct = FALSE, index = "A4")
 )
-
-names(A1_2)[!names(A1_2) %in% c("STT", "Phân loại ngừơi trả lời")] <-
-    paste("Theo giới tính", "-", names(A1_2)[!names(A1_2) %in% c("STT", "Phân loại ngừơi trả lời")])
+A1_2 <- adjust_colnames(A1_2, "Theo giới tính")
 
 A1_3 <- bind_rows(
     count_all(fisf, A5_LABEL, index = "A"),
@@ -65,9 +61,7 @@ A1_3 <- bind_rows(
     count_by_median_income(fisf, what = A5_LABEL, pct = FALSE, index = "A3"),
     count_by_income_per_capita(fisf, what = A5_LABEL, pct = FALSE, index = "A4")
 )
-
-names(A1_3)[!names(A1_3) %in% c("STT", "Phân loại ngừơi trả lời")] <-
-    paste("Theo dân tộc", "-", names(A1_3)[!names(A1_3) %in% c("STT", "Phân loại ngừơi trả lời")])
+A1_3 <- adjust_colnames(A1_3, "Theo dân tộc")
 
 A1_4 <- bind_rows(
     count_all(fisf, TTNT_LABEL, index = "A"),
@@ -76,9 +70,7 @@ A1_4 <- bind_rows(
     count_by_median_income(fisf, what = TTNT_LABEL, pct = FALSE, index = "A3"),
     count_by_income_per_capita(fisf, what = TTNT_LABEL, pct = FALSE, index = "A4")
 )
-
-names(A1_4)[!names(A1_4) %in% c("STT", "Phân loại ngừơi trả lời")] <-
-    paste("Theo khu vực", "-", names(A1_4)[!names(A1_4) %in% c("STT", "Phân loại ngừơi trả lời")])
+A1_4 <- adjust_colnames(A1_2, "Theo khu vực")
 
 A <- bind_cols(
     A1_1,
