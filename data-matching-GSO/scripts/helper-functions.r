@@ -65,15 +65,25 @@ count_by_occupation <- count_by_(A7_LVL1_LABEL, lab = "Theo nghề nghiệp")
 count_by_median_income <- count_by_(A8_LABEL, lab = "Theo thu nhập bình quân 1 tháng của đáp viên")
 count_by_income_per_capita <- count_by_(A9_LABEL, lab = "Theo thu nhập bình quân 1 người 1 tháng")
 
-count_all <- function(dta, what, index) {
+count_all <- function(dta, what, index, pct = TRUE) {
     what_q <- enquo(what)
-    out <- dta %>%
-        count(!!what_q, .drop = FALSE) %>%
-        spread(!!what_q, n) %>%
+
+    if (pct) {
+        out <- dta %>%
+            count(!!what_q, .drop = FALSE) %>%
+            mutate(perct = round(n * 100 / nrow(dta), 1)) %>%
+            select(-n) %>%
+            spread(!!what_q, perct)
+    } else {
+        out <- dta %>%
+            count(!!what_q, .drop = FALSE) %>%
+            spread(!!what_q, n)
+    }
+    out <- out %>%
         mutate(STT = index,
                `Phân loại ngừơi trả lời` = "Tổng") %>%
-        select(STT, `Phân loại ngừơi trả lời`, everything())
-    out <- mutate_if(out, is.factor, as.character)
+        select(STT, `Phân loại ngừơi trả lời`, everything()) %>%
+        mutate_if(out, is.factor, as.character)
     out
 }
 
