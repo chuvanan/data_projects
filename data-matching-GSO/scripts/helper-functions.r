@@ -6,236 +6,64 @@ fill_missval <- function(x) {
     x
 }
 
-count_by_gender <- function(dta, what, pct = TRUE, index) {
+
+count_by_perct <- function(dta, what, index, col) {
+    col_q <- enquo(col)
     what_q <- enquo(what)
-
-    if (pct) {
-        out <- dta %>%
-            count(!!what_q, A4_LABEL, .drop = FALSE) %>%
-            mutate(perct = round(n * 100 / nrow(dta), 1)) %>%
-            select(-n) %>%
-            spread(!!what_q, perct) %>%
-            mutate(STT = paste0(index, ".", 1:n())) %>%
-            select(STT, everything())
-    } else {
-        out <- dta %>%
-            count(!!what_q, A4_LABEL, .drop = FALSE) %>%
-            spread(!!what_q, n) %>%
-            mutate(STT = paste0(index, ".", 1:n())) %>%
-            select(STT, everything())
-    }
-
-    foo <- slice(out, 1) %>%
-        mutate_all(function(x) NA) %>%
-        mutate(A4_LABEL = "Theo giới tính")
-
-    out <- mutate_if(out, is.factor, as.character)
-    out <- bind_rows(foo, out)
-    names(out)[names(out) == "A4_LABEL"] <- "Phân loại ngừơi trả lời"
-    out
-}
-
-count_by_age <- function(dta, what, pct = TRUE, index) {
-    what_q <- enquo(what)
-
-    if (pct) {
-        out <- dta %>%
-            count(!!what_q, AGE_BINS, .drop = FALSE) %>%
-            mutate(perct = round(n * 100 / nrow(dta), 1)) %>%
-            select(-n) %>%
-            spread(!!what_q, perct) %>%
-            mutate(STT = paste0(index, ".", 1:n())) %>%
-            select(STT, everything())
-    } else {
-        out <- dta %>%
-            count(!!what_q, AGE_BINS, .drop = FALSE) %>%
-            spread(!!what_q, n) %>%
-            mutate(STT = paste0(index, ".", 1:n())) %>%
-            select(STT, everything())
-    }
-
-    foo <- slice(out, 1) %>%
-        mutate_all(function(x) NA) %>%
-        mutate(AGE_BINS = "Theo độ tuổi")
-
-    out <- mutate_if(out, is.factor, as.character)
-    out <- bind_rows(foo, out)
-    names(out)[names(out) == "AGE_BINS"] <- "Phân loại ngừơi trả lời"
-    out
-}
-
-count_by_region <- function(dta, what, pct = TRUE, index) {
-    what_q <- enquo(what)
-
-    if (pct) {
-        out <- dta %>%
-            count(!!what_q, TTNT_LABEL, .drop = FALSE) %>%
-            mutate(perct = round(n * 100 / nrow(dta), 1)) %>%
-            select(-n) %>%
-            spread(!!what_q, perct) %>%
-            mutate(STT = paste0(index, ".", 1:n())) %>%
-            select(STT, everything())
-    } else {
-        out <- dta %>%
-            count(!!what_q, TTNT_LABEL, .drop = FALSE) %>%
-            spread(!!what_q, n) %>%
-            mutate(STT = paste0(index, ".", 1:n())) %>%
-            select(STT, everything())
-    }
-
-    foo <- slice(out, 1) %>%
-        mutate_all(function(x) NA) %>%
-        mutate(TTNT_LABEL = "Theo khu vực")
-
-    out <- mutate_if(out, is.factor, as.character)
-    out <- bind_rows(foo, out)
-    names(out)[names(out) == "TTNT_LABEL"] <- "Phân loại ngừơi trả lời"
-    out
+    dta %>%
+        count(!!what_q, !!col_q, .drop = FALSE) %>%
+        mutate(perct = round(n * 100 / nrow(dta), 1)) %>%
+        select(-n) %>%
+        spread(!!what_q, perct) %>%
+        mutate(STT = paste0(index, ".", 1:n())) %>%
+        select(STT, everything())
 }
 
 
-count_by_education <- function(dta, what, pct = TRUE, index) {
+count_by_number <- function(dta, what, index, col) {
+    col_q <- enquo(col)
     what_q <- enquo(what)
-
-    if (pct) {
-        out <- dta %>%
-            count(!!what_q, A6_LABEL, .drop = FALSE) %>%
-            mutate(perct = round(n * 100 / nrow(dta), 1)) %>%
-            select(-n) %>%
-            spread(!!what_q, perct) %>%
-            mutate(STT = paste0(index, ".", 1:n())) %>%
-            select(STT, everything())
-    } else {
-        out <- dta %>%
-            count(!!what_q, A6_LABEL, .drop = FALSE) %>%
-            spread(!!what_q, n) %>%
-            mutate(STT = paste0(index, ".", 1:n())) %>%
-            select(STT, everything())
-    }
-
-    foo <- slice(out, 1) %>%
-        mutate_all(function(x) NA) %>%
-        mutate(A6_LABEL = "Theo trình độ học vấn")
-
-    out <- mutate_if(out, is.factor, as.character)
-    out <- bind_rows(foo, out)
-    names(out)[names(out) == "A6_LABEL"] <- "Phân loại ngừơi trả lời"
-    out
+    dta %>%
+        count(!!what_q, !!col_q, .drop = FALSE) %>%
+        spread(!!what_q, n) %>%
+        mutate(STT = paste0(index, ".", 1:n())) %>%
+        select(STT, everything())
 }
 
-count_by_ethnicity <- function(dta, what, pct = TRUE, index) {
-    what_q <- enquo(what)
-    if (pct) {
-        out <- dta %>%
-            count(!!what_q, A5_LABEL, .drop = FALSE) %>%
-            mutate(perct = round(n * 100 / nrow(dta), 1)) %>%
-            select(-n) %>%
-            spread(!!what_q, perct) %>%
-            mutate(STT = paste0(index, ".", 1:n())) %>%
-            select(STT, everything())
-    } else {
-        out <- dta %>%
-            count(!!what_q, A5_LABEL, .drop = FALSE) %>%
-            spread(!!what_q, n) %>%
-            mutate(STT = paste0(index, ".", 1:n())) %>%
-            select(STT, everything())
+count_by_ <- function(col, lab) {
+
+    col_q <- ensym(col)
+    col_c <- as.character(col_q)
+
+    function(dta, what, pct = TRUE, index) {
+        what_q <- enquo(what)
+        if (pct) {
+            out <- count_by_perct(dta = dta, what = !!what_q,
+                                  index = index, col = !!col_q)
+        } else {
+            out <- count_by_number(dta = dta, what = !!what_q,
+                                   index = index, col = !!col_q)
+        }
+
+        foo <- slice(out, 1) %>% mutate_all(function(x) NA)
+        foo[[col_c]] <- lab
+
+        out <- mutate_if(out, is.factor, as.character)
+        out <- bind_rows(foo, out)
+        names(out)[names(out) == col_c] <- "Phân loại ngừơi trả lời"
+        out
     }
 
-    foo <- slice(out, 1) %>%
-        mutate_all(function(x) NA) %>%
-        mutate(A5_LABEL = "Theo dân tộc")
-
-    out <- mutate_if(out, is.factor, as.character)
-    out <- bind_rows(foo, out)
-    names(out)[names(out) == "A5_LABEL"] <- "Phân loại ngừơi trả lời"
-    out
 }
 
-count_by_occupation <- function(dta, what, pct = TRUE, index) {
-    what_q <- enquo(what)
-
-    if (pct) {
-        out <- dta %>%
-            count(!!what_q, A7_LVL1_LABEL, .drop = FALSE) %>%
-            mutate(perct = round(n * 100 / nrow(dta), 1)) %>%
-            select(-n) %>%
-            spread(!!what_q, perct) %>%
-            mutate(STT = paste0(index, ".", 1:n())) %>%
-            select(STT, everything())
-    } else {
-        out <- dta %>%
-            count(!!what_q, A7_LVL1_LABEL, .drop = FALSE) %>%
-            spread(!!what_q, n) %>%
-            mutate(STT = paste0(index, ".", 1:n())) %>%
-            select(STT, everything())
-    }
-
-    foo <- slice(out, 1) %>%
-        mutate_all(function(x) NA) %>%
-        mutate(A7_LVL1_LABEL = "Theo nghề nghiệp")
-
-    out <- mutate_if(out, is.factor, as.character)
-    out <- bind_rows(foo, out)
-    names(out)[names(out) == "A7_LVL1_LABEL"] <- "Phân loại ngừơi trả lời"
-    out
-}
-
-count_by_median_income <- function(dta, what, pct = TRUE, index) {
-    what_q <- enquo(what)
-    if (pct) {
-        out <- dta %>%
-            count(!!what_q, A8_LABEL, .drop = FALSE) %>%
-            mutate(perct = round(n * 100 / nrow(dta), 1)) %>%
-            select(-n) %>%
-            spread(!!what_q, perct) %>%
-            mutate(STT = paste0(index, ".", 1:n())) %>%
-            select(STT, everything())
-    } else {
-        out <- dta %>%
-            count(!!what_q, A8_LABEL, .drop = FALSE) %>%
-            spread(!!what_q, n) %>%
-            mutate(STT = paste0(index, ".", 1:n())) %>%
-            select(STT, everything())
-    }
-
-    foo <- slice(out, 1) %>%
-        mutate_all(function(x) NA) %>%
-        mutate(A8_LABEL = "Theo thu nhập bình quân 1 tháng của đáp viên")
-
-    out <- mutate_if(out, is.factor, as.character)
-    out <- bind_rows(foo, out)
-    names(out)[names(out) == "A8_LABEL"] <- "Phân loại ngừơi trả lời"
-    out
-}
-
-count_by_income_per_capita <- function(dta, what, pct = TRUE, index) {
-    what_q <- enquo(what)
-
-    if (pct) {
-        out <- dta %>%
-            count(!!what_q, A9_LABEL, .drop = FALSE) %>%
-            mutate(perct = round(n * 100 / nrow(dta), 1)) %>%
-            select(-n) %>%
-            spread(!!what_q, perct) %>%
-            mutate(STT = paste0(index, ".", 1:n())) %>%
-            select(STT, everything())
-    } else {
-        out <- dta %>%
-            count(!!what_q, A9_LABEL, .drop = FALSE) %>%
-            spread(!!what_q, n) %>%
-            mutate(STT = paste0(index, ".", 1:n())) %>%
-            select(STT, everything())
-    }
-
-    foo <- slice(out, 1) %>%
-        mutate_all(function(x) NA) %>%
-        mutate(A9_LABEL = "Theo thu nhập bình quân 1 người 1 tháng")
-
-    out <- mutate_if(out, is.factor, as.character)
-    out <- bind_rows(foo, out)
-    names(out)[names(out) == "A9_LABEL"] <- "Phân loại ngừơi trả lời"
-    out
-}
+count_by_gender <- count_by_(A4_LABEL, lab = "Theo giới tính")
+count_by_age <- count_by_(AGE_BINS, lab = "Theo độ tuổi")
+count_by_region <- count_by_(TTNT_LABEL, lab = "Theo khu vực")
+count_by_education <- count_by_(A6_LABEL, lab = "Theo trình độ học vấn")
+count_by_ethnicity <- count_by_(A5_LABEL, lab = "Theo dân tộc")
+count_by_occupation <- count_by_(A7_LVL1_LABEL, lab = "Theo nghề nghiệp")
+count_by_median_income <- count_by_(A8_LABEL, lab = "Theo thu nhập bình quân 1 tháng của đáp viên")
+count_by_income_per_capita <- count_by_(A9_LABEL, lab = "Theo thu nhập bình quân 1 người 1 tháng")
 
 count_all <- function(dta, what, index) {
     what_q <- enquo(what)
