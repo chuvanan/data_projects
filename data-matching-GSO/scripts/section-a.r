@@ -37,7 +37,7 @@ A1_0 <- local({
 })
 
 A1_1 <- bind_rows(
-    count_all(fisf, AGE_BINS, index = "A"),
+    count_all(fisf, AGE_BINS, index = "A", pct = FALSE),
     count_by_education(fisf, what = AGE_BINS, pct = FALSE, index = "A1"),
     count_by_occupation(fisf, what = AGE_BINS, pct = FALSE, index = "A2"),
     count_by_median_income(fisf, what = AGE_BINS, pct = FALSE, index = "A3"),
@@ -46,7 +46,7 @@ A1_1 <- bind_rows(
 A1_1 <- adjust_colnames(A1_1, "Theo độ tuổi")
 
 A1_2 <- bind_rows(
-    count_all(fisf, A4_LABEL, index = "A"),
+    count_all(fisf, A4_LABEL, index = "A", pct = FALSE),
     count_by_education(fisf, what = A4_LABEL, pct = FALSE, index = "A1"),
     count_by_occupation(fisf, what = A4_LABEL, pct = FALSE, index = "A2"),
     count_by_median_income(fisf, what = A4_LABEL, pct = FALSE, index = "A3"),
@@ -55,7 +55,7 @@ A1_2 <- bind_rows(
 A1_2 <- adjust_colnames(A1_2, "Theo giới tính")
 
 A1_3 <- bind_rows(
-    count_all(fisf, A5_LABEL, index = "A"),
+    count_all(fisf, A5_LABEL, index = "A", pct = FALSE),
     count_by_education(fisf, what = A5_LABEL, pct = FALSE, index = "A1"),
     count_by_occupation(fisf, what = A5_LABEL, pct = FALSE, index = "A2"),
     count_by_median_income(fisf, what = A5_LABEL, pct = FALSE, index = "A3"),
@@ -64,7 +64,7 @@ A1_3 <- bind_rows(
 A1_3 <- adjust_colnames(A1_3, "Theo dân tộc")
 
 A1_4 <- bind_rows(
-    count_all(fisf, TTNT_LABEL, index = "A"),
+    count_all(fisf, TTNT_LABEL, index = "A", pct = FALSE),
     count_by_education(fisf, what = TTNT_LABEL, pct = FALSE, index = "A1"),
     count_by_occupation(fisf, what = TTNT_LABEL, pct = FALSE, index = "A2"),
     count_by_median_income(fisf, what = TTNT_LABEL, pct = FALSE, index = "A3"),
