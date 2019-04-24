@@ -65,6 +65,8 @@ E1_2 <- bind_cols(
 
 ## E4 ------------------------------
 
+## LÝ DO ĐI VAY
+
 fisf <- fisf %>%
     mutate(E4_1_LABEL = onehot_encoding(select(fisf, matches("E4_[0-9]$")), 1)) %>%
     mutate(E4_2_LABEL = onehot_encoding(select(fisf, matches("E4_[0-9]$")), 2)) %>%
@@ -104,6 +106,8 @@ E1_4 <- bind_rows(
 )
 
 ## E3 ------------------------------
+
+## NGUỒN CẤP KHOẢN VAY
 
 fisf <- fisf %>%
     mutate(E3_1_LABEL = onehot_encoding(select(fisf, matches("E3_[0-9]$")), 1)) %>%
@@ -173,7 +177,7 @@ fisf <- fisf %>%
                E6 == 2 ~ "Không"
            ))
 
-E6 <- count_response(fisf, E6_LABEL, index = "E6")
+E6 <- count_response(filter(fisf, E5 == 1), E6_LABEL, index = "E6")
 
 E6 <- E6 %>%
     select(STT, `Phân loại ngừơi trả lời`,
@@ -182,7 +186,7 @@ E6 <- E6 %>%
 
 ## E7 ------------------------------
 
-NNfisf <- fisf %>%
+fisf <- fisf %>%
     mutate(E7 = fill_missval(E7))
 
 fisf <- fisf %>%
@@ -210,7 +214,7 @@ fisf <- fisf %>%
                E8 == 2 ~ "Không"
            ))
 
-E8 <- count_response(fisf, E8_LABEL, index = "E8")
+E8 <- count_response(filter(fisf, E7 == 1), E8_LABEL, index = "E8")
 
 E8 <- E8 %>%
     select(STT, `Phân loại ngừơi trả lời`,
