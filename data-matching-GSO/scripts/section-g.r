@@ -36,15 +36,15 @@ fisf <- fisf %>%
     mutate(G2_8_LABEL = onehot_encoding(select(fisf, matches("G2_[0-9]$")), 8)) %>%
     mutate(G2_9_LABEL = onehot_encoding(select(fisf, matches("G2_[0-9]$")), 9))
 
-G2_1 <- count_response(fisf, G2_1_LABEL, index = "G2_1")
-G2_2 <- count_response(fisf, G2_2_LABEL, index = "G2_2")
-G2_3 <- count_response(fisf, G2_3_LABEL, index = "G2_3")
-G2_4 <- count_response(fisf, G2_4_LABEL, index = "G2_4")
-G2_5 <- count_response(fisf, G2_5_LABEL, index = "G2_5")
-G2_6 <- count_response(fisf, G2_6_LABEL, index = "G2_6")
-G2_7 <- count_response(fisf, G2_7_LABEL, index = "G2_7")
-G2_8 <- count_response(fisf, G2_8_LABEL, index = "G2_8")
-G2_9 <- count_response(fisf, G2_9_LABEL, index = "G2_9")
+G2_1 <- count_response(filter(fisf, G1 == 1), G2_1_LABEL, index = "G2_1")
+G2_2 <- count_response(filter(fisf, G1 == 1), G2_2_LABEL, index = "G2_2")
+G2_3 <- count_response(filter(fisf, G1 == 1), G2_3_LABEL, index = "G2_3")
+G2_4 <- count_response(filter(fisf, G1 == 1), G2_4_LABEL, index = "G2_4")
+G2_5 <- count_response(filter(fisf, G1 == 1), G2_5_LABEL, index = "G2_5")
+G2_6 <- count_response(filter(fisf, G1 == 1), G2_6_LABEL, index = "G2_6")
+G2_7 <- count_response(filter(fisf, G1 == 1), G2_7_LABEL, index = "G2_7")
+G2_8 <- count_response(filter(fisf, G1 == 1), G2_8_LABEL, index = "G2_8")
+G2_9 <- count_response(filter(fisf, G1 == 1), G2_9_LABEL, index = "G2_9")
 
 G2 <- bind_cols(
     select(G2_1, STT, `Phân loại ngừơi trả lời`, `Nguồn tiết kiệm` = `Có`),
