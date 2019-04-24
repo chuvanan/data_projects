@@ -6,6 +6,8 @@ source("02-process.R")
 
 ## C1 ------------------------------
 
+## CÓ TÀI KHOẢN TIẾT KIỆM?
+
 fisf <- fisf %>%
     mutate(C1A1_LABEL = onehot_encoding(select(fisf, matches("C1A_[0-9]$")), 1)) %>%
     mutate(C1B1_LABEL = onehot_encoding(select(fisf, matches("C1B_[0-9]$")), 1)) %>%
@@ -14,21 +16,21 @@ fisf <- fisf %>%
     mutate(C1E1_LABEL = onehot_encoding(select(fisf, matches("C1E$")), 1)) %>%
     mutate(C1F1_LABEL = onehot_encoding(select(fisf, matches("C1F$")), 1))
 
-C1A1 <- count_response(fisf, C1A1_LABEL, index = "C1_1")
+C1A1 <- count_response(fisf, C1A1_LABEL, index = "C1.1")
 C1A1 <- add_rsp(C1A1, c("Có", "Không"))
-C1B1 <- count_response(fisf, C1B1_LABEL, index = "C1_1")
+C1B1 <- count_response(fisf, C1B1_LABEL, index = "C1.1")
 C1B1 <- add_rsp(C1B1, c("Có", "Không"))
-C1C1 <- count_response(fisf, C1C1_LABEL, index = "C1_1")
+C1C1 <- count_response(fisf, C1C1_LABEL, index = "C1.1")
 C1C1 <- add_rsp(C1C1, c("Có", "Không"))
-C1D1 <- count_response(fisf, C1D1_LABEL, index = "C1_1")
+C1D1 <- count_response(fisf, C1D1_LABEL, index = "C1.1")
 C1D1 <- add_rsp(C1D1, c("Có", "Không"))
-C1E1 <- count_response(fisf, C1E1_LABEL, index = "C1_1")
+C1E1 <- count_response(fisf, C1E1_LABEL, index = "C1.1")
 C1E1 <- add_rsp(C1E1, c("Có", "Không"))
-C1F1 <- count_response(fisf, C1F1_LABEL, index = "C1_1")
+C1F1 <- count_response(fisf, C1F1_LABEL, index = "C1.1")
 C1F1 <- add_rsp(C1F1, c("Có", "Không"))
 
 C1_1 <- bind_cols(
-    select(C1A1, STT, `Phân loại ngừơi trả lời`, `Ngân hàng  thương mại` = `Có`),
+    select(C1A1, STT, `Phân loại ngừơi trả lời`, `Ngân hàng thương mại` = `Có`),
     select(C1B1, `Ngân hàng Chính sách xã hội` = `Có`),
     select(C1C1, `Ngân hàng Hợp tác xã` = `Có`),
     select(C1D1, `Tổ chức cung ứng dịch vụ trung gian thanh toán/Tổ chức công nghệ tài chính - FinTech` = `Có`),
@@ -36,45 +38,49 @@ C1_1 <- bind_cols(
     select(C1F1, `Quỹ tín dụng nhân dân` = `Có`)
 )
 
+## CÓ TÀI KHOẢN GIAO DỊCH/THANH TOÁN?
+
 fisf <- fisf %>%
     mutate(C1A2_LABEL = onehot_encoding(select(fisf, matches("C1A_[0-9]$")), 2)) %>%
     mutate(C1B2_LABEL = onehot_encoding(select(fisf, matches("C1B_[0-9]$")), 2)) %>%
     mutate(C1C2_LABEL = onehot_encoding(select(fisf, matches("C1C_[0-9]$")), 2)) %>%
     mutate(C1D2_LABEL = onehot_encoding(select(fisf, matches("C1D_[0-9]$")), 2))
 
-C1A2 <- count_response(fisf, C1A2_LABEL, index = "C1_2")
+C1A2 <- count_response(fisf, C1A2_LABEL, index = "C1.2")
 C1A2 <- add_rsp(C1A2, c("Có", "Không"))
-C1B2 <- count_response(fisf, C1B2_LABEL, index = "C1_2")
+C1B2 <- count_response(fisf, C1B2_LABEL, index = "C1.2")
 C1B2 <- add_rsp(C1B2, c("Có", "Không"))
-C1C2 <- count_response(fisf, C1C2_LABEL, index = "C1_2")
+C1C2 <- count_response(fisf, C1C2_LABEL, index = "C1.2")
 C1C2 <- add_rsp(C1C2, c("Có", "Không"))
-C1D2 <- count_response(fisf, C1D2_LABEL, index = "C1_2")
+C1D2 <- count_response(fisf, C1D2_LABEL, index = "C1.2")
 C1D2 <- add_rsp(C1D2, c("Có", "Không"))
 
 C1_2 <- bind_cols(
-    select(C1A2, STT, `Phân loại ngừơi trả lời`, `Ngân hàng  thương mại` = `Có`),
+    select(C1A2, STT, `Phân loại ngừơi trả lời`, `Ngân hàng thương mại` = `Có`),
     select(C1B2, `Ngân hàng Chính sách xã hội` = `Có`),
     select(C1C2, `Ngân hàng Hợp tác xã` = `Có`),
     select(C1D2, `Tổ chức cung ứng dịch vụ trung gian thanh toán/Tổ chức công nghệ tài chính - FinTech` = `Có`)
 )
 
+## CÓ TÀI KHOẢN TIẾT KIỆM HOẶC TÀI KHOẢN GIAO DỊCH/THANH TOÁN?
+
 fisf <- fisf %>%
-    mutate(C1A3_LABEL = onehot_encoding(select(fisf, matches("C1A_[0-9]$")), c(1, 2))) %>%
+    MUTATE(C1A3_LABEL = onehot_encoding(select(fisf, matches("C1A_[0-9]$")), c(1, 2))) %>%
     mutate(C1B3_LABEL = onehot_encoding(select(fisf, matches("C1B_[0-9]$")), c(1, 2))) %>%
     mutate(C1C3_LABEL = onehot_encoding(select(fisf, matches("C1C_[0-9]$")), c(1, 2))) %>%
     mutate(C1D3_LABEL = onehot_encoding(select(fisf, matches("C1D_[0-9]$")), c(1, 2)))
 
-C1A3 <- count_response(fisf, C1A3_LABEL, index = "C1_3")
+C1A3 <- count_response(fisf, C1A3_LABEL, index = "C1.3")
 C1A3 <- add_rsp(C1A3, c("Có", "Không"))
-C1B3 <- count_response(fisf, C1B3_LABEL, index = "C1_3")
+C1B3 <- count_response(fisf, C1B3_LABEL, index = "C1.3")
 C1B3 <- add_rsp(C1B3, c("Có", "Không"))
-C1C3 <- count_response(fisf, C1C3_LABEL, index = "C1_3")
+C1C3 <- count_response(fisf, C1C3_LABEL, index = "C1.3")
 C1C3 <- add_rsp(C1C3, c("Có", "Không"))
-C1D3 <- count_response(fisf, C1D3_LABEL, index = "C1_3")
+C1D3 <- count_response(fisf, C1D3_LABEL, index = "C1.3")
 C1D3 <- add_rsp(C1D3, c("Có", "Không"))
 
 C1_3 <- bind_cols(
-    select(C1A3, STT, `Phân loại ngừơi trả lời`, `Ngân hàng  thương mại` = `Có`),
+    select(C1A3, STT, `Phân loại ngừơi trả lời`, `Ngân hàng thương mại` = `Có`),
     select(C1B3, `Ngân hàng Chính sách xã hội` = `Có`),
     select(C1C3, `Ngân hàng Hợp tác xã` = `Có`),
     select(C1D3, `Tổ chức cung ứng dịch vụ trung gian thanh toán/Tổ chức công nghệ tài chính - FinTech` = `Có`)
@@ -82,6 +88,8 @@ C1_3 <- bind_cols(
 
 
 ## C2 ------------------------------
+
+## TRONG 12 THÁNG QUA, ÔNG/ BÀ CÓ THỰC HIỆN CÁC GIAO DỊCH DƯỚI ĐÂY KHÔNG?
 
 fisf <- local({
     ori_cols <- paste0("C2", LETTERS[1:14])
@@ -103,7 +111,7 @@ fisf <- fisf %>%
                          levels = c("Có", "Không"), ordered = TRUE)
               })
 
-C2A <- count_response(fisf, C2A_LABEL, index = "C2")
+C2A <- count_response(fisf, C2A_LABEL, index = "C2A")
 C2A <- add_rsp(C2A, c("Có", "Không"))
 C2B <- count_response(fisf, C2B_LABEL, index = "C2B")
 C2B <- add_rsp(C2B, c("Có", "Không"))
@@ -151,6 +159,9 @@ C2 <- bind_cols(
 
 ## C3 ------------------------------
 
+## ÔNG/BÀ ĐÃ THỰC HIỆN NHỮNG GIAO DỊCH NÀY BẰNG TIỀN MẶT HAY THÔNG QUA TÀI KHOẢN
+## GIAO DỊCH TẠI CÁC TỔ CHỨC TÀI CHÍNH SAU?
+
 fisf <- local({
 
     C3_LABEL_COLS <- paste0(
@@ -185,77 +196,79 @@ bind_cols_C3 <- function(x1, x2, x3) {
     )
 }
 
-C3A1 <- count_response(fisf, C3A1_LABEL, index = "C3_1")
-C3A2 <- count_response(fisf, C3A2_LABEL, index = "C3_2")
-C3A3 <- count_response(fisf, C3A3_LABEL, index = "C3_3")
+C3A1 <- count_response(fisf, C3A1_LABEL, index = "C3A")
+C3A2 <- count_response(fisf, C3A2_LABEL, index = "C3A")
+C3A3 <- count_response(fisf, C3A3_LABEL, index = "C3A")
 C3A <- bind_cols_C3(C3A1, C3A2, C3A3)
 
-C3B1 <- count_response(fisf, C3B1_LABEL, index = "C3_1")
-C3B2 <- count_response(fisf, C3B2_LABEL, index = "C3_2")
-C3B3 <- count_response(fisf, C3B3_LABEL, index = "C3_3")
+C3B1 <- count_response(fisf, C3B1_LABEL, index = "C3B")
+C3B2 <- count_response(fisf, C3B2_LABEL, index = "C3B")
+C3B3 <- count_response(fisf, C3B3_LABEL, index = "C3B")
 C3B <- bind_cols_C3(C3B1, C3B2, C3B3)
 
-C3C1 <- count_response(fisf, C3C1_LABEL, index = "C3_1")
-C3C2 <- count_response(fisf, C3C2_LABEL, index = "C3_2")
-C3C3 <- count_response(fisf, C3C3_LABEL, index = "C3_3")
+C3C1 <- count_response(fisf, C3C1_LABEL, index = "C3C")
+C3C2 <- count_response(fisf, C3C2_LABEL, index = "C3C")
+C3C3 <- count_response(fisf, C3C3_LABEL, index = "C3C")
 C3C <- bind_cols_C3(C3C1, C3C2, C3C3)
 
-C3D1 <- count_response(fisf, C3D1_LABEL, index = "C3_1")
-C3D2 <- count_response(fisf, C3D2_LABEL, index = "C3_2")
-C3D3 <- count_response(fisf, C3D3_LABEL, index = "C3_3")
+C3D1 <- count_response(fisf, C3D1_LABEL, index = "C3D")
+C3D2 <- count_response(fisf, C3D2_LABEL, index = "C3D")
+C3D3 <- count_response(fisf, C3D3_LABEL, index = "C3D")
 C3D <- bind_cols_C3(C3D1, C3D2, C3D3)
 
-C3E1 <- count_response(fisf, C3E1_LABEL, index = "C3_1")
-C3E2 <- count_response(fisf, C3E2_LABEL, index = "C3_2")
-C3E3 <- count_response(fisf, C3E3_LABEL, index = "C3_3")
+C3E1 <- count_response(fisf, C3E1_LABEL, index = "C3E")
+C3E2 <- count_response(fisf, C3E2_LABEL, index = "C3E")
+C3E3 <- count_response(fisf, C3E3_LABEL, index = "C3E")
 C3E <- bind_cols_C3(C3E1, C3E2, C3E3)
 
-C3F1 <- count_response(fisf, C3F1_LABEL, index = "C3_1")
-C3F2 <- count_response(fisf, C3F2_LABEL, index = "C3_2")
-C3F3 <- count_response(fisf, C3F3_LABEL, index = "C3_3")
+C3F1 <- count_response(fisf, C3F1_LABEL, index = "C3F")
+C3F2 <- count_response(fisf, C3F2_LABEL, index = "C3F")
+C3F3 <- count_response(fisf, C3F3_LABEL, index = "C3F")
 C3F <- bind_cols_C3(C3F1, C3F2, C3F3)
 
-C3G1 <- count_response(fisf, C3G1_LABEL, index = "C3_1")
-C3G2 <- count_response(fisf, C3G2_LABEL, index = "C3_2")
-C3G3 <- count_response(fisf, C3G3_LABEL, index = "C3_3")
+C3G1 <- count_response(fisf, C3G1_LABEL, index = "C3G")
+C3G2 <- count_response(fisf, C3G2_LABEL, index = "C3G")
+C3G3 <- count_response(fisf, C3G3_LABEL, index = "C3G")
 C3G <- bind_cols_C3(C3G1, C3G2, C3G3)
 
-C3H1 <- count_response(fisf, C3H1_LABEL, index = "C3_1")
-C3H2 <- count_response(fisf, C3H2_LABEL, index = "C3_2")
-C3H3 <- count_response(fisf, C3H3_LABEL, index = "C3_3")
+C3H1 <- count_response(fisf, C3H1_LABEL, index = "C3H")
+C3H2 <- count_response(fisf, C3H2_LABEL, index = "C3H")
+C3H3 <- count_response(fisf, C3H3_LABEL, index = "C3H")
 C3H <- bind_cols_C3(C3H1, C3H2, C3H3)
 
-C3I1 <- count_response(fisf, C3I1_LABEL, index = "C3_1")
-C3I2 <- count_response(fisf, C3I2_LABEL, index = "C3_2")
-C3I3 <- count_response(fisf, C3I3_LABEL, index = "C3_3")
+C3I1 <- count_response(fisf, C3I1_LABEL, index = "C3I")
+C3I2 <- count_response(fisf, C3I2_LABEL, index = "C3I")
+C3I3 <- count_response(fisf, C3I3_LABEL, index = "C3I")
 C3I <- bind_cols_C3(C3I1, C3I2, C3I3)
 
-C3J1 <- count_response(fisf, C3J1_LABEL, index = "C3_1")
-C3J2 <- count_response(fisf, C3J2_LABEL, index = "C3_2")
-C3J3 <- count_response(fisf, C3J3_LABEL, index = "C3_3")
+C3J1 <- count_response(fisf, C3J1_LABEL, index = "C3J")
+C3J2 <- count_response(fisf, C3J2_LABEL, index = "C3J")
+C3J3 <- count_response(fisf, C3J3_LABEL, index = "C3J")
 C3J <- bind_cols_C3(C3J1, C3J2, C3J3)
 
-C3K1 <- count_response(fisf, C3K1_LABEL, index = "C3_1")
-C3K2 <- count_response(fisf, C3K2_LABEL, index = "C3_2")
-C3K3 <- count_response(fisf, C3K3_LABEL, index = "C3_3")
+C3K1 <- count_response(fisf, C3K1_LABEL, index = "C3K")
+C3K2 <- count_response(fisf, C3K2_LABEL, index = "C3K")
+C3K3 <- count_response(fisf, C3K3_LABEL, index = "C3K")
 C3K <- bind_cols_C3(C3K1, C3K2, C3K3)
 
-C3L1 <- count_response(fisf, C3L1_LABEL, index = "C3_1")
-C3L2 <- count_response(fisf, C3L2_LABEL, index = "C3_2")
-C3L3 <- count_response(fisf, C3L3_LABEL, index = "C3_3")
+C3L1 <- count_response(fisf, C3L1_LABEL, index = "C3L")
+C3L2 <- count_response(fisf, C3L2_LABEL, index = "C3L")
+C3L3 <- count_response(fisf, C3L3_LABEL, index = "C3L")
 C3L <- bind_cols_C3(C3L1, C3L2, C3L3)
 
-C3M1 <- count_response(fisf, C3M1_LABEL, index = "C3_1")
-C3M2 <- count_response(fisf, C3M2_LABEL, index = "C3_2")
-C3M3 <- count_response(fisf, C3M3_LABEL, index = "C3_3")
+C3M1 <- count_response(fisf, C3M1_LABEL, index = "C3M")
+C3M2 <- count_response(fisf, C3M2_LABEL, index = "C3M")
+C3M3 <- count_response(fisf, C3M3_LABEL, index = "C3M")
 C3M <- bind_cols_C3(C3M1, C3M2, C3M3)
 
-C3N1 <- count_response(fisf, C3N1_LABEL, index = "C3_1")
-C3N2 <- count_response(fisf, C3N2_LABEL, index = "C3_2")
-C3N3 <- count_response(fisf, C3N3_LABEL, index = "C3_3")
+C3N1 <- count_response(fisf, C3N1_LABEL, index = "C3N")
+C3N2 <- count_response(fisf, C3N2_LABEL, index = "C3N")
+C3N3 <- count_response(fisf, C3N3_LABEL, index = "C3N")
 C3N <- bind_cols_C3(C3N1, C3N2, C3N3)
 
 ## C4 ------------------------------
+
+## KÊNH CUNG ỨNG?
 
 fisf <- local({
 
@@ -444,6 +457,8 @@ C4N <- bind_cols_C4(C4N1, C4N2, C4N3, C4N4, C4N5, C4N6, C4N7, C4N8)
 
 ## C5 ------------------------------
 
+## TẦN SUẤT GIAO DỊCH?
+
 fisf <- local({
     ori_cols <- paste0("C5", LETTERS[1:14])
     new_cols <- paste0(ori_cols, "_LABEL")
@@ -469,20 +484,20 @@ fisf <- fisf %>%
                          ordered = TRUE)
               })
 
-C5A <- count_response(filter(fisf, C2A == 1), C5A_LABEL, index = "C5A")
-C5B <- count_response(filter(fisf, C2B == 1), C5B_LABEL, index = "C5B")
-C5C <- count_response(filter(fisf, C2C == 1), C5C_LABEL, index = "C5C")
-C5D <- count_response(filter(fisf, C2D == 1), C5D_LABEL, index = "C5D")
-C5E <- count_response(filter(fisf, C2E == 1), C5E_LABEL, index = "C5E")
-C5F <- count_response(filter(fisf, C2F == 1), C5F_LABEL, index = "C5F")
-C5G <- count_response(filter(fisf, C2G == 1), C5G_LABEL, index = "C5G")
-C5H <- count_response(filter(fisf, C2H == 1), C5H_LABEL, index = "C5H")
-C5I <- count_response(filter(fisf, C2I == 1), C5I_LABEL, index = "C5I")
-C5J <- count_response(filter(fisf, C2J == 1), C5J_LABEL, index = "C5J")
-C5K <- count_response(filter(fisf, C2K == 1), C5K_LABEL, index = "C5K")
-C5L <- count_response(filter(fisf, C2L == 1), C5L_LABEL, index = "C5L")
-C5M <- count_response(filter(fisf, C2M == 1), C5M_LABEL, index = "C5M")
-C5N <- count_response(filter(fisf, C2N == 1), C5N_LABEL, index = "C5N")
+C5A <- count_response(fisf, C5A_LABEL, index = "C5A")
+C5B <- count_response(fisf, C5B_LABEL, index = "C5B")
+C5C <- count_response(fisf, C5C_LABEL, index = "C5C")
+C5D <- count_response(fisf, C5D_LABEL, index = "C5D")
+C5E <- count_response(fisf, C5E_LABEL, index = "C5E")
+C5F <- count_response(fisf, C5F_LABEL, index = "C5F")
+C5G <- count_response(fisf, C5G_LABEL, index = "C5G")
+C5H <- count_response(fisf, C5H_LABEL, index = "C5H")
+C5I <- count_response(fisf, C5I_LABEL, index = "C5I")
+C5J <- count_response(fisf, C5J_LABEL, index = "C5J")
+C5K <- count_response(fisf, C5K_LABEL, index = "C5K")
+C5L <- count_response(fisf, C5L_LABEL, index = "C5L")
+C5M <- count_response(fisf, C5M_LABEL, index = "C5M")
+C5N <- count_response(fisf, C5N_LABEL, index = "C5N")
 
 
 ## C2-3-4-5 ------------------------------
@@ -605,6 +620,8 @@ C6B <- add_rsp(C6B, c("Có", "Không", "Không phù hợp"))
 
 ## C7 ------------------------------
 
+## RÀO CẢN TÍN DỤNG SỬ DỤNG SẢN PHẨM DỊCH VỤ NGÂN HÀNG
+
 fisf <- fisf %>%
     mutate(C7A_1_LABEL = onehot_encoding(select(fisf, matches("C7A_[0-9]$")), 1)) %>%
     mutate(C7A_2_LABEL = onehot_encoding(select(fisf, matches("C7A_[0-9]$")), 2)) %>%
@@ -646,6 +663,8 @@ C7_1 <- bind_cols(
     select(C7A_10, -STT, -`Phân loại ngừơi trả lời`, `Lý do không sử dụng hoặc không hài lòng - Không cần thiết` = `Có`),
     select(C7A_11, -STT, -`Phân loại ngừơi trả lời`, `Lý do không sử dụng hoặc không hài lòng - Lý do khác` = `Có`)
 )
+
+## RÀO CẢN TÍN DỤNG SỬ DỤNG SẢN PHẨM DỊCH VỤ PHI NGÂN HÀNG
 
 fisf <- fisf %>%
     mutate(C7B_1_LABEL = onehot_encoding(select(fisf, matches("C7B_[0-9]$")), 1)) %>%
