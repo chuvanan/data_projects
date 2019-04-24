@@ -111,9 +111,6 @@ B2 <- bind_cols(
     select(B2D, -STT, -`Phân loại ngừơi trả lời`)
 )
 
-## BO SUNG B2_TT
-## Bo SUNG B2_NT
-
 ## B3 ------------------------------
 
 fisf <- fisf %>%
@@ -158,22 +155,14 @@ fisf <- fisf %>%
                                  ordered = TRUE))
 
 B3_0_TT <- bind_rows(
-    count_all(filter(fisf, TTNT == 1), B3A_LABEL, index = "B3a.1") %>%
-    mutate_if(is.numeric, function(x) round(x * 100 / nrow(fisf), 1)),
-    count_all(filter(fisf, TTNT == 1), B3B_LABEL, index = "B3a.2") %>%
-    mutate_if(is.numeric, function(x) round(x * 100 / nrow(fisf), 1)),
-    count_all(filter(fisf, TTNT == 1), B3C_LABEL, index = "B3a.3") %>%
-    mutate_if(is.numeric, function(x) round(x * 100 / nrow(fisf), 1)),
-    count_all(filter(fisf, TTNT == 1), B3D_LABEL, index = "B3a.4") %>%
-    mutate_if(is.numeric, function(x) round(x * 100 / nrow(fisf), 1)),
-    count_all(filter(fisf, TTNT == 1), B3E_LABEL, index = "B3a.5") %>%
-    mutate_if(is.numeric, function(x) round(x * 100 / nrow(fisf), 1)),
-    count_all(filter(fisf, TTNT == 1), B3F_LABEL, index = "B3a.6") %>%
-    mutate_if(is.numeric, function(x) round(x * 100 / nrow(fisf), 1)),
-    count_all(filter(fisf, TTNT == 1), B3G_LABEL, index = "B3a.7") %>%
-    mutate_if(is.numeric, function(x) round(x * 100 / nrow(fisf), 1)),
-    count_all(filter(fisf, TTNT == 1), B3H_LABEL, index = "B3a.8") %>%
-    mutate_if(is.numeric, function(x) round(x * 100 / nrow(fisf), 1))
+    count_all(filter(fisf, TTNT == 1), B3A_LABEL, index = "B3a.1"),
+    count_all(filter(fisf, TTNT == 1), B3B_LABEL, index = "B3a.2"),
+    count_all(filter(fisf, TTNT == 1), B3C_LABEL, index = "B3a.3"),
+    count_all(filter(fisf, TTNT == 1), B3D_LABEL, index = "B3a.4"),
+    count_all(filter(fisf, TTNT == 1), B3E_LABEL, index = "B3a.5"),
+    count_all(filter(fisf, TTNT == 1), B3F_LABEL, index = "B3a.6"),
+    count_all(filter(fisf, TTNT == 1), B3G_LABEL, index = "B3a.7"),
+    count_all(filter(fisf, TTNT == 1), B3H_LABEL, index = "B3a.8")
 )
 
 B3_0_TT <- tibble(STT = NA, `Phân loại ngừơi trả lời` = "Khu vực thành thị") %>%
@@ -192,22 +181,14 @@ B3_0_TT <- tibble(STT = NA, `Phân loại ngừơi trả lời` = "Khu vực th�
     rename(`Các loại tiện ích tại khu vực thành thị/nông thôn` = `Phân loại ngừơi trả lời`)
 
 B3_0_NT <- bind_rows(
-    count_all(filter(fisf, TTNT == 2), B3A_LABEL, index = "B3b.1") %>%
-    mutate_if(is.numeric, function(x) round(x * 100 / nrow(fisf), 1)),
-    count_all(filter(fisf, TTNT == 2), B3B_LABEL, index = "B3b.2") %>%
-    mutate_if(is.numeric, function(x) round(x * 100 / nrow(fisf), 1)),
-    count_all(filter(fisf, TTNT == 2), B3C_LABEL, index = "B3b.3") %>%
-    mutate_if(is.numeric, function(x) round(x * 100 / nrow(fisf), 1)),
-    count_all(filter(fisf, TTNT == 2), B3D_LABEL, index = "B3b.4") %>%
-    mutate_if(is.numeric, function(x) round(x * 100 / nrow(fisf), 1)),
-    count_all(filter(fisf, TTNT == 2), B3E_LABEL, index = "B3b.5") %>%
-    mutate_if(is.numeric, function(x) round(x * 100 / nrow(fisf), 1)),
-    count_all(filter(fisf, TTNT == 2), B3F_LABEL, index = "B3b.6") %>%
-    mutate_if(is.numeric, function(x) round(x * 100 / nrow(fisf), 1)),
-    count_all(filter(fisf, TTNT == 2), B3G_LABEL, index = "B3b.7") %>%
-    mutate_if(is.numeric, function(x) round(x * 100 / nrow(fisf), 1)),
-    count_all(filter(fisf, TTNT == 2), B3H_LABEL, index = "B3b.8") %>%
-    mutate_if(is.numeric, function(x) round(x * 100 / nrow(fisf), 1))
+    count_all(filter(fisf, TTNT == 2), B3A_LABEL, index = "B3b.1"),
+    count_all(filter(fisf, TTNT == 2), B3B_LABEL, index = "B3b.2"),
+    count_all(filter(fisf, TTNT == 2), B3C_LABEL, index = "B3b.3"),
+    count_all(filter(fisf, TTNT == 2), B3D_LABEL, index = "B3b.4"),
+    count_all(filter(fisf, TTNT == 2), B3E_LABEL, index = "B3b.5"),
+    count_all(filter(fisf, TTNT == 2), B3F_LABEL, index = "B3b.6"),
+    count_all(filter(fisf, TTNT == 2), B3G_LABEL, index = "B3b.7"),
+    count_all(filter(fisf, TTNT == 2), B3H_LABEL, index = "B3b.8")
 )
 
 B3_0_NT <- tibble(STT = NA, `Phân loại ngừơi trả lời` = "Khu vực nông thôn") %>%
@@ -226,14 +207,14 @@ B3_0_NT <- tibble(STT = NA, `Phân loại ngừơi trả lời` = "Khu vực nô
     rename(`Các loại tiện ích tại khu vực thành thị/nông thôn` = `Phân loại ngừơi trả lời`)
 
 B3_1_TT <- bind_rows(
-    count_all(filter(fisf, TTNT == 1), B3A_LABEL, index = "B3a.1"),
-    count_all(filter(fisf, TTNT == 1), B3B_LABEL, index = "B3a.2"),
-    count_all(filter(fisf, TTNT == 1), B3C_LABEL, index = "B3a.3"),
-    count_all(filter(fisf, TTNT == 1), B3D_LABEL, index = "B3a.4"),
-    count_all(filter(fisf, TTNT == 1), B3E_LABEL, index = "B3a.5"),
-    count_all(filter(fisf, TTNT == 1), B3F_LABEL, index = "B3a.6"),
-    count_all(filter(fisf, TTNT == 1), B3G_LABEL, index = "B3a.7"),
-    count_all(filter(fisf, TTNT == 1), B3H_LABEL, index = "B3a.8")
+    count_all(filter(fisf, TTNT == 1), B3A_LABEL, index = "B3a.1", pct = FALSE),
+    count_all(filter(fisf, TTNT == 1), B3B_LABEL, index = "B3a.2", pct = FALSE),
+    count_all(filter(fisf, TTNT == 1), B3C_LABEL, index = "B3a.3", pct = FALSE),
+    count_all(filter(fisf, TTNT == 1), B3D_LABEL, index = "B3a.4", pct = FALSE),
+    count_all(filter(fisf, TTNT == 1), B3E_LABEL, index = "B3a.5", pct = FALSE),
+    count_all(filter(fisf, TTNT == 1), B3F_LABEL, index = "B3a.6", pct = FALSE),
+    count_all(filter(fisf, TTNT == 1), B3G_LABEL, index = "B3a.7", pct = FALSE),
+    count_all(filter(fisf, TTNT == 1), B3H_LABEL, index = "B3a.8", pct = FALSE)
 )
 
 B3_1_TT <- tibble(STT = NA, `Phân loại ngừơi trả lời` = "Khu vực thành thị") %>%
@@ -252,14 +233,14 @@ B3_1_TT <- tibble(STT = NA, `Phân loại ngừơi trả lời` = "Khu vực th�
     rename(`Các loại tiện ích tại khu vực thành thị/nông thôn` = `Phân loại ngừơi trả lời`)
 
 B3_1_NT <- bind_rows(
-    count_all(filter(fisf, TTNT == 2), B3A_LABEL, index = "B3b.1"),
-    count_all(filter(fisf, TTNT == 2), B3B_LABEL, index = "B3b.2"),
-    count_all(filter(fisf, TTNT == 2), B3C_LABEL, index = "B3b.3"),
-    count_all(filter(fisf, TTNT == 2), B3D_LABEL, index = "B3b.4"),
-    count_all(filter(fisf, TTNT == 2), B3E_LABEL, index = "B3b.5"),
-    count_all(filter(fisf, TTNT == 2), B3F_LABEL, index = "B3b.6"),
-    count_all(filter(fisf, TTNT == 2), B3G_LABEL, index = "B3b.7"),
-    count_all(filter(fisf, TTNT == 2), B3H_LABEL, index = "B3b.8")
+    count_all(filter(fisf, TTNT == 2), B3A_LABEL, index = "B3b.1", pct = FALSE),
+    count_all(filter(fisf, TTNT == 2), B3B_LABEL, index = "B3b.2", pct = FALSE),
+    count_all(filter(fisf, TTNT == 2), B3C_LABEL, index = "B3b.3", pct = FALSE),
+    count_all(filter(fisf, TTNT == 2), B3D_LABEL, index = "B3b.4", pct = FALSE),
+    count_all(filter(fisf, TTNT == 2), B3E_LABEL, index = "B3b.5", pct = FALSE),
+    count_all(filter(fisf, TTNT == 2), B3F_LABEL, index = "B3b.6", pct = FALSE),
+    count_all(filter(fisf, TTNT == 2), B3G_LABEL, index = "B3b.7", pct = FALSE),
+    count_all(filter(fisf, TTNT == 2), B3H_LABEL, index = "B3b.8", pct = FALSE)
 )
 
 B3_1_NT <- tibble(STT = NA, `Phân loại ngừơi trả lời` = "Khu vực nông thôn") %>%
