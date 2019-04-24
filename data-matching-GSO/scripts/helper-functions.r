@@ -83,7 +83,7 @@ count_all <- function(dta, what, index, pct = TRUE) {
         mutate(STT = index,
                `Phân loại ngừơi trả lời` = "Tổng") %>%
         select(STT, `Phân loại ngừơi trả lời`, everything()) %>%
-        mutate_if(out, is.factor, as.character)
+        mutate_if(is.factor, as.character)
     out
 }
 
