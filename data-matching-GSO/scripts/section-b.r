@@ -35,21 +35,19 @@ fisf <- fisf %>%
                               ifelse(. == 1, "Có", "Không")})
 
 B1A <- count_response(fisf, B1A_LABEL, index = "B1")
-B1A <- B1A %>%
-    rename(`Điện thoại cố định để gọi và nhận cuộc gọi cá nhân - Có` = `Có`,
-           `Điện thoại cố định để gọi và nhận cuộc gọi cá nhân - Không` = `Không`)
+B1A <- add_rsp(B1A, c("Có", "Không"))
+B1A <- adjust_colnames(B1A, "Điện thoại cố định để gọi và nhận cuộc gọi cá nhân")
 
 B1B <- count_response(fisf, B1B_LABEL, index = "B1")
-B1B <- B1B %>%
-    rename(`Điện thoại di động để gọi và nhận cuộc gọi cá nhân - Có` = `Có`,
-           `Điện thoại di động để gọi và nhận cuộc gọi cá nhân - Không` = `Không`)
+B1B <- add_rsp(B1B, c("Có", "Không"))
+B1B <- adjust_colnames(B1B, "Điện thoại di động để gọi và nhận cuộc gọi cá nhân")
 
 B1C <- count_response(fisf, B1C_LABEL, index = "B1")
-B1C <- B1C %>%
-    rename(`Điện thoại di động, máy tính hoặc các thiết bị khác để kết nối Internet - Có` = `Có`,
-           `Điện thoại di động, máy tính hoặc các thiết bị khác để kết nối Internet - Không` = `Không`)
+B1C <- add_rsp(B1C, c("Có", "Không"))
+B1C <- adjust_colnames(B1C, "Điện thoại di động, máy tính hoặc các thiết bị khác để kết nối Internet")
 
 B1D <- count_response(fisf, B1D_LABEL, index = "B1")
+B1D <- add_rsp(B1D, c("Có", "Không"))
 B1D <- B1D %>%
     rename(`Không có điện thoại di động, cố định và thiết bị để kết nối internet` = `Có`)
 
@@ -297,9 +295,7 @@ B4A <- bind_rows(
 )
 
 B4A <- add_rsp(B4A, c("Có", "Không", "Không biết"))
-B4A <- rename(B4A, `Tổng mẫu/cả nước - Có` = `Có`,
-              `Tổng mẫu/cả nước - Không` = `Không`,
-              `Tổng mẫu/cả nước - Không biết` = `Không biết`)
+B4A <- adjust_colnames(B4A, "Tổng mẫu/cả nước")
 
 B4B <- bind_rows(
     count_all(filter(fisf, TTNT == 1), B4_LABEL, index = "B4"),
@@ -312,10 +308,7 @@ B4B <- bind_rows(
 )
 
 B4B <- add_rsp(B4B, c("Có", "Không", "Không biết"))
-B4B <- rename(B4B, `Tại khu vực thành thị - Có` = `Có`,
-              `Tại khu vực thành thị - Không` = `Không`,
-              `Tại khu vực thành thị - Không biết` = `Không biết`)
-
+B4B <- adjust_colnames(B4B, "Tại khu vực thành thị")
 
 B4C <- bind_rows(
     count_all(filter(fisf, TTNT == 2), B4_LABEL, index = "B4"),
@@ -328,21 +321,30 @@ B4C <- bind_rows(
 )
 
 B4C <- add_rsp(B4C, c("Có", "Không", "Không biết"))
-B4C <- rename(B4C, `Tại khu vực nông thôn - Có` = `Có`,
-              `Tại khu vực nông thôn - Không` = `Không`,
-              `Tại khu vực nông thôn - Không biết` = `Không biết`)
+B4C <- adjust_colnames(B4C, "Tại khu vực nông thôn")
 
-B4 <- bind_cols(
-    B4A,
-    select(B4B, -STT, -`Phân loại ngừơi trả lời`),
-    select(B4C, -STT, -`Phân loại ngừơi trả lời`)
-)
+## Not really elegant, but this works!!!
+B4 <- try({
+    bind_cols(
+        B4A,
+        select(B4B, -STT, -`Phân loại ngừơi trả lời`),
+        select(B4C, -STT, -`Phân loại ngừơi trả lời`)
+    )
+}, silent = TRUE)
 
 ## Export ------------------------------
 
-openxlsx::write.xlsx(list(B1 = B1,
-                          B2 = B2,
-                          B3_1 = B3_0,
-                          B3_2 = B3_2,
-                          B4 = B4),
-                     file = "../outputs/SECTION-B.xlsx")
+if (STRATIFIED_BY_REGION) {
+    filename <- paste0("../outputs/SECTION-B ", WHICH_REGION, ".xlsx")
+    openxlsx::write.xlsx(list(B1 = B1,
+                              B2 = B2),
+                         file = filename)
+} else {
+    filename <- paste0("../outputs/SECTION-B TOANQUOC.xlsx")
+    openxlsx::write.xlsx(list(B1 = B1,
+                              B2 = B2,
+                              B3_1 = B3_0,
+                              B3_2 = B3_2,
+                              B4 = B4),
+                         file = filename)
+}
