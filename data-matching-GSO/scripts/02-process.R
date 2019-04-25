@@ -167,3 +167,22 @@ fisf <- fisf %>%
                                         "Không biết",
                                         "Từ chối trả lời"),
                              ordered = TRUE))
+
+## -----------------------------------------------------------------------------
+## Whether or not to stratify the data set by `region`
+## -----------------------------------------------------------------------------
+
+STRATIFIED_BY_REGION <- FALSE
+WHICH_REGION <- "NONGTHON"
+
+if (STRATIFIED_BY_REGION) {
+    switch(WHICH_REGION,
+           THANHTHI = {
+               count_response <- count_response_stratified_by_region
+               fisf <- filter(fisf, TTNT == 1)
+           },
+           NONGTHON = {
+               count_response <- count_response_stratified_by_region
+               fisf <- filter(fisf, TTNT == 2)
+           })
+}
