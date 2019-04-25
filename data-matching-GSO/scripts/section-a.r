@@ -83,4 +83,4 @@ A <- select(A, STT, `Phân loại ngừơi trả lời`, `Tổng`, everything())
 
 ## Export ------------------------------
 
-openxlsx::write.xlsx(list(A = A), file = "../outputs/SECTION-A.xlsx")
+openxlsx::write.xlsx(list(A = A), file = "../outputs/SECTION-A TOANQUOC.xlsx")
