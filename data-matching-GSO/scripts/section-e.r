@@ -17,6 +17,7 @@ fisf <- fisf %>%
            ))
 
 E1 <- count_response(fisf, E1_LABEL, index = "E1")
+E1 <- add_rsp(E1, c("Có", "Không"))
 
 E1 <- E1 %>%
     select(STT, `Phân loại ngừơi trả lời`,
@@ -37,14 +38,24 @@ fisf <- fisf %>%
     mutate(E2_9_LABEL = onehot_encoding(select(fisf, matches("E2_[0-9]$")), 9))
 
 E2_1 <- count_response(filter(fisf, E1 == 2), E2_1_LABEL, index = "E2_1")
+E2_1 <- add_rsp(E2_1, c("Có", "Không"))
 E2_2 <- count_response(filter(fisf, E1 == 2), E2_2_LABEL, index = "E2_2")
+E2_2 <- add_rsp(E2_2, c("Có", "Không"))
 E2_3 <- count_response(filter(fisf, E1 == 2), E2_3_LABEL, index = "E2_3")
+E2_3 <- add_rsp(E2_3, c("Có", "Không"))
 E2_4 <- count_response(filter(fisf, E1 == 2), E2_4_LABEL, index = "E2_4")
+E2_4 <- add_rsp(E2_4, c("Có", "Không"))
 E2_5 <- count_response(filter(fisf, E1 == 2), E2_5_LABEL, index = "E2_5")
+E2_5 <- add_rsp(E2_5, c("Có", "Không"))
 E2_6 <- count_response(filter(fisf, E1 == 2), E2_6_LABEL, index = "E2_6")
+E2_6 <- add_rsp(E2_6, c("Có", "Không"))
 E2_7 <- count_response(filter(fisf, E1 == 2), E2_7_LABEL, index = "E2_7")
+E2_7 <- add_rsp(E2_7, c("Có", "Không"))
 E2_8 <- count_response(filter(fisf, E1 == 2), E2_8_LABEL, index = "E2_8")
+E2_8 <- add_rsp(E2_8, c("Có", "Không"))
 E2_9 <- count_response(filter(fisf, E1 == 2), E2_9_LABEL, index = "E2_9")
+E2_9 <- add_rsp(E2_9, c("Có", "Không"))
+
 
 E2 <- bind_cols(
     select(E2_1, STT, `Phân loại ngừơi trả lời`, `Sợ cảnh nợ nần` = `Không`),
@@ -79,14 +90,23 @@ fisf <- fisf %>%
     mutate(E4_9_LABEL = onehot_encoding(select(fisf, matches("E4_[0-9]$")), 9))
 
 E4_1 <- count_response(filter(fisf, E1 == 1), E4_1_LABEL, index = "E4_1")
+E4_1 <- add_rsp(E4_1, c("Có", "Không"))
 E4_2 <- count_response(filter(fisf, E1 == 1), E4_2_LABEL, index = "E4_2")
+E4_2 <- add_rsp(E4_2, c("Có", "Không"))
 E4_3 <- count_response(filter(fisf, E1 == 1), E4_3_LABEL, index = "E4_3")
+E4_3 <- add_rsp(E4_3, c("Có", "Không"))
 E4_4 <- count_response(filter(fisf, E1 == 1), E4_4_LABEL, index = "E4_4")
+E4_4 <- add_rsp(E4_4, c("Có", "Không"))
 E4_5 <- count_response(filter(fisf, E1 == 1), E4_5_LABEL, index = "E4_5")
+E4_5 <- add_rsp(E4_5, c("Có", "Không"))
 E4_6 <- count_response(filter(fisf, E1 == 1), E4_6_LABEL, index = "E4_6")
+E4_6 <- add_rsp(E4_6, c("Có", "Không"))
 E4_7 <- count_response(filter(fisf, E1 == 1), E4_7_LABEL, index = "E4_7")
+E4_7 <- add_rsp(E4_7, c("Có", "Không"))
 E4_8 <- count_response(filter(fisf, E1 == 1), E4_8_LABEL, index = "E4_8")
+E4_8 <- add_rsp(E4_8, c("Có", "Không"))
 E4_9 <- count_response(filter(fisf, E1 == 1), E4_9_LABEL, index = "E4_9")
+E4_9 <- add_rsp(E4_9, c("Có", "Không"))
 
 E4 <- bind_cols(
     select(E4_1, STT, `Phân loại ngừơi trả lời`, `Nhu cầu tiêu dùng hàng ngày` = `Có`),
@@ -123,16 +143,27 @@ fisf <- fisf %>%
     mutate(E3_11_LABEL = onehot_encoding(select(fisf, matches("E3_[0-9]$")), 11))
 
 E3_1 <- count_response(filter(fisf, E1 == 1), E3_1_LABEL, index = "E3_1")
+E3_1 <- add_rsp(E3_1, c("Có", "Không"))
 E3_2 <- count_response(filter(fisf, E1 == 1), E3_2_LABEL, index = "E3_2")
+E3_2 <- add_rsp(E3_2, c("Có", "Không"))
 E3_3 <- count_response(filter(fisf, E1 == 1), E3_3_LABEL, index = "E3_3")
+E3_3 <- add_rsp(E3_3, c("Có", "Không"))
 E3_4 <- count_response(filter(fisf, E1 == 1), E3_4_LABEL, index = "E3_4")
+E3_4 <- add_rsp(E3_4, c("Có", "Không"))
 E3_5 <- count_response(filter(fisf, E1 == 1), E3_5_LABEL, index = "E3_5")
+E3_5 <- add_rsp(E3_5, c("Có", "Không"))
 E3_6 <- count_response(filter(fisf, E1 == 1), E3_6_LABEL, index = "E3_6")
+E3_6 <- add_rsp(E3_6, c("Có", "Không"))
 E3_7 <- count_response(filter(fisf, E1 == 1), E3_7_LABEL, index = "E3_7")
+E3_7 <- add_rsp(E3_7, c("Có", "Không"))
 E3_8 <- count_response(filter(fisf, E1 == 1), E3_8_LABEL, index = "E3_8")
+E3_8 <- add_rsp(E3_8, c("Có", "Không"))
 E3_9 <- count_response(filter(fisf, E1 == 1), E3_9_LABEL, index = "E3_9")
+E3_9 <- add_rsp(E3_9, c("Có", "Không"))
 E3_10 <- count_response(filter(fisf, E1 == 1), E3_10_LABEL, index = "E3_10")
+E3_10 <- add_rsp(E3_10, c("Có", "Không"))
 E3_11 <- count_response(filter(fisf, E1 == 1), E3_11_LABEL, index = "E3_11")
+E3_11 <- add_rsp(E3_11, c("Có", "Không"))
 
 E3 <- bind_cols(
     select(E3_1, STT, `Phân loại ngừơi trả lời`, `NHTM` = `Có`),
@@ -160,6 +191,7 @@ fisf <- fisf %>%
            ))
 
 E5 <- count_response(fisf, E5_LABEL, index = "E5")
+E5 <- add_rsp(E5, c("Có", "Không"))
 
 E5 <- E5 %>%
     select(STT, `Phân loại ngừơi trả lời`,
@@ -178,6 +210,7 @@ fisf <- fisf %>%
            ))
 
 E6 <- count_response(filter(fisf, E5 == 1), E6_LABEL, index = "E6")
+E6 <- add_rsp(E6, c("Có", "Không"))
 
 E6 <- E6 %>%
     select(STT, `Phân loại ngừơi trả lời`,
@@ -196,6 +229,7 @@ fisf <- fisf %>%
            ))
 
 E7 <- count_response(fisf, E7_LABEL, index = "E7")
+E7 <- add_rsp(E7, c("Có", "Không"))
 
 E7 <- E7 %>%
     select(STT, `Phân loại ngừơi trả lời`,
@@ -215,6 +249,7 @@ fisf <- fisf %>%
            ))
 
 E8 <- count_response(filter(fisf, E7 == 1), E8_LABEL, index = "E8")
+E8 <- add_rsp(E8, c("Có", "Không"))
 
 E8 <- E8 %>%
     select(STT, `Phân loại ngừơi trả lời`,
@@ -230,8 +265,14 @@ E5_6_7_8 <- bind_cols(
 
 ## Export ------------------------------
 
+if (STRATIFIED_BY_REGION) {
+    filename <- paste0("../outputs/SECTION-E ", WHICH_REGION, ".xlsx")
+} else {
+    filename <- paste0("../outputs/SECTION-E TOANQUOC.xlsx")
+}
+
 openxlsx::write.xlsx(list(E1_2 = E1_2,
                           E1_4 = E1_4,
                           E3 = E3,
                           E5_6_7_8 = E5_6_7_8),
-                     file = "../outputs/SECTION-E.xlsx")
+                     file = filename)

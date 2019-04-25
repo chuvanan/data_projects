@@ -417,6 +417,7 @@ fisf <- fisf %>%
            ))
 
 G11 <- count_response(fisf, G11_LABEL, index = "G11")
+G11 <- add_rsp(G11, c("Có", "Không", "Không nhớ/Không biết"))
 
 G11 <- select(G11, STT, `Phân loại ngừơi trả lời`,
               `% người trên 18 tuổi được dạy về các kiến thức tài chính` = `Có`,
@@ -437,14 +438,23 @@ fisf <- fisf %>%
     mutate(G12_9_LABEL = onehot_encoding(select(fisf, matches("G12_[0-9]$")), 9))
 
 G12_1 <- count_response(fisf, G12_1_LABEL, index = "G12_1")
+G12_1 <- add_rsp(G12_1, c("Có", "Không"))
 G12_2 <- count_response(fisf, G12_2_LABEL, index = "G12_2")
+G12_2 <- add_rsp(G12_2, c("Có", "Không"))
 G12_3 <- count_response(fisf, G12_3_LABEL, index = "G12_3")
+G12_3 <- add_rsp(G12_3, c("Có", "Không"))
 G12_4 <- count_response(fisf, G12_4_LABEL, index = "G12_4")
+G12_4 <- add_rsp(G12_4, c("Có", "Không"))
 G12_5 <- count_response(fisf, G12_5_LABEL, index = "G12_5")
+G12_5 <- add_rsp(G12_5, c("Có", "Không"))
 G12_6 <- count_response(fisf, G12_6_LABEL, index = "G12_6")
+G12_6 <- add_rsp(G12_6, c("Có", "Không"))
 G12_7 <- count_response(fisf, G12_7_LABEL, index = "G12_7")
+G12_7 <- add_rsp(G12_7, c("Có", "Không"))
 G12_8 <- count_response(fisf, G12_8_LABEL, index = "G12_8")
+G12_8 <- add_rsp(G12_8, c("Có", "Không"))
 G12_9 <- count_response(fisf, G12_9_LABEL, index = "G12_9")
+G12_9 <- add_rsp(G12_9, c("Có", "Không"))
 
 G12 <- bind_cols(
     select(G12_1, STT, `Phân loại ngừơi trả lời`, `Tự quyết định` = `Có`),
@@ -471,11 +481,17 @@ fisf <- fisf %>%
     mutate(G13_6_LABEL = onehot_encoding(select(fisf, matches("G13_[0-9]$")), 6))
 
 G13_1 <- count_response(fisf, G13_1_LABEL, index = "G13")
+G13_1 <- add_rsp(G13_1, c("Có", "Không"))
 G13_2 <- count_response(fisf, G13_2_LABEL, index = "G13_2")
+G13_2 <- add_rsp(G13_2, c("Có", "Không"))
 G13_3 <- count_response(fisf, G13_3_LABEL, index = "G13_3")
+G13_3 <- add_rsp(G13_3, c("Có", "Không"))
 G13_4 <- count_response(fisf, G13_4_LABEL, index = "G13_4")
+G13_4 <- add_rsp(G13_4, c("Có", "Không"))
 G13_5 <- count_response(fisf, G13_5_LABEL, index = "G13_5")
+G13_5 <- add_rsp(G13_5, c("Có", "Không"))
 G13_6 <- count_response(fisf, G13_6_LABEL, index = "G13_6")
+G13_6 <- add_rsp(G13_6, c("Có", "Không"))
 
 G13 <- bind_cols(
     select(G13_1, STT, `Phân loại ngừơi trả lời`, `Gửi ngân hàng` = `Có`),
@@ -506,19 +522,33 @@ fisf <- fisf %>%
     mutate(G14_14_LABEL = onehot_encoding(select(fisf, matches("G14_[0-9]$")), 14))
 
 G14_1 <- count_response(fisf, G14_1_LABEL, index = "G14")
+G14_1 <- add_rsp(G14_1, c("Có", "Không"))
 G14_2 <- count_response(fisf, G14_2_LABEL, index = "G14_2")
+G14_2 <- add_rsp(G14_2, c("Có", "Không"))
 G14_3 <- count_response(fisf, G14_3_LABEL, index = "G14_3")
+G14_3 <- add_rsp(G14_3, c("Có", "Không"))
 G14_4 <- count_response(fisf, G14_4_LABEL, index = "G14_4")
+G14_4 <- add_rsp(G14_4, c("Có", "Không"))
 G14_5 <- count_response(fisf, G14_5_LABEL, index = "G14_5")
+G14_5 <- add_rsp(G14_5, c("Có", "Không"))
 G14_6 <- count_response(fisf, G14_6_LABEL, index = "G14_6")
+G14_6 <- add_rsp(G14_6, c("Có", "Không"))
 G14_7 <- count_response(fisf, G14_7_LABEL, index = "G14_7")
+G14_7 <- add_rsp(G14_7, c("Có", "Không"))
 G14_8 <- count_response(fisf, G14_8_LABEL, index = "G14_8")
+G14_8 <- add_rsp(G14_8, c("Có", "Không"))
 G14_9 <- count_response(fisf, G14_9_LABEL, index = "G14_9")
+G14_9 <- add_rsp(G14_9, c("Có", "Không"))
 G14_10 <- count_response(fisf, G14_10_LABEL, index = "G14_10")
+G14_10 <- add_rsp(G14_10, c("Có", "Không"))
 G14_11 <- count_response(fisf, G14_11_LABEL, index = "G14_11")
+G14_11 <- add_rsp(G14_11, c("Có", "Không"))
 G14_12 <- count_response(fisf, G14_12_LABEL, index = "G14_12")
+G14_12 <- add_rsp(G14_12, c("Có", "Không"))
 G14_13 <- count_response(fisf, G14_13_LABEL, index = "G14_13")
+G14_13 <- add_rsp(G14_13, c("Có", "Không"))
 G14_14 <- count_response(fisf, G14_14_LABEL, index = "G14_14")
+G14_14 <- add_rsp(G14_14, c("Có", "Không"))
 
 G14 <- bind_cols(
     select(G14_1, STT, `Phân loại ngừơi trả lời`, `Bị mất tiền` = `Có`),
@@ -559,6 +589,12 @@ G15 <- count_response(fisf, G15_LABEL, index = "G15")
 
 ## Export ------------------------------
 
+if (STRATIFIED_BY_REGION) {
+    filename <- paste0("../outputs/SECTION-G ", WHICH_REGION, ".xlsx")
+} else {
+    filename <- paste0("../outputs/SECTION-G TOANQUOC.xlsx")
+}
+
 openxlsx::write.xlsx(list(G1_2 = G1_2,
                           G3_4_5_6_7 = G3_4_5_6_7,
                           G8_1 = G8_1,
@@ -570,4 +606,4 @@ openxlsx::write.xlsx(list(G1_2 = G1_2,
                           G13 = G13,
                           G14 = G14,
                           G15 = G15),
-                     file = "../outputs/SECTION-G.xlsx")
+                     file = filename)

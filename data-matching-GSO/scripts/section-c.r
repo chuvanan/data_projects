@@ -66,7 +66,7 @@ C1_2 <- bind_cols(
 ## CÓ TÀI KHOẢN TIẾT KIỆM HOẶC TÀI KHOẢN GIAO DỊCH/THANH TOÁN?
 
 fisf <- fisf %>%
-    MUTATE(C1A3_LABEL = onehot_encoding(select(fisf, matches("C1A_[0-9]$")), c(1, 2))) %>%
+    mutate(C1A3_LABEL = onehot_encoding(select(fisf, matches("C1A_[0-9]$")), c(1, 2))) %>%
     mutate(C1B3_LABEL = onehot_encoding(select(fisf, matches("C1B_[0-9]$")), c(1, 2))) %>%
     mutate(C1C3_LABEL = onehot_encoding(select(fisf, matches("C1C_[0-9]$")), c(1, 2))) %>%
     mutate(C1D3_LABEL = onehot_encoding(select(fisf, matches("C1D_[0-9]$")), c(1, 2)))
@@ -459,7 +459,6 @@ C4N <- bind_cols_C4(C4N1, C4N2, C4N3, C4N4, C4N5, C4N6, C4N7, C4N8)
 ## C5 ------------------------------
 
 ## TẦN SUẤT GIAO DỊCH?
-
 fisf <- local({
     ori_cols <- paste0("C5", LETTERS[1:14])
     new_cols <- paste0(ori_cols, "_LABEL")
@@ -637,16 +636,27 @@ fisf <- fisf %>%
     mutate(C7A_11_LABEL = onehot_encoding(select(fisf, matches("C7A_[0-9]$")), 11))
 
 C7A_1 <- count_response(filter(fisf, C6A != 1), C7A_1_LABEL, index = "C7A_1")
+C7A_1 <- add_rsp(C7A_1, c("Có", "Không"))
 C7A_2 <- count_response(filter(fisf, C6A != 1), C7A_2_LABEL, index = "C7A_2")
+C7A_2 <- add_rsp(C7A_2, c("Có", "Không"))
 C7A_3 <- count_response(filter(fisf, C6A != 1), C7A_3_LABEL, index = "C7A_3")
+C7A_3 <- add_rsp(C7A_3, c("Có", "Không"))
 C7A_4 <- count_response(filter(fisf, C6A != 1), C7A_4_LABEL, index = "C7A_4")
+C7A_4 <- add_rsp(C7A_4, c("Có", "Không"))
 C7A_5 <- count_response(filter(fisf, C6A != 1), C7A_5_LABEL, index = "C7A_5")
+C7A_5 <- add_rsp(C7A_5, c("Có", "Không"))
 C7A_6 <- count_response(filter(fisf, C6A != 1), C7A_6_LABEL, index = "C7A_6")
+C7A_6 <- add_rsp(C7A_6, c("Có", "Không"))
 C7A_7 <- count_response(filter(fisf, C6A != 1), C7A_7_LABEL, index = "C7A_7")
+C7A_7 <- add_rsp(C7A_7, c("Có", "Không"))
 C7A_8 <- count_response(filter(fisf, C6A != 1), C7A_8_LABEL, index = "C7A_8")
+C7A_8 <- add_rsp(C7A_8, c("Có", "Không"))
 C7A_9 <- count_response(filter(fisf, C6A != 1), C7A_9_LABEL, index = "C7A_9")
+C7A_9 <- add_rsp(C7A_9, c("Có", "Không"))
 C7A_10 <- count_response(filter(fisf, C6A != 1), C7A_10_LABEL, index = "C7A_10")
+C7A_10 <- add_rsp(C7A_10, c("Có", "Không"))
 C7A_11 <- count_response(filter(fisf, C6A != 1), C7A_11_LABEL, index = "C7A_11")
+C7A_11 <- add_rsp(C7A_11, c("Có", "Không"))
 
 C7_1 <- bind_cols(
     select(C6A, STT, `Phân loại ngừơi trả lời`,
@@ -681,16 +691,27 @@ fisf <- fisf %>%
     mutate(C7B_11_LABEL = onehot_encoding(select(fisf, matches("C7B_[0-9]$")), 11))
 
 C7B_1 <- count_response(filter(fisf, C6B != 1), C7B_1_LABEL, index = "C7B_1")
+C7B_1 <- add_rsp(C7B_1, c("Có", "Không"))
 C7B_2 <- count_response(filter(fisf, C6B != 1), C7B_2_LABEL, index = "C7B_2")
+C7B_2 <- add_rsp(C7B_2, c("Có", "Không"))
 C7B_3 <- count_response(filter(fisf, C6B != 1), C7B_3_LABEL, index = "C7B_3")
+C7B_3 <- add_rsp(C7B_3, c("Có", "Không"))
 C7B_4 <- count_response(filter(fisf, C6B != 1), C7B_4_LABEL, index = "C7B_4")
+C7B_4 <- add_rsp(C7B_4, c("Có", "Không"))
 C7B_5 <- count_response(filter(fisf, C6B != 1), C7B_5_LABEL, index = "C7B_5")
+C7B_5 <- add_rsp(C7B_5, c("Có", "Không"))
 C7B_6 <- count_response(filter(fisf, C6B != 1), C7B_6_LABEL, index = "C7B_6")
+C7B_6 <- add_rsp(C7B_6, c("Có", "Không"))
 C7B_7 <- count_response(filter(fisf, C6B != 1), C7B_7_LABEL, index = "C7B_7")
+C7B_7 <- add_rsp(C7B_7, c("Có", "Không"))
 C7B_8 <- count_response(filter(fisf, C6B != 1), C7B_8_LABEL, index = "C7B_8")
+C7B_8 <- add_rsp(C7B_8, c("Có", "Không"))
 C7B_9 <- count_response(filter(fisf, C6B != 1), C7B_9_LABEL, index = "C7B_9")
+C7B_9 <- add_rsp(C7B_9, c("Có", "Không"))
 C7B_10 <- count_response(filter(fisf, C6B != 1), C7B_10_LABEL, index = "C7B_10")
+C7B_10 <- add_rsp(C7B_10, c("Có", "Không"))
 C7B_11 <- count_response(filter(fisf, C6B != 1), C7B_11_LABEL, index = "C7B_11")
+C7B_11 <- add_rsp(C7B_11, c("Có", "Không"))
 
 C7_2 <- bind_cols(
     select(add_rsp(C6B, "Có"), STT, `Phân loại ngừơi trả lời`,
@@ -711,6 +732,12 @@ C7_2 <- bind_cols(
 
 ## Export ------------------------------
 
+if (STRATIFIED_BY_REGION) {
+    filename <- paste0("../outputs/SECTION-C ", WHICH_REGION, ".xlsx")
+} else {
+    filename <- paste0("../outputs/SECTION-C TOANQUOC.xlsx")
+}
+
 openxlsx::write.xlsx(list(C1_1 = C1_1,
                           C1_2 = C1_2,
                           C1_3 = C1_3,
@@ -730,4 +757,4 @@ openxlsx::write.xlsx(list(C1_1 = C1_1,
                           C3_4_5_M = C3_4_5_M,
                           C7_1 = C7_1,
                           C7_2 = C7_2),
-                     file = "../outputs/SECTION-C.xlsx")
+                     file = filename)

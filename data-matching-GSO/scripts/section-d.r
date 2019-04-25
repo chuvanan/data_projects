@@ -103,15 +103,24 @@ fisf <- fisf %>%
     })
 
 D3_1 <- count_response(filter(fisf, D1_7_LABEL != "Không"), D3_1_LABEL, index = "D3")
+D3_1 <- add_rsp(D3_1, c("Có", "Không"))
 D3_2 <- count_response(filter(fisf, D1_7_LABEL != "Không"), D3_2_LABEL, index = "D3_2")
+D3_2 <- add_rsp(D3_2, c("Có", "Không"))
 D3_3 <- count_response(filter(fisf, D1_7_LABEL != "Không"), D3_3_LABEL, index = "D3_3")
+D3_3 <- add_rsp(D3_3, c("Có", "Không"))
 D3_4 <- count_response(filter(fisf, D1_7_LABEL != "Không"), D3_4_LABEL, index = "D3_4")
+D3_4 <- add_rsp(D3_4, c("Có", "Không"))
 D3_5 <- count_response(filter(fisf, D1_7_LABEL != "Không"), D3_5_LABEL, index = "D3_5")
+D3_5 <- add_rsp(D3_5, c("Có", "Không"))
 D3_6 <- count_response(filter(fisf, D1_7_LABEL != "Không"), D3_6_LABEL, index = "D3_6")
+D3_6 <- add_rsp(D3_6, c("Có", "Không"))
 D3_7 <- count_response(filter(fisf, D1_7_LABEL != "Không"), D3_7_LABEL, index = "D3_7")
+D3_7 <- add_rsp(D3_7, c("Có", "Không"))
 
 D3_2UNIQ <- count_response(filter(fisf, D1_7_LABEL != "Không"), D3_2_UNIQ_LABEL, index = "D3_2")
+D3_2UNIQ <- add_rsp(D3_2UNIQ, c("Có", "Không"))
 D3_5UNIQ <- count_response(filter(fisf, D1_7_LABEL != "Không"), D3_5_UNIQ_LABEL, index = "D3_5")
+D3_5UNIQ <- add_rsp(D3_5UNIQ, c("Có", "Không"))
 
 D3 <- bind_cols(
     select(D3_1, STT, `Phân loại ngừơi trả lời`, `Giữ tại nhà` = `Có`),
@@ -127,6 +136,12 @@ D3 <- bind_cols(
 
 ## Export ------------------------------
 
+if (STRATIFIED_BY_REGION) {
+    filename <- paste0("../outputs/SECTION-D ", WHICH_REGION, ".xlsx")
+} else {
+    filename <- paste0("../outputs/SECTION-D TOANQUOC.xlsx")
+}
+
 openxlsx::write.xlsx(list(D1_2 = D1_2,
                           D3 = D3),
-                     file = "../outputs/SECTION-D.xlsx")
+                     file = filename)

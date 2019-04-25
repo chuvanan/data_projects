@@ -32,24 +32,28 @@ fisf <- fisf %>%
 
 
 F1A <- count_response(fisf, F1A_LABEL, index = "F1")
+F1A <- add_rsp(F1A, c("Có", "Không", "Không biết"))
 F1A <- F1A %>%
     rename(`% người trên 18 tuổi có bảo hiểm sức khỏe tự nguyện` = `Có`,
            `% người trên 18 tuổi không có bảo hiểm sức khỏe tự nguyện` = `Không`) %>%
     select(-`Không biết`)
 
 F1B <- count_response(fisf, F1B_LABEL, index = "F1B")
+F1B <- add_rsp(F1B, c("Có", "Không", "Không biết"))
 F1B <- F1B %>%
     rename(`% người trên 18 tuổi có bảo hiểm nhân thọ` = `Có`,
            `% người trên 18 tuổi không có bảo hiểm nhân thọ` = `Không`) %>%
     select(-`Không biết`)
 
 F1C <- count_response(fisf, F1C_LABEL, index = "F1C")
+F1C <- add_rsp(F1C, c("Có", "Không", "Không biết"))
 F1C <- F1C %>%
     rename(`% người trên 18 tuổi có bảo hiểm phi nhân thọ` = `Có`,
            `% người trên 18 tuổi không có bảo hiểm phi nhân thọ` = `Không`) %>%
     select(-`Không biết`)
 
 F1D <- count_response(fisf, F1D_LABEL, index = "F1D")
+F1D <- add_rsp(F1D, c("Có", "Không", "Không biết"))
 F1D <- F1D %>%
     rename(`% người trên 18 tuổi có bảo hiểm nông nghiệp` = `Có`,
            `% người trên 18 tuổi không có bảo hiểm nông nghiệp` = `Không`) %>%
@@ -125,6 +129,12 @@ F2 <- select(F2, -contains("Không biết"))
 
 ## Export ------------------------------
 
+if (STRATIFIED_BY_REGION) {
+    filename <- paste0("../outputs/SECTION-F ", WHICH_REGION, ".xlsx")
+} else {
+    filename <- paste0("../outputs/SECTION-F TOANQUOC.xlsx")
+}
+
 openxlsx::write.xlsx(list(F1 = F1,
                           F2 = F2),
-                     file = "../outputs/SECTION-F.xlsx")
+                     file = filename)

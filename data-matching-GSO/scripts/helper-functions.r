@@ -1,6 +1,7 @@
 
 fill_missval <- function(x) {
     freq <- table(x)
+    if (length(freq) == 0) freq <- c("1" = 0)
     max_val <- names(freq)[freq == max(freq)]
     x[is.na(x)] <- as.numeric(max_val[1])
     x
@@ -139,7 +140,7 @@ add_rsp <- function(x, rsp) {
 }
 
 adjust_colnames <- function(x, prefix) {
-    if (nrow(dta) == 0) return(NULL)
+    if (is.null(x) || nrow(x) == 0) return(NULL)
     fixed_colnames <- c("STT", "Phân loại ngừơi trả lời")
     names(x)[!names(x) %in% fixed_colnames] <-
         paste(prefix, "-", names(x)[!names(x) %in% fixed_colnames])
