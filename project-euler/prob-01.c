@@ -12,14 +12,14 @@
 int main(void) {
 
     int n;
-    long sum;
+    int sum;
 
-    n = 100000;
+    n = 1000;
     sum = 0;
 
     for (int i = 0; i < n; i++) {
 
-        if (i % 3 == 0 || i % 5 == 0) {
+        if ((i % 3 == 0) || (i % 5 == 0)) {
 
             sum += i;
 
@@ -27,7 +27,7 @@ int main(void) {
 
     };
 
-    printf("Output is %lo\n", sum);
+    printf("Output is %i\n", sum);
     return 0;
 
 }
