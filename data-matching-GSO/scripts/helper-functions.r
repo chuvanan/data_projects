@@ -63,12 +63,12 @@ count_by_ <- function(col, lab) {
 count_by_gender <- count_by_(A4_LABEL, lab = "Theo giới tính")
 count_by_age <- count_by_(AGE_BINS, lab = "Theo độ tuổi")
 count_by_region <- count_by_(TTNT_LABEL, lab = "Theo khu vực")
+count_by_economic_region <- count_by_(REGION, lab = "Theo vùng kinh tế")
 count_by_education <- count_by_(A6_LABEL, lab = "Theo trình độ học vấn")
 count_by_ethnicity <- count_by_(A5_LABEL, lab = "Theo dân tộc")
 count_by_occupation <- count_by_(A7_LVL1_LABEL, lab = "Theo nghề nghiệp")
 count_by_median_income <- count_by_(A8_LABEL, lab = "Theo thu nhập bình quân 1 tháng của đáp viên")
 count_by_income_per_capita <- count_by_(A9_LABEL, lab = "Theo thu nhập bình quân 1 người 1 tháng")
-
 
 count_all <- function(dta, what, index, pct = TRUE) {
     if (nrow(dta) == 0) return(NULL)
@@ -96,16 +96,18 @@ count_all <- function(dta, what, index, pct = TRUE) {
 
 count_response <- function(dta, what, pct = TRUE, index) {
     what_q <- enquo(what)
-    index_letters <- paste0(index, letters[1:7])
+    index_letters <- paste0(index, letters[1:9])
     bind_rows(
         count_all(dta = dta, what = !!what_q, index = index),
         count_by_gender(dta = dta, what = !!what_q, pct = pct, index = index_letters[1]),
         count_by_age(dta = dta, what = !!what_q, pct = pct, index = index_letters[2]),
         count_by_region(dta = dta, what = !!what_q, pct = pct, index = index_letters[3]),
-        count_by_education(dta = dta, what = !!what_q, pct = pct, index = index_letters[4]),
-        count_by_ethnicity(dta = dta, what = !!what_q, pct = pct, index = index_letters[5]),
-        count_by_occupation(dta = dta, what = !!what_q, pct = pct, index = index_letters[6]),
-        count_by_median_income(dta = dta, what = !!what_q, pct = pct, index = index_letters[7])
+        count_by_economic_region(dta = dta, what = !!what_q, pct = pct, index = index_letters[4])
+        count_by_education(dta = dta, what = !!what_q, pct = pct, index = index_letters[5]),
+        count_by_ethnicity(dta = dta, what = !!what_q, pct = pct, index = index_letters[6]),
+        count_by_occupation(dta = dta, what = !!what_q, pct = pct, index = index_letters[7]),
+        count_by_median_income(dta = dta, what = !!what_q, pct = pct, index = index_letters[8]),
+        count_by_income_per_capita(dta = dta, what = !!what_q, pct = pct, index = index_letters[9])
     )
 }
 
@@ -116,10 +118,13 @@ count_response_stratified_by_region <- function(dta, what, pct = TRUE, index) {
         count_all(dta = dta, what = !!what_q, index = index),
         count_by_gender(dta = dta, what = !!what_q, pct = pct, index = index_letters[1]),
         count_by_age(dta = dta, what = !!what_q, pct = pct, index = index_letters[2]),
-        count_by_education(dta = dta, what = !!what_q, pct = pct, index = index_letters[3]),
-        count_by_ethnicity(dta = dta, what = !!what_q, pct = pct, index = index_letters[4]),
-        count_by_occupation(dta = dta, what = !!what_q, pct = pct, index = index_letters[5]),
-        count_by_median_income(dta = dta, what = !!what_q, pct = pct, index = index_letters[6])
+        count_by_region(dta = dta, what = !!what_q, pct = pct, index = index_letters[3]),
+        count_by_economic_region(dta = dta, what = !!what_q, pct = pct, index = index_letters[4])
+        count_by_education(dta = dta, what = !!what_q, pct = pct, index = index_letters[5]),
+        count_by_ethnicity(dta = dta, what = !!what_q, pct = pct, index = index_letters[6]),
+        count_by_occupation(dta = dta, what = !!what_q, pct = pct, index = index_letters[7]),
+        count_by_median_income(dta = dta, what = !!what_q, pct = pct, index = index_letters[8]),
+        count_by_income_per_capita(dta = dta, what = !!what_q, pct = pct, index = index_letters[9])
     )
 }
 
