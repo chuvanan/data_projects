@@ -28,11 +28,17 @@ A1_0 <- local({
         rename(`Phân loại ngừơi trả lời` = A9_LABEL) %>%
         mutate_if(is.factor, as.character)
 
+    cnt_economic_region <- count(fisf, REGION, .drop = FALSE) %>%
+        mutate(STT = paste0("A5.", 1:nrow(.))) %>%
+        rename(`Phân loại ngừơi trả lời` = REGION) %>%
+        mutate_if(is.factor, as.character)
+
     cnt_all <- tibble(STT = "A", n = nrow(fisf),
                       `Phân loại ngừơi trả lời` = "Tổng")
 
     bind_rows(cnt_all, cnt_education, cnt_occupation,
-              cnt_median_income, cnt_income_per_captia) %>%
+              cnt_median_income, cnt_income_per_captia,
+              cnt_economic_region) %>%
         select(STT, `Phân loại ngừơi trả lời`, `Tổng` = n)
 })
 
@@ -41,7 +47,8 @@ A1_1 <- bind_rows(
     count_by_education(fisf, what = AGE_BINS, pct = FALSE, index = "A1"),
     count_by_occupation(fisf, what = AGE_BINS, pct = FALSE, index = "A2"),
     count_by_median_income(fisf, what = AGE_BINS, pct = FALSE, index = "A3"),
-    count_by_income_per_capita(fisf, what = AGE_BINS, pct = FALSE, index = "A4")
+    count_by_income_per_capita(fisf, what = AGE_BINS, pct = FALSE, index = "A4"),
+    count_by_economic_region(fisf, what = AGE_BINS, pct = FALSE, index = "A5")
 )
 A1_1 <- adjust_colnames(A1_1, "Theo độ tuổi")
 
@@ -50,7 +57,8 @@ A1_2 <- bind_rows(
     count_by_education(fisf, what = A4_LABEL, pct = FALSE, index = "A1"),
     count_by_occupation(fisf, what = A4_LABEL, pct = FALSE, index = "A2"),
     count_by_median_income(fisf, what = A4_LABEL, pct = FALSE, index = "A3"),
-    count_by_income_per_capita(fisf, what = A4_LABEL, pct = FALSE, index = "A4")
+    count_by_income_per_capita(fisf, what = A4_LABEL, pct = FALSE, index = "A4"),
+    count_by_economic_region(fisf, what = A4_LABEL, pct = FALSE, index = "A5")
 )
 A1_2 <- adjust_colnames(A1_2, "Theo giới tính")
 
@@ -59,7 +67,8 @@ A1_3 <- bind_rows(
     count_by_education(fisf, what = A5_LABEL, pct = FALSE, index = "A1"),
     count_by_occupation(fisf, what = A5_LABEL, pct = FALSE, index = "A2"),
     count_by_median_income(fisf, what = A5_LABEL, pct = FALSE, index = "A3"),
-    count_by_income_per_capita(fisf, what = A5_LABEL, pct = FALSE, index = "A4")
+    count_by_income_per_capita(fisf, what = A5_LABEL, pct = FALSE, index = "A4"),
+    count_by_economic_region(fisf, what = A5_LABEL, pct = FALSE, index = "A5")
 )
 A1_3 <- adjust_colnames(A1_3, "Theo dân tộc")
 
@@ -68,7 +77,8 @@ A1_4 <- bind_rows(
     count_by_education(fisf, what = TTNT_LABEL, pct = FALSE, index = "A1"),
     count_by_occupation(fisf, what = TTNT_LABEL, pct = FALSE, index = "A2"),
     count_by_median_income(fisf, what = TTNT_LABEL, pct = FALSE, index = "A3"),
-    count_by_income_per_capita(fisf, what = TTNT_LABEL, pct = FALSE, index = "A4")
+    count_by_income_per_capita(fisf, what = TTNT_LABEL, pct = FALSE, index = "A4"),
+    count_by_economic_region(fisf, what = A5_LABEL, pct = FALSE, index = "A5")
 )
 A1_4 <- adjust_colnames(A1_2, "Theo khu vực")
 
@@ -83,4 +93,11 @@ A <- select(A, STT, `Phân loại ngừơi trả lời`, `Tổng`, everything())
 
 ## Export ------------------------------
 
-openxlsx::write.xlsx(list(A = A), file = "../outputs/SECTION-A TOANQUOC.xlsx")
+TABLES <- tibble(
+    `Bảng` = c("A"),
+    `Mô tả` = "NHÂN KHẨU HỌC VÀ CÂU HỎI CHUNG"
+)
+
+openxlsx::write.xlsx(list(A = A,
+                          TABLES = TABLES),
+                     file = "../outputs/SECTION-A TOANQUOC.xlsx")
