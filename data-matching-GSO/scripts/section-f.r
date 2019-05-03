@@ -6,30 +6,14 @@
 source("02-process.R")
 
 ## F1 ------------------------------
+## ÔNG/BÀ HIỆN CÓ TỰ MUA HOẶC LÀ ĐỐI TƯỢNG THỤ HƯỞNG CỦA CÁC LOẠI BẢO HIỂM SAU ĐÂY KHÔNG?
 
-fisf <- fisf %>%
-    mutate(F1A = fill_missval(F1A),
-           F1B = fill_missval(F1B),
-           F1C = fill_missval(F1C),
-           F1D = fill_missval(F1D))
+fisf <- process_select_one_question(fisf, F1A, F1B, F1C, F1D,
+                                    rsps = c("1" = "Có",
+                                             "2" = "Không",
+                                             "8" = "Không biết"))
 
-fisf <- fisf %>%
-    mutate(F1A_LABEL = F1A,
-           F1B_LABEL = F1B,
-           F1C_LABEL = F1C,
-           F1D_LABEL = F1D)
-
-fisf <- fisf %>%
-    mutate_at(c("F1A_LABEL", "F1B_LABEL", "F1C_LABEL", "F1D_LABEL"),
-              function(x) case_when(
-                              x == 1 ~ "Có",
-                              x == 2 ~ "Không",
-                              x == 8 ~ "Không biết"
-                          )) %>%
-    mutate_at(c("F1A_LABEL", "F1B_LABEL", "F1C_LABEL", "F1D_LABEL"),
-              function(x) factor(x, levels = c("Có", "Không", "Không biết"),
-                                 ordered = TRUE))
-
+## CÁCH 1: TÍNH TRÊN TOÀN BỘ MẪU
 
 F1A <- count_response(fisf, F1A_LABEL, index = "F1")
 F1A <- add_rsp(F1A, c("Có", "Không", "Không biết"))
@@ -70,36 +54,57 @@ F1 <- F1 %>%
     select(STT, `Phân loại ngừơi trả lời`,
            contains("tuổi có"), contains("tuổi không có"))
 
+## CÁCH 2: TÍNH TRÊN MẪU ĐÃ LOẠI NHỮNG NGƯỜI TRẢ LỜI KHÔNG BIẾT
+
+F1A_DROP8 <- count_response(filter(fisf, F1A != 8), F1A_LABEL, index = "F1")
+F1A_DROP8 <- add_rsp(F1A_DROP8, c("Có", "Không", "Không biết"))
+F1A_DROP8 <- F1A_DROP8 %>%
+    rename(`% người trên 18 tuổi có bảo hiểm sức khỏe tự nguyện` = `Có`,
+           `% người trên 18 tuổi không có bảo hiểm sức khỏe tự nguyện` = `Không`) %>%
+    select(-`Không biết`)
+
+F1B_DROP8 <- count_response(filter(fisf, F1B != 8), F1B_LABEL, index = "F1B_DROP8")
+F1B_DROP8 <- add_rsp(F1B_DROP8, c("Có", "Không", "Không biết"))
+F1B_DROP8 <- F1B_DROP8 %>%
+    rename(`% người trên 18 tuổi có bảo hiểm nhân thọ` = `Có`,
+           `% người trên 18 tuổi không có bảo hiểm nhân thọ` = `Không`) %>%
+    select(-`Không biết`)
+
+F1C_DROP8 <- count_response(filter(fisf, F1C != 8), F1C_LABEL, index = "F1C")
+F1C_DROP8 <- add_rsp(F1C_DROP8, c("Có", "Không", "Không biết"))
+F1C_DROP8 <- F1C_DROP8 %>%
+    rename(`% người trên 18 tuổi có bảo hiểm phi nhân thọ` = `Có`,
+           `% người trên 18 tuổi không có bảo hiểm phi nhân thọ` = `Không`) %>%
+    select(-`Không biết`)
+
+F1D_DROP8 <- count_response(filter(fisf, F1D != 8), F1D_LABEL, index = "F1D")
+F1D_DROP8 <- add_rsp(F1D_DROP8, c("Có", "Không", "Không biết"))
+F1D_DROP8 <- F1D_DROP8 %>%
+    rename(`% người trên 18 tuổi có bảo hiểm nông nghiệp` = `Có`,
+           `% người trên 18 tuổi không có bảo hiểm nông nghiệp` = `Không`) %>%
+    select(-`Không biết`)
+
+F1_DROP8 <- bind_cols(
+    F1A_DROP8,
+    select(F1B_DROP8, -STT, -`Phân loại ngừơi trả lời`),
+    select(F1C_DROP8, -STT, -`Phân loại ngừơi trả lời`),
+    select(F1D_DROP8, -STT, -`Phân loại ngừơi trả lời`)
+)
+
+F1_DROP8 <- F1_DROP8 %>%
+    select(STT, `Phân loại ngừơi trả lời`,
+           contains("tuổi có"), contains("tuổi không có"))
+
+
 ## F2 ------------------------------
+## ÔNG/BÀ ĐỒNG Ý VỚI NHỮNG KHẲNG ĐỊNH NÀO SAU ĐÂY?
 
-fisf <- fisf %>%
-    mutate(F2A = fill_missval(F2A),
-           F2B = fill_missval(F2B),
-           F2C = fill_missval(F2C),
-           F2D = fill_missval(F2D),
-           F2E = fill_missval(F2E),
-           F2F = fill_missval(F2F))
+## CÁCH 1: TÍNH TRÊN TOÀN BỘ MẪU
 
-fisf <- fisf %>%
-    mutate(F2A_LABEL = F2A,
-           F2B_LABEL = F2B,
-           F2C_LABEL = F2C,
-           F2D_LABEL = F2D,
-           F2E_LABEL = F2E,
-           F2F_LABEL = F2F)
-
-fisf <- fisf %>%
-    mutate_at(c("F2A_LABEL", "F2B_LABEL", "F2C_LABEL", "F2D_LABEL",
-                "F2E_LABEL", "F2F_LABEL"),
-              function(x) case_when(
-                              x == 1 ~ "Đồng ý",
-                              x == 2 ~ "Không đồng ý",
-                              x == 8 ~ "Không biết",
-                              )) %>%
-    mutate_at(c("F2A_LABEL", "F2B_LABEL", "F2C_LABEL", "F2D_LABEL",
-                "F2E_LABEL", "F2F_LABEL"),
-              function(x) factor(x, levels = c("Đồng ý", "Không đồng ý", "Không biết"),
-                                 ordered = TRUE))
+fisf <- process_select_one_question(fisf, F2A, F2B, F2C, F2D, F2E, F2F,
+                                    rsps = c("1" = "Đồng ý",
+                                             "2" = "Không đồng ý",
+                                             "8" = "Không biết"))
 
 fisf <- fisf %>%
     mutate(F2A_LABEL = paste("Bảo hiểm chỉ dành cho người giàu", "-", F2A_LABEL),
@@ -127,7 +132,36 @@ F2 <- bind_cols(
 
 F2 <- select(F2, -contains("Không biết"))
 
+## CÁCH 2: TÍNH TRÊN MẪU ĐÃ LOẠI NHỮNG NGƯỜI TRẢ LỜI KHÔNG BIẾT
+
+F2A_DROP8 <- count_response(filter(fisf, F2A != 8), F2A_LABEL, index = "F2")
+F2B_DROP8 <- count_response(filter(fisf, F2B != 8), F2B_LABEL, index = "F2B")
+F2C_DROP8 <- count_response(filter(fisf, F2C != 8), F2C_LABEL, index = "F2C")
+F2D_DROP8 <- count_response(filter(fisf, F2D != 8), F2D_LABEL, index = "F2D")
+F2E_DROP8 <- count_response(filter(fisf, F2E != 8), F2E_LABEL, index = "F2E")
+F2F_DROP8 <- count_response(filter(fisf, F2F != 8), F2F_LABEL, index = "F2F")
+
+F2_DROP8 <- bind_cols(
+    F2A_DROP8,
+    select(F2B_DROP8, -STT, -`Phân loại ngừơi trả lời`),
+    select(F2C_DROP8, -STT, -`Phân loại ngừơi trả lời`),
+    select(F2D_DROP8, -STT, -`Phân loại ngừơi trả lời`),
+    select(F2E_DROP8, -STT, -`Phân loại ngừơi trả lời`),
+    select(F2F_DROP8, -STT, -`Phân loại ngừơi trả lời`)
+)
+
+F2_DROP8 <- select(F2_DROP8, -contains("Không biết"))
+
+
 ## Export ------------------------------
+
+TABLES <- tibble(
+    `Bảng` = c("F1", "F1_DROP8", "F2", "F2_DROP8"),
+    `Mô tả` = c("ÔNG/BÀ HIỆN CÓ TỰ MUA HOẶC LÀ ĐỐI TƯỢNG THỤ HƯỞNG CỦA CÁC LOẠI BẢO HIỂM SAU ĐÂY KHÔNG?",
+                "ÔNG/BÀ HIỆN CÓ TỰ MUA HOẶC LÀ ĐỐI TƯỢNG THỤ HƯỞNG CỦA CÁC LOẠI BẢO HIỂM SAU ĐÂY KHÔNG? <Loại trường hợp trả lời không biết>",
+                "ÔNG/BÀ ĐỒNG Ý VỚI NHỮNG KHẲNG ĐỊNH NÀO SAU ĐÂY VỀ SẢN PHẨM BẢO HIỂM?",
+                "ÔNG/BÀ ĐỒNG Ý VỚI NHỮNG KHẲNG ĐỊNH NÀO SAU ĐÂY VỀ SẢN PHẨM BẢO HIỂM? <Loại trường hợp trả lời không biết>")
+)
 
 if (STRATIFIED_BY_REGION) {
     filename <- paste0("../outputs/SECTION-F ", WHICH_REGION, ".xlsx")
@@ -136,5 +170,8 @@ if (STRATIFIED_BY_REGION) {
 }
 
 openxlsx::write.xlsx(list(F1 = F1,
-                          F2 = F2),
+                          F1_DROP8 = F1_DROP8,
+                          F2 = F2,
+                          F2_DROP8 = F2_DROP8,
+                          TABLES = TABLES),
                      file = filename)
