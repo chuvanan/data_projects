@@ -1,5 +1,5 @@
 ## @ancv
-## This script is
+## Exploring StackOverflow survey for fun
 
 ## Load packages and import data -----------------------------------------------
 
