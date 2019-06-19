@@ -81,3 +81,9 @@ sort(fav_dev_environ, decreasing = TRUE) * 100 / sum(fav_dev_environ)
 ## => MS's products (Visual Studio Code and Visual Studio) are loved by
 ## developers. Vim is preferred by developers than its long-time competitor
 ## Emacs.
+
+
+## Respondent's gender
+gender <- so_survey[, .N, by = .(Gender)][order(N, decreasing = TRUE)]
+gender[, P := round(N * 100/ sum(N), 1)]
+## => Male respondents are  overwhelming the survey (87.7%)
