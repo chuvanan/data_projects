@@ -90,9 +90,9 @@ table(aqi_levels == aqi$aqi_categ)
 
 aqi$aqi_categ <- factor(aqi$aqi_categ,
                         levels = c("Good", "Moderate", "Unhealthy for Sensitive Groups",
-                                   "Unhealthy", "Very unhealthy", "Hazardous"),
+                                   "Unhealthy", "Very Unhealthy", "Hazardous"),
                         ordered = TRUE)
-table(aqi$aqi_categ) * 100 / nrow(aqi)
+table(aqi$aqi_categ, useNA = "ifany") * 100 / nrow(aqi)
 
 ## Export ----------------------------------------------------------------------
 
