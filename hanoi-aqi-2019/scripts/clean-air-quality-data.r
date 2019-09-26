@@ -83,6 +83,10 @@ aqi <- aqi[!is.na(aqi$aqi), ]
 
 ## parse dates
 aqi$date <- as.POSIXct(aqi$date, format = "%Y-%m-%d %I:%M %p")
+aqi$date <- as.Date(aqi$date)
+aqi$weekdays <- weekdays(aqi$date)
+
+prop.table(table(aqi$weekdays, useNA = "always")) * 100
 
 ## confirm AQI levels are accurately classified
 aqi_levels <- sapply(aqi$aqi, categorize_aqi)
@@ -92,7 +96,7 @@ aqi$aqi_categ <- factor(aqi$aqi_categ,
                         levels = c("Good", "Moderate", "Unhealthy for Sensitive Groups",
                                    "Unhealthy", "Very Unhealthy", "Hazardous"),
                         ordered = TRUE)
-table(aqi$aqi_categ, useNA = "ifany") * 100 / nrow(aqi)
+table(aqi$aqi_categ, useNA = "ifany") * 100 / NROW(aqi)
 
 ## Export ----------------------------------------------------------------------
 

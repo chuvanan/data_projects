@@ -217,10 +217,10 @@
     },
     "pkgconfig": {
       "Package": "pkgconfig",
-      "Version": "2.0.2",
+      "Version": "2.0.3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "2dd2d8867e4f0173ea2ce029d630a086"
+      "Hash": "587295d4cdb937d4e3cf19bd46829326"
     },
     "plogr": {
       "Package": "plogr",
