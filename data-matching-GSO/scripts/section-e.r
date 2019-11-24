@@ -7,14 +7,8 @@ source("02-process.R")
 
 ## E1 ------------------------------
 
-fisf <- fisf %>%
-    mutate(E1 = fill_missval(E1))
-
-fisf <- fisf %>%
-    mutate(E1_LABEL = case_when(
-               E1 == 1 ~ "Có",
-               E1 == 2 ~ "Không"
-           ))
+fisf <- process_select_one_question(fisf, E1, rsps = c("1" = "Có",
+                                                       "2" = "Không"))
 
 E1 <- count_response(fisf, E1_LABEL, index = "E1")
 E1 <- add_rsp(E1, c("Có", "Không"))
@@ -55,7 +49,6 @@ E2_8 <- count_response(filter(fisf, E1 == 2), E2_8_LABEL, index = "E2_8")
 E2_8 <- add_rsp(E2_8, c("Có", "Không"))
 E2_9 <- count_response(filter(fisf, E1 == 2), E2_9_LABEL, index = "E2_9")
 E2_9 <- add_rsp(E2_9, c("Có", "Không"))
-
 
 E2 <- bind_cols(
     select(E2_1, STT, `Phân loại ngừơi trả lời`, `Sợ cảnh nợ nần` = `Không`),
@@ -179,16 +172,35 @@ E3 <- bind_cols(
     select(E3_11, `Nguồn khác` = `Có`)
 )
 
+## E3 ------------------------------
+## TỶ LỆ NGƯỜI CHỈ VAY TIỀN TỪ MỘT NGUỒN DUY NHẤT
+
+names(fisf)[grepl("E3", names(fisf))]
+
+fisf %>%
+    mutate(E3_LABEL1 = {apply(select(filter(fisf, E3 == 1), matches("E3_[0-9]$")),
+                              MARGIN = 1,
+                              function(x) sum(!is.na(x) & !is.na(E3_1))) ->.;
+                              ifelse(. == 1, "Có", "Không")})
+
+count(fisf, E3_1)
+count(fisf, E3_2)
+count(fisf, E3_3)
+count(fisf, E3_4)
+
+
+
+## E3 ------------------------------
+## TỶ LỆ NGƯỜI TRÊN 18 TUỔI VAY TIỀN TỪ 1 HAY NHIỀU NGUỒN
+
+
+
+
+
 ## E5 ------------------------------
 
-fisf <- fisf %>%
-    mutate(E5 = fill_missval(E5))
-
-fisf <- fisf %>%
-    mutate(E5_LABEL = case_when(
-               E5 == 1 ~ "Có",
-               E5 == 2 ~ "Không"
-           ))
+fisf <- process_select_one_question(fisf, E5, rsps = c("1" = "Có",
+                                                       "2" = "Không"))
 
 E5 <- count_response(fisf, E5_LABEL, index = "E5")
 E5 <- add_rsp(E5, c("Có", "Không"))
@@ -200,14 +212,8 @@ E5 <- E5 %>%
 
 ## E6 ------------------------------
 
-fisf <- fisf %>%
-    mutate(E6 = fill_missval(E6))
-
-fisf <- fisf %>%
-    mutate(E6_LABEL = case_when(
-               E6 == 1 ~ "Có",
-               E6 == 2 ~ "Không"
-           ))
+fisf <- process_select_one_question(fisf, E6, rsps = c("1" = "Có",
+                                                       "2" = "Không"))
 
 E6 <- count_response(filter(fisf, E5 == 1), E6_LABEL, index = "E6")
 E6 <- add_rsp(E6, c("Có", "Không"))
@@ -219,14 +225,8 @@ E6 <- E6 %>%
 
 ## E7 ------------------------------
 
-fisf <- fisf %>%
-    mutate(E7 = fill_missval(E7))
-
-fisf <- fisf %>%
-    mutate(E7_LABEL = case_when(
-               E7 == 1 ~ "Có",
-               E7 == 2 ~ "Không"
-           ))
+fisf <- process_select_one_question(fisf, E7, rsps = c("1" = "Có",
+                                                       "2" = "Không"))
 
 E7 <- count_response(fisf, E7_LABEL, index = "E7")
 E7 <- add_rsp(E7, c("Có", "Không"))
@@ -239,14 +239,8 @@ E7 <- E7 %>%
 
 ## E8 ------------------------------
 
-fisf <- fisf %>%
-    mutate(E8 = fill_missval(E8))
-
-fisf <- fisf %>%
-    mutate(E8_LABEL = case_when(
-               E8 == 1 ~ "Có",
-               E8 == 2 ~ "Không"
-           ))
+fisf <- process_select_one_question(fisf, E8, rsps = c("1" = "Có",
+                                                       "2" = "Không"))
 
 E8 <- count_response(filter(fisf, E7 == 1), E8_LABEL, index = "E8")
 E8 <- add_rsp(E8, c("Có", "Không"))
@@ -265,6 +259,14 @@ E5_6_7_8 <- bind_cols(
 
 ## Export ------------------------------
 
+TABLES <- tibble(
+    `Bảng` = c("E1_2", "E1_4", "E3", "E5_6_7_8"),
+    `Mô tả` = c("ÔNG/ BÀ (BẢN THÂN HOẶC CÙNG VỚI AI ĐÓ) CÓ VAY BẤT KỲ KHOẢN NÀO TRỊ GIÁ TỪ 1.000.000 ĐỒNG TRỞ LÊN TRONG 12 THÁNG QUA KHÔNG? LÝ DO KHÔNG VAY TIỀN?",
+                "ÔNG/ BÀ (BẢN THÂN HOẶC CÙNG VỚI AI ĐÓ) CÓ VAY BẤT KỲ KHOẢN NÀO TRỊ GIÁ TỪ 1.000.000 ĐỒNG TRỞ LÊN TRONG 12 THÁNG QUA? LÝ DO VAY TIỀN?",
+                "XIN ÔNG/BÀ CHO BIẾT ÔNG/BÀ VAY TỪ 1.000.000 ĐỒNG TRỞ LÊN TỪ NGUỒN NÀO?",
+                "HIỆN NAY, ÔNG/BÀ CÓ KHOẢN VAY NÀO ĐÃ QUÁ HẠN VÀ KẾ HOẠCH TRẢ NỢ? ÔNG/ BÀ CÓ THẺ TÍN DỤNG VÀ SỬ DỤNG THẺ TÍN DỤNG TRONG 12 THÁNG QUA KHÔNG?")
+)
+
 if (STRATIFIED_BY_REGION) {
     filename <- paste0("../outputs/SECTION-E ", WHICH_REGION, ".xlsx")
 } else {
@@ -274,5 +276,6 @@ if (STRATIFIED_BY_REGION) {
 openxlsx::write.xlsx(list(E1_2 = E1_2,
                           E1_4 = E1_4,
                           E3 = E3,
-                          E5_6_7_8 = E5_6_7_8),
+                          E5_6_7_8 = E5_6_7_8,
+                          TABLES = TABLES),
                      file = filename)

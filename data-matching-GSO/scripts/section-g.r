@@ -7,16 +7,9 @@ source("02-process.R")
 
 ## G1 ------------------------------
 
-fisf <- fisf %>%
-    mutate(G1 = fill_missval(G1))
-
-fisf <- fisf %>%
-    mutate(G1_LABEL = case_when(
-               G1 == 1 ~ "Có",
-               G1 == 2 ~ "Không",
-               G1 == 8 ~ "Không biết"
-           ))
-
+fisf <- process_select_one_question(fisf, G1, rsps = c("1" = "Có",
+                                                       "2" = "Không",
+                                                       "8" = "Không biết"))
 G1 <- count_response(fisf, G1_LABEL, index = "G1")
 G1 <- G1 %>%
     select(STT, `Phân loại ngừơi trả lời`,
@@ -65,61 +58,43 @@ G1_2 <- bind_cols(
 
 ## G3 ------------------------------
 
-fisf <- fisf %>%
-    mutate(G3 = fill_missval(G3))
+fisf <- process_select_one_question(fisf, G3,
+                                    rsps = c("1" = "Thường xuyên",
+                                             "2" = "Đôi khi (một số lần)",
+                                             "3" = "Không bao giờ"))
 
 fisf <- fisf %>%
-    mutate(G3_LABEL = case_when(
-               G3 == 1 ~ "Thường xuyên",
-               G3 == 2 ~ "Đôi khi (một số lần)",
-               G3 == 3 ~ "Không bao giờ"
-           )) %>%
     mutate(G3_LABEL = paste("% người trên 18 tuổi thiếu tiền để trang trải chi phí sinh hoạt cần thiết", "-", G3_LABEL))
-
 G3 <- count_response(fisf, G3_LABEL, index = "G3")
 
 ## G4 ------------------------------
 
-fisf <- fisf %>%
-    mutate(G4 = fill_missval(G4))
+fisf <- process_select_one_question(fisf, G4,
+                                    rsps = c("1" = "Có kế hoạch chi tiêu định kỳ",
+                                             "2" = "Có kế hoạch chi tiêu tùy theo mức thu nhập",
+                                             "3" = "Không có kế hoạch chi tiêu"))
 
 fisf <- fisf %>%
-    mutate(G4_LABEL = case_when(
-               G4 == 1 ~ "Có kế hoạch chi tiêu định kỳ",
-               G4 == 2 ~ "Có kế hoạch chi tiêu tùy theo mức thu nhập",
-               G4 == 3 ~ "Không có kế hoạch chi tiêu"
-           )) %>%
     mutate(G4_LABEL = paste("% người trên 18 tuổi", "-", G4_LABEL))
-
 G4 <- count_response(fisf, G4_LABEL, index = "G4")
 
 ## G5 ------------------------------
 
-fisf <- fisf %>%
-    mutate(G5 = fill_missval(G5))
+fisf <- process_select_one_question(fisf, G5,
+                                    rsps = c("1" = "Có và đã được giải quyết",
+                                             "2" = "Có nhưng không được giải quyết/giải quyết không thỏa đáng",
+                                             "3" = "Không"))
 
 fisf <- fisf %>%
-    mutate(G5_LABEL = case_when(
-               G5 == 1 ~ "Có và đã được giải quyết",
-               G5 == 2 ~ "Có nhưng không được giải quyết/giải quyết không thỏa đáng",
-               G5 == 3 ~ "Không"
-           )) %>%
     mutate(G5_LABEL = paste("% người trên 18 tuổi có gặp vấn đề/trục trặc với ngân hàng hoặc TCTC khác", "-", G5_LABEL))
-
 G5 <- count_response(fisf, G5_LABEL, index = "G5")
 G5 <- G5 %>% select(-ends_with("Không"))
 
 ## G6 ------------------------------
 
-fisf <- fisf %>%
-    mutate(G6 = fill_missval(G6))
-
-fisf <- fisf %>%
-    mutate(G6_LABEL = case_when(
-               G6 == 1 ~ "Có",
-               G6 == 2 ~ "Không"
-           ))
-
+fisf <- process_select_one_question(fisf, G6,
+                                    rsps = c("1" = "Có",
+                                             "2" = "Không"))
 G6 <- count_response(fisf, G6_LABEL, index = "G6")
 G6 <- G6 %>%
     select(STT, `Phân loại ngừơi trả lời`,
@@ -128,15 +103,9 @@ G6 <- G6 %>%
 
 ## G7 ------------------------------
 
-fisf <- fisf %>%
-    mutate(G7 = fill_missval(G7))
-
-fisf <- fisf %>%
-    mutate(G7_LABEL = case_when(
-               G7 == 1 ~ "Có",
-               G7 == 2 ~ "Không"
-           ))
-
+fisf <- process_select_one_question(fisf, G7,
+                                    rsps = c("1" = "Có",
+                                             "2" = "Không"))
 G7 <- count_response(fisf, G7_LABEL, index = "G7")
 G7 <- G7 %>%
     select(STT, `Phân loại ngừơi trả lời`,
@@ -152,49 +121,13 @@ G3_4_5_6_7 <- bind_cols(
 
 ## G8 ------------------------------
 
-fisf <- fisf %>%
-    mutate(G8A = fill_missval(G8A),
-           G8B = fill_missval(G8B),
-           G8C = fill_missval(G8C),
-           G8D = fill_missval(G8D),
-           G8E = fill_missval(G8E),
-           G8F = fill_missval(G8F),
-           G8G = fill_missval(G8G),
-           G8H = fill_missval(G8H),
-           G8I = fill_missval(G8I),
-           G8J = fill_missval(G8J),
-           G8K = fill_missval(G8K),
-           G8L = fill_missval(G8L))
-
-fisf <- fisf %>%
-    mutate(G8A_LABEL = G8A,
-           G8B_LABEL = G8B,
-           G8C_LABEL = G8C,
-           G8D_LABEL = G8D,
-           G8E_LABEL = G8E,
-           G8F_LABEL = G8F,
-           G8G_LABEL = G8G,
-           G8H_LABEL = G8H,
-           G8I_LABEL = G8I,
-           G8J_LABEL = G8J,
-           G8K_LABEL = G8K,
-           G8L_LABEL = G8L)
-
-fisf <- fisf %>%
-    mutate_at(c("G8A_LABEL", "G8B_LABEL", "G8C_LABEL", "G8D_LABEL",
-                "G8E_LABEL", "G8F_LABEL", "G8G_LABEL", "G8H_LABEL",
-                "G8I_LABEL", "G8J_LABEL", "G8K_LABEL", "G8L_LABEL"),
-              function(x) case_when(
-                              x == 1 ~ "Không biết",
-                              x == 2 ~ "Có nghe đến",
-                              x == 3 ~ "Có biết",
-                              x == 4 ~ "Biết rõ",
-                              )) %>%
-    mutate_at(c("G8A_LABEL", "G8B_LABEL", "G8C_LABEL", "G8D_LABEL",
-                "G8E_LABEL", "G8F_LABEL", "G8G_LABEL", "G8H_LABEL",
-                "G8I_LABEL", "G8J_LABEL", "G8K_LABEL", "G8L_LABEL"),
-              function(x) factor(x, levels = c("Không biết", "Có nghe đến", "Có biết", "Biết rõ"),
-                                 ordered = TRUE))
+fisf <- process_select_one_question(fisf,
+                                    G8A, G8B, G8C, G8D, G8E, G8F,
+                                    G8G, G8H, G8I, G8J, G8K, G8L,
+                                    rsps = c("1" = "Không biết",
+                                             "2" = "Có nghe đến",
+                                             "3" = "Có biết",
+                                             "4" = "Biết rõ"))
 
 G8_1 <- bind_rows(
     count_all(fisf, G8A_LABEL, index = "G8.1"),
@@ -273,39 +206,13 @@ G8_2 <- bind_cols(
 
 ## G9 ------------------------------
 
-fisf <- fisf %>%
-    mutate(G9A = fill_missval(G9A),
-           G9B = fill_missval(G9B),
-           G9C = fill_missval(G9C),
-           G9D = fill_missval(G9D),
-           G9E = fill_missval(G9E),
-           G9F = fill_missval(G9F),
-           G9G = fill_missval(G9G),
-           G9H = fill_missval(G9H))
-
-fisf <- fisf %>%
-    mutate(G9A_LABEL = G9A,
-           G9B_LABEL = G9B,
-           G9C_LABEL = G9C,
-           G9D_LABEL = G9D,
-           G9E_LABEL = G9E,
-           G9F_LABEL = G9F,
-           G9G_LABEL = G9G,
-           G9H_LABEL = G9H)
-
-fisf <- fisf %>%
-    mutate_at(c("G9A_LABEL", "G9B_LABEL", "G9C_LABEL", "G9D_LABEL",
-                "G9E_LABEL", "G9F_LABEL", "G9G_LABEL", "G9H_LABEL"),
-              function(x) case_when(
-                              x == 1 ~ "Không tin tưởng",
-                              x == 2 ~ "Ít tin tưởng",
-                              x == 3 ~ "Tin tưởng",
-                              x == 8 ~ "Không biết"
-                          )) %>%
-    mutate_at(c("G9A_LABEL", "G9B_LABEL", "G9C_LABEL", "G9D_LABEL",
-                "G9E_LABEL", "G9F_LABEL", "G9G_LABEL", "G9H_LABEL"),
-              function(x) factor(x, levels = c("Không tin tưởng", "Ít tin tưởng", "Tin tưởng", "Không biết"),
-                                 ordered = TRUE))
+fisf <- process_select_one_question(fisf,
+                                    G9A, G9B, G9C, G9D, G9E, G9F,
+                                    G9G, G9H,
+                                    rsps = c("1" = "Không tin tưởng",
+                                             "2" = "Ít tin tưởng",
+                                             "3" = "Tin tưởng",
+                                             "8" = "Không biết"))
 
 G9_1 <- bind_rows(
     count_all(fisf, G9A_LABEL, index = "G9.1"),
@@ -366,35 +273,13 @@ G9_2 <- select(G9_2, -contains("Không biết"))
 
 ## G10 ------------------------------
 
-fisf <- fisf %>%
-    mutate(G10A = fill_missval(G10A),
-           G10B = fill_missval(G10B))
-
-fisf <- fisf %>%
-    mutate(G10A_LABEL = G10A,
-           G10B_LABEL = G10B)
-
-fisf <- fisf %>%
-    mutate_at(c("G10A_LABEL"),
-              function(x) case_when(
-                              x == 1 ~ "Hàng ngày - Ghi thu nhập",
-                              x == 2 ~ "Hàng tuần - Ghi thu nhập",
-                              x == 3 ~ "Hàng tháng - Ghi thu nhập",
-                              x == 4 ~ "Hàng năm - Ghi thu nhập",
-                              x == 5 ~ "Thỉng thoảng - Ghi thu nhập",
-                              x == 6 ~ "Không bao giờ - Ghi thu nhập"
-                          ))
-
-fisf <- fisf %>%
-    mutate_at(c("G10B_LABEL"),
-              function(x) case_when(
-                              x == 1 ~ "Hàng ngày - Ghi chi phí",
-                              x == 2 ~ "Hàng tuần - Ghi chi phí",
-                              x == 3 ~ "Hàng tháng - Ghi chi phí",
-                              x == 4 ~ "Hàng năm - Ghi chi phí",
-                              x == 5 ~ "Thỉng thoảng - Ghi chi phí",
-                              x == 6 ~ "Không bao giờ - Ghi chi phí"
-                          ))
+fisf <- process_select_one_question(fisf, G10A, G10B,
+                                    rsps = c("1" = "Hàng ngày - Ghi thu nhập",
+                                             "2" = "Hàng tuần - Ghi thu nhập",
+                                             "3" = "Hàng tháng - Ghi thu nhập",
+                                             "4" = "Hàng năm - Ghi thu nhập",
+                                             "5" = "Thỉng thoảng - Ghi thu nhập",
+                                             "6" = "Không bao giờ - Ghi thu nhập"))
 
 G10A <- count_response(fisf, G10A_LABEL, index = "G10")
 G10B <- count_response(fisf, G10B_LABEL, index = "G10B")
@@ -406,15 +291,10 @@ G10 <- select(G10, STT, `Phân loại ngừơi trả lời`,
 
 ## G11 ------------------------------
 
-fisf <- fisf %>%
-    mutate(G11 = fill_missval(G11))
-
-fisf <- fisf %>%
-    mutate(G11_LABEL = case_when(
-               G11 == 1 ~ "Có",
-               G11 == 2 ~ "Không",
-               G11 == 8 ~ "Không nhớ/Không biết"
-           ))
+fisf <- process_select_one_question(fisf, G11,
+                                    rsps = c("1" = "Có",
+                                             "2" = "Không",
+                                             "8" = "Không nhớ/Không biết"))
 
 G11 <- count_response(fisf, G11_LABEL, index = "G11")
 G11 <- add_rsp(G11, c("Có", "Không", "Không nhớ/Không biết"))
@@ -570,20 +450,12 @@ G14 <- bind_cols(
 
 ## G15 ------------------------------
 
-fisf <- fisf %>%
-    mutate(G15 = fill_missval(G15))
-
-fisf <- fisf %>%
-    mutate(G15_LABEL = case_when(
-               G15 == 1 ~ "Toàn bộ/Hầu hết",
-               G15 == 2 ~ "50%",
-               G15 == 3 ~ "Rất ít",
-               G15 == 4 ~ "Không ra quyết định",
-               G15 == 8 ~ "Không biết"
-           )) %>%
-    mutate(G15_LABEL = factor(G15_LABEL,
-                              levels = c("Toàn bộ/Hầu hết", "50%", "Rất ít", "Không ra quyết định", "Không biết"),
-                              ordered = TRUE))
+fisf <- process_select_one_question(fisf, G15,
+                                    rpss = c("1" ~ "Toàn bộ/Hầu hết",
+                                             "2" ~ "50%",
+                                             "3" ~ "Rất ít",
+                                             "4" ~ "Không ra quyết định",
+                                             "8" ~ "Không biết"))
 
 G15 <- count_response(fisf, G15_LABEL, index = "G15")
 

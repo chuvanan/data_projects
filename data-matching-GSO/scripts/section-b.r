@@ -7,26 +7,10 @@ source("02-process.R")
 
 ## B1 ------------------------------
 
-fisf <- fisf %>%
-    mutate(B1A = fill_missval(B1A),
-           B1B = fill_missval(B1B),
-           B1C = fill_missval(B1C))
-
-fisf <- fisf %>%
-    mutate(B1A_LABEL = B1A,
-           B1B_LABEL = B1B,
-           B1C_LABEL = B1C)
-
-fisf <- fisf %>%
-    mutate_at(c("B1A_LABEL", "B1B_LABEL", "B1C_LABEL"),
-              function(x) case_when(
-                              x == 1 ~ "Có",
-                              x == 2 ~ "Không",
-                              x == 7 ~ "Không có điện thoại di động, cố định và thiết bị để kết nối internet"
-                          )) %>%
-    mutate_at(c("B1A_LABEL", "B1B_LABEL", "B1C_LABEL"),
-              function(x) factor(x, levels = c("Có", "Không", "Không có điện thoại di động, cố định và thiết bị để kết nối internet"),
-                                 ordered = TRUE))
+fisf <- process_select_one_question(fisf, B1A, B1B, B1C,
+                                    rsps = c("1" = "Có",
+                                             "2" = "Không",
+                                             "7" = "Không có điện thoại di động, cố định và thiết bị để kết nối internet"))
 
 fisf <- fisf %>%
     mutate(B1D_LABEL = {apply(select(fisf, matches("B1[A-C]$")),
@@ -60,29 +44,10 @@ B1 <- bind_cols(
 
 ## B2 ------------------------------
 
-fisf <- fisf %>%
-    mutate(B2A = fill_missval(B2A),
-           B2B = fill_missval(B2B),
-           B2C = fill_missval(B2C),
-           B2D = fill_missval(B2D))
-
-fisf <- fisf %>%
-    mutate(B2A_LABEL = B2A,
-           B2B_LABEL = B2B,
-           B2C_LABEL = B2C,
-           B2D_LABEL = B2D)
-
-fisf <- fisf %>%
-    mutate_at(c("B2A_LABEL", "B2B_LABEL", "B2C_LABEL", "B2D_LABEL"),
-              function(x) case_when(
-                              x == 1 ~ "Có",
-                              x == 2 ~ "Không",
-                              x == 8 ~ "Không biết"
-                          )) %>%
-    mutate_at(c("B2A_LABEL", "B2B_LABEL", "B2C_LABEL", "B2D_LABEL"),
-              function(x) factor(x, levels = c("Có", "Không", "Không biết"),
-                                 ordered = TRUE))
-
+fisf <- process_select_one_question(fisf, B2A, B2B, B2C, B2D,
+                                    rsps = c("1" = "Có",
+                                             "2" = "Không",
+                                             "8" = "Không biết"))
 
 B2A <- count_response(fisf, B2A_LABEL, index = "B2")
 B2A <- add_rsp(B2A, c("Có", "Không", "Không biết"))
@@ -111,46 +76,13 @@ B2 <- bind_cols(
 
 ## B3 ------------------------------
 
-fisf <- fisf %>%
-    mutate(B3A = fill_missval(B3A),
-           B3B = fill_missval(B3B),
-           B3C = fill_missval(B3C),
-           B3D = fill_missval(B3D),
-           B3E = fill_missval(B3E),
-           B3F = fill_missval(B3F),
-           B3G = fill_missval(B3G),
-           B3H = fill_missval(B3H))
-
-fisf <- fisf %>%
-    mutate(B3A_LABEL = B3A,
-           B3B_LABEL = B3B,
-           B3C_LABEL = B3C,
-           B3D_LABEL = B3D,
-           B3E_LABEL = B3E,
-           B3F_LABEL = B3F,
-           B3G_LABEL = B3G,
-           B3H_LABEL = B3H)
-
-fisf <- fisf %>%
-    mutate_at(c("B3A_LABEL", "B3B_LABEL", "B3C_LABEL", "B3D_LABEL",
-                "B3E_LABEL", "B3F_LABEL", "B3G_LABEL", "B3H_LABEL"),
-              function(x) case_when(
-                              x == 1 ~ "Dưới 15 phút",
-                              x == 2 ~ "Từ 15 phút đến dưới 30 phút",
-                              x == 3 ~ "Từ 30 phút đến dưới 1 tiếng",
-                              x == 4 ~ "Từ 1 tiếng đến dưới 3 tiếng",
-                              x == 5 ~ "Từ 3 tiếng trở lên",
-                              x == 8 ~ "Không biết"
-                          )) %>%
-    mutate_at(c("B3A_LABEL", "B3B_LABEL", "B3C_LABEL", "B3D_LABEL",
-                "B3E_LABEL", "B3F_LABEL", "B3G_LABEL", "B3H_LABEL"),
-              function(x) factor(x, levels = c("Dưới 15 phút",
-                                               "Từ 15 phút đến dưới 30 phút",
-                                               "Từ 30 phút đến dưới 1 tiếng",
-                                               "Từ 1 tiếng đến dưới 3 tiếng",
-                                               "Từ 3 tiếng trở lên",
-                                               "Không biết"),
-                                 ordered = TRUE))
+fisf <- process_select_one_question(fisf, B3A, B3B, B3C, B3D, B3E, B3F, B3G, B3H,
+                                    rsps = c("1" = "Dưới 15 phút",
+                                             "2" = "Từ 15 phút đến dưới 30 phút",
+                                             "3" = "Từ 30 phút đến dưới 1 tiếng",
+                                             "4" = "Từ 1 tiếng đến dưới 3 tiếng",
+                                             "5" = "Từ 3 tiếng trở lên",
+                                             "8" = "Không biết"))
 
 B3_0_TT <- bind_rows(
     count_all(filter(fisf, TTNT == 1), B3A_LABEL, index = "B3a.1"),
@@ -335,16 +267,31 @@ B4 <- try({
 ## Export ------------------------------
 
 if (STRATIFIED_BY_REGION) {
+    TABLES <- tibble(
+        `Bảng` = c("B1", "B2"),
+        `Mô tả` = c("ÔNG/BÀ CÓ SỬ DỤNG NHỮNG THIẾT BỊ SAU TRONG VÒNG 1 THÁNG QUA KHÔNG?",
+                    "ÔNG/BÀ ĐỒNG Ý VỚI NHỮNG KHẲNG ĐỊNH NÀO SAU ĐÂY?")
+    )
     filename <- paste0("../outputs/SECTION-B ", WHICH_REGION, ".xlsx")
     openxlsx::write.xlsx(list(B1 = B1,
-                              B2 = B2),
+                              B2 = B2,
+                              TABLES = TABLES),
                          file = filename)
 } else {
+    TABLES <- tibble(
+        `Bảng` = c("B1", "B2", "B3_1", "B3_2", "B4"),
+        `Mô tả` = c("ÔNG/BÀ CÓ SỬ DỤNG NHỮNG THIẾT BỊ SAU TRONG VÒNG 1 THÁNG QUA KHÔNG?",
+                    "ÔNG/BÀ ĐỒNG Ý VỚI NHỮNG KHẲNG ĐỊNH NÀO SAU ĐÂY?",
+                    "ÔNG/BÀ SỬ DỤNG PHƯƠNG TIỆN THÔNG DỤNG NHẤT (KỂ CẢ ĐI BỘ) MẤT BAO LÂU ĐỂ ĐI ĐẾN NƠI GẦN NHẤT CÓ CÁC TIỆN ÍCH SAU?",
+                    "THỜI GIAN BÌNH QUÂN MỘT NGƯỜI SỬ DỤNG CÁC PHƯƠNG TIỆN THÔNG DỤNG ĐỂ ĐẾN CÁC NƠI GẦN NHẤT SAU",
+                    "THEO ÔNG/BÀ, TẠI XÃ/PHƯỜNG/THỊ TRẤN (NƠI ÔNG/BÀ SINH SỐNG) CÓ ĐIỂM GIAO DỊCH CHÍNH THỨC (TRỤ SỞ CHÍNH, CHI NHÁNH, PHÒNG/ĐIỂM GIAO DỊCH, MÁY ATM,…) CỦA CÁC TỔ CHỨC TÍN DỤNG KHÔNG?")
+    )
     filename <- paste0("../outputs/SECTION-B TOANQUOC.xlsx")
     openxlsx::write.xlsx(list(B1 = B1,
                               B2 = B2,
                               B3_1 = B3_0,
                               B3_2 = B3_2,
-                              B4 = B4),
+                              B4 = B4,
+                              TABLES = TABLES),
                          file = filename)
 }

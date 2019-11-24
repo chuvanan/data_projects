@@ -1,7 +1,18 @@
 
 options(digits = 4)
-fisf <- read.csv("../data/Solieu_FISF.csv",
-                 stringsAsFactors = FALSE)
+## fisf <- read.csv("../data/Solieu_FISF.csv",
+##                  stringsAsFactors = FALSE)
+
+fisf <- readxl::read_xlsx("../data/SoLieu_Gui An.xlsx")
+
+table(fisf$TTNT, useNA = "ifany")
+table(fisf$TINH, useNA = "ifany")
+table(fisf$HUYEN, useNA = "ifany")
+table(fisf$XA, useNA = "ifany")
+table(fisf$DIABAN, useNA = "ifany")
+
+
+names(fisf)[1:30]
 
 dmnn <- readxl::read_xls("../data/Danh muc nghe-final.xls",
                          sheet = "C. 1-2-3-4", skip = 3)

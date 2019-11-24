@@ -47,23 +47,12 @@ D1 <- bind_cols(
 
 ## TẦN SUẤT ĐỂ DÁNH TIỀN/TIẾT KIỆM TIỀN TRONG 12 THÁNG QUA
 
-fisf <- fisf %>%
-    mutate(D2 = fill_missval(D2))
-
-fisf <- fisf %>%
-    mutate(D2_LABEL = case_when(
-               D2 == 1 ~ "Để dành/tiết kiệm tiền hàng tháng",
-               D2 == 2 ~ "Để dành/tiết kiệm tiền hàng quý",
-               D2 == 3 ~ "Để dành/tiết kiệm tiền hàng năm",
-               D2 == 4 ~ "Không theo định kỳ",
-               D2 == 9 ~ "Từ chối trả lời"
-           )) %>%
-    mutate(D2_LABEL = factor(D2_LABEL,
-                             levels = c("Để dành/tiết kiệm tiền hàng tháng",
-                                        "Để dành/tiết kiệm tiền hàng quý",
-                                        "Để dành/tiết kiệm tiền hàng năm",
-                                        "Không theo định kỳ", "Từ chối trả lời"),
-                             ordered = TRUE))
+fisf <- process_select_one_question(fisf, D2,
+                                    rsps = c("1" = "Để dành/tiết kiệm tiền hàng tháng",
+                                             "2" = "Để dành/tiết kiệm tiền hàng quý",
+                                             "3" = "Để dành/tiết kiệm tiền hàng năm",
+                                             "4" = "Không theo định kỳ",
+                                             "9" = "Từ chối trả lời"))
 
 D2 <- count_response(fisf, D2_LABEL, index = "D2")
 D2 <- add_rsp(D2, c("Để dành/tiết kiệm tiền hàng tháng",

@@ -92,25 +92,11 @@ C1_3 <- bind_cols(
 
 ## TRONG 12 THÁNG QUA, ÔNG/ BÀ CÓ THỰC HIỆN CÁC GIAO DỊCH DƯỚI ĐÂY KHÔNG?
 
-fisf <- local({
-    ori_cols <- paste0("C2", LETTERS[1:14])
-    new_cols <- paste0(ori_cols, "_LABEL")
-    for (i in seq_along(ori_cols)) {
-        fisf[[ori_cols[i]]] <- fill_missval(fisf[[ori_cols[i]]])
-        fisf[[new_cols[i]]] <- fisf[[ori_cols[i]]]
-    }
-    fisf
-})
-
-fisf <- fisf %>%
-    mutate_at(c("C2A_LABEL", "C2B_LABEL", "C2C_LABEL", "C2D_LABEL",
-                "C2E_LABEL", "C2F_LABEL", "C2G_LABEL", "C2H_LABEL",
-                "C2I_LABEL", "C2J_LABEL", "C2K_LABEL", "C2L_LABEL",
-                "C2M_LABEL", "C2N_LABEL"),
-              function(x) {
-                  factor(case_when(x == 1 ~ "Có", x == 2 ~ "Không"),
-                         levels = c("Có", "Không"), ordered = TRUE)
-              })
+fisf <- process_select_one_question(fisf,
+                                    C2A, C2B, C2C, C2D, C2E, C2F, C2G, C2H,
+                                    C2I, C2J, C2K, C2L, C2M, C2N,
+                                    rsps = c("1" = "Có",
+                                             "2" = "Không"))
 
 C2A <- count_response(fisf, C2A_LABEL, index = "C2A")
 C2A <- add_rsp(C2A, c("Có", "Không"))
@@ -459,30 +445,12 @@ C4N <- bind_cols_C4(C4N1, C4N2, C4N3, C4N4, C4N5, C4N6, C4N7, C4N8)
 ## C5 ------------------------------
 
 ## TẦN SUẤT GIAO DỊCH?
-fisf <- local({
-    ori_cols <- paste0("C5", LETTERS[1:14])
-    new_cols <- paste0(ori_cols, "_LABEL")
-    for (i in seq_along(ori_cols)) {
-        fisf[[ori_cols[i]]] <- fill_missval(fisf[[ori_cols[i]]])
-        fisf[[new_cols[i]]] <- fisf[[ori_cols[i]]]
-    }
-    fisf
-})
-
-fisf <- fisf %>%
-    mutate_at(c("C5A_LABEL", "C5B_LABEL", "C5C_LABEL", "C5D_LABEL",
-                "C5E_LABEL", "C5F_LABEL", "C5G_LABEL", "C5H_LABEL",
-                "C5I_LABEL", "C5J_LABEL", "C5K_LABEL", "C5L_LABEL",
-                "C5M_LABEL", "C5N_LABEL"),
-              function(x) {
-                  factor(case_when(x == 1 ~ "Dưới 1 lần/tháng",
-                                   x == 2 ~ "1-2 lần/tháng",
-                                   x == 3 ~ "Trên 2 lần/tháng"),
-                         levels = c("Dưới 1 lần/tháng",
-                                    "1-2 lần/tháng",
-                                    "Trên 2 lần/tháng"),
-                         ordered = TRUE)
-              })
+fisf <- process_select_one_question(fisf,
+                                    C5A, C5B, C5C, C5D, C5E, C5F, C5G, C5H,
+                                    C5I, C5J, C5K, C5L, C5M, C5N,
+                                    rsps = c("1" = "Dưới 1 lần/tháng",
+                                             "2" = "1-2 lần/tháng",
+                                             "3" = "Trên 2 lần/tháng"))
 
 C5A <- count_response(fisf, C5A_LABEL, index = "C5A")
 C5B <- count_response(fisf, C5B_LABEL, index = "C5B")
@@ -596,22 +564,10 @@ C3_4_5_M <- bind_cols(
 
 ## C6 ------------------------------
 
-fisf <- fisf %>%
-    mutate(C6A = fill_missval(C6A),
-           C6B = fill_missval(C6B))
-
-fisf <- fisf %>%
-    mutate(C6A_LABEL = C6A,
-           C6B_LABEL = C6B)
-
-fisf <- fisf %>%
-    mutate_at(c("C6A_LABEL", "C6B_LABEL"),
-              function(x) case_when(x == 1 ~ "Có",
-                                    x == 2 ~ "Không",
-                                    x == 7 ~ "Không phù hợp")) %>%
-    mutate_at(c("C6A_LABEL", "C6B_LABEL"),
-              function(x) factor(x, levels = c("Có", "Không", "Không phù hợp"),
-                                 ordered = TRUE))
+fisf <- process_select_one_question(fisf, C6A, C6B,
+                                    rsps = c("1" = "Có",
+                                             "2" = "Không",
+                                             "7" = "Không phù hợp"))
 
 C6A <- count_response(fisf, C6A_LABEL, index = "C61")
 C6A <- add_rsp(C6A, c("Có", "Không", "Không phù hợp"))
@@ -732,6 +688,11 @@ C7_2 <- bind_cols(
 
 ## Export ------------------------------
 
+TABLES <- tibble(
+    `Bảng` = c(),
+    `Mô tả` = c()
+)
+
 if (STRATIFIED_BY_REGION) {
     filename <- paste0("../outputs/SECTION-C ", WHICH_REGION, ".xlsx")
 } else {
@@ -756,5 +717,6 @@ openxlsx::write.xlsx(list(C1_1 = C1_1,
                           C3_4_5_L = C3_4_5_L,
                           C3_4_5_M = C3_4_5_M,
                           C7_1 = C7_1,
-                          C7_2 = C7_2),
+                          C7_2 = C7_2,
+                          TABLES = TABLES),
                      file = filename)

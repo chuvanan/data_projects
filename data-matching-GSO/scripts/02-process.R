@@ -1,6 +1,18 @@
 ## 2019-03-31
 ## @ancv
 
+r_version <- local({
+    major <- R.version$major
+    minor <- R.version$minor
+    paste0(major, ".", minor)
+})
+
+if (r_version >= "3.6.0") {
+    conflictRules("dplyr",
+                  mask.ok = "filter",
+                  exclude = c("lag", "intersect", "setdiff", "setequal", "union"))
+}
+
 require(dplyr)
 require(tidyr)
 
@@ -8,7 +20,8 @@ require(tidyr)
 ## Pre-process dimensions
 ## -----------------------------------------------------------------------------
 
-fisf <- readxl::read_xlsx("../data/SoLieu_Gui An.xlsx")
+fisf <- readxl::read_xlsx("../data/80 db da hieu dinh_final.xlsx")
+provinces <- readxl::read_xls("../data/dmhc2015.xls")
 source("helper-functions.r")
 
 ## Gender
@@ -37,8 +50,7 @@ fisf <- fisf %>%
     (AGE >= 25 & AGE <= 55 & A4 == 2) ~ "Người trung niên",
     (AGE >= 25 & AGE <= 60 & A4 == 1) ~ "Người trung niên",
     (AGE > 55 & A4 == 2) ~ "Người già",
-    (AGE > 60 & A4 == 1) ~ "Người già"
-    )) %>%
+    (AGE > 60 & A4 == 1) ~ "Người già")) %>%
     mutate(AGE_BINS = factor(AGE_BINS,
                              levels = c("Người trẻ tuổi", "Người trung niên", "Người già"),
                              ordered = TRUE))
@@ -167,6 +179,23 @@ fisf <- fisf %>%
                                         "Không biết",
                                         "Từ chối trả lời"),
                              ordered = TRUE))
+
+## Economic Region
+fisf <- fisf %>%
+    mutate(TINH = if_else(nchar(TINH) == 1,
+                          paste0("0", TINH),
+                          as.character(TINH))) %>%
+    left_join(provinces, by = c("TINH" = "PROVINCE_CODE")) %>%
+    mutate(REGION = factor(REGION,
+                           levels = c("Trung du và miền núi phía Bắc",
+                                      "Đồng bằng sông Hồng",
+                                      "Bắc trung bộ và Duyên hải miền Trung",
+                                      "Tây Nguyên",
+                                      "Đông Nam Bộ",
+                                      "Đồng bằng sông Cửu Long",
+                                      "TP. Hà Nội",
+                                      "TP. Hồ Chí Minh"),
+                           ordered = TRUE))
 
 ## -----------------------------------------------------------------------------
 ## Whether or not to stratify the data set by `region`

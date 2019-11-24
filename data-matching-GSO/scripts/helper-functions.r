@@ -1,6 +1,7 @@
 
 fill_missval <- function(x) {
     freq <- table(x)
+    x[x %in% 0] <- NA
     if (length(freq) == 0) freq <- c("1" = 0)
     max_val <- names(freq)[freq == max(freq)]
     x[is.na(x)] <- as.numeric(max_val[1])
@@ -113,7 +114,7 @@ count_response <- function(dta, what, pct = TRUE, index) {
 
 count_response_stratified_by_region <- function(dta, what, pct = TRUE, index) {
     what_q <- enquo(what)
-    index_letters <- paste0(index, letters[1:6])
+    index_letters <- paste0(index, letters[1:9])
     bind_rows(
         count_all(dta = dta, what = !!what_q, index = index),
         count_by_gender(dta = dta, what = !!what_q, pct = pct, index = index_letters[1]),
@@ -150,4 +151,26 @@ adjust_colnames <- function(x, prefix) {
     names(x)[!names(x) %in% fixed_colnames] <-
         paste(prefix, "-", names(x)[!names(x) %in% fixed_colnames])
     x
+}
+
+process_select_one_question <- function(dta, ..., rsps) {
+    cols_q <- ensyms(...)
+    cols_c <- as.character(cols_q)
+    cols_n <- paste0(cols_c, "_LABEL")
+
+    dta <- mutate_at(dta, cols_c, fill_missval)
+
+    for (i in seq_along(cols_n)) {
+        dta[[cols_n[i]]] <- dta[[cols_c[i]]]
+    }
+
+    assign_labels <- function(x, labs) {
+        x <- as.character(x)
+        x <- unname(labs[x])
+        factor(x, levels = labs, ordered = TRUE)
+    }
+
+    dta <- mutate_at(dta, cols_n, assign_labels, rsps)
+    dta
+
 }
