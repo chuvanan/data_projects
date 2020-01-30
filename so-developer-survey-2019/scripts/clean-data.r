@@ -1,5 +1,6 @@
 
 
+## https://juliasilge.com/blog/salary-gender/
 require(ggplot2)
 
 theme_set(
@@ -130,3 +131,14 @@ ggplot(devtypes, aes(gender, convertedcomp / 1e3, color = gender)) +
     theme(legend.position = "none", axis.text.x.bottom = element_text(angle = 45, hjust = 0.5))
 
 ## Modeling --------------------------------------------------------------------
+
+survey_results$yearscodepro <- as.numeric(survey_results$yearscodepro)
+
+modeling_data <- survey_results[survey_results$convertedcomp < 3e5 &
+                                survey_results$yearscodepro < 30 &
+                                survey_results$gender %in% c("Man", "Woman"), ]
+modeling_data$respondent <- NULL
+modeling_data$convertedcomp <- log(modeling_data$convertedcomp)
+
+simple1 <- lm(convertedcomp ~ 0 + edlevel + opensourcer + yearscodepro + gender + dependents, data = modeling_data)
+summary(simple1)
