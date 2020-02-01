@@ -6,8 +6,8 @@
 ## * https://en.wikipedia.org/wiki/2019%E2%80%9320_Wuhan_coronavirus_outbreak
 
 outbreak <- data.frame(
-    date = seq.Date(as.Date("2020-01-16"), as.Date("2020-01-30"), by = "days"),
-    cumulative_count = c(45, 62, 121, 198, 291, 440, 571, 830, 1287, 1975, 2744, 4515, 5974, 7711, 9692)
+    date = seq.Date(as.Date("2020-01-16"), as.Date("2020-01-31"), by = "days"),
+    cumulative_count = c(45, 62, 121, 198, 291, 440, 571, 830, 1287, 1975, 2744, 4515, 5974, 7711, 9692, 11791)
 )
 
 poly_fit <- lm(cumulative_count ~ poly(date, 3), data = outbreak)
