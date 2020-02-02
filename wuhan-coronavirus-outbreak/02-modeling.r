@@ -18,7 +18,7 @@ new_outbreak_data <- data.frame(
     date = seq.Date(as.Date("2020-01-30"), length.out = 10, by = "days") # make 10 day ahead forecast
 )
 
-new_outbreak_data$cumulative_count <- c(9692, 11791, rep(NA, 8)) # update actual outbreak here
+new_outbreak_data$cumulative_count <- c(9692, 11791, 14380, rep(NA, 7)) # update actual outbreak here
 new_outbreak_data$preds <- predict(poly_fit, newdata = new_outbreak_data)
 
 ## combine them all
