@@ -18,14 +18,14 @@ new_outbreak_data <- data.frame(
     date = seq.Date(as.Date("2020-01-30"), length.out = 10, by = "days") # make 10 day ahead forecast
 )
 
-new_outbreak_data$cumulative_count <- c(9692, 11791, 14380, rep(NA, 7)) # update actual outbreak here
+new_outbreak_data$cumulative_count <- c(9692, 11791, 14380, 17205, rep(NA, 6)) # update actual outbreak here
 new_outbreak_data$preds <- predict(poly_fit, newdata = new_outbreak_data)
 
 ## combine them all
 outbreak <- rbind(outbreak, new_outbreak_data)
 
 png(filename = "./wuhan-virus-outbreak-modeling.png", 7, 7, units = "in", res = 300)
-par(family = "Carlito")
+par(family = "Carlito", cex = 1.2)
 plot(outbreak$date, outbreak$cumulative_count, pch = 1, col = "red4", type = "b",
      ylab = "number of people infected", xlab = "date (in 2020)", las = 1,
      main = "Wuhan Coronavirus Outbreak Prediction (10 days ahead)", lwd = 1.5, ylim = c(0, max(outbreak$preds)))
