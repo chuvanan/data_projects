@@ -4,6 +4,7 @@
 ## data sources:
 ## * https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports
 ## * https://en.wikipedia.org/wiki/2019%E2%80%9320_Wuhan_coronavirus_outbreak
+## * https://docs.google.com/spreadsheets/d/1UF2pSkFTURko2OvfHWWlFpDFAr1UxCBA4JLwlSP6KFo/htmlview?usp=sharing&sle=true#
 
 outbreak <- data.frame(
     date = seq.Date(as.Date("2020-01-16"), as.Date("2020-01-29"), by = "days"),
