@@ -54,6 +54,8 @@ confirmed$Date <- lubridate::mdy(confirmed$Date)
 dead$Date <- lubridate::mdy(dead$Date)
 recovered$Date <- lubridate::mdy(recovered$Date)
 
+latest_date <- max(confirmed$Date)
+max_cases <- max(confirmed$Cases)
 
 confirmed %>%
     group_by(`Country/Region`) %>%
@@ -64,7 +66,12 @@ confirmed %>%
     ggplot(aes(`Country/Region`, TotalCases)) +
     geom_col(fill = "orange") +
     geom_text(aes(y = TotalCases + 2e4, label = scales::comma(TotalCases)), color = "gray30", size = 3.5) +
-    scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, 350e3)) +
+    scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, max_cases + max_cases * 1 / 10)) +
     coord_flip() +
-    labs(x = NULL, title = "Confirmed Cases, Top 30 Countries")
+    labs(x = NULL, y = NULL, title = "Confirmed Cases, Top 30 Countries", subtitle = glue::glue("As of {latest_date}")) +
+    theme(panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          panel.grid.minor.x = element_blank(),
+          panel.grid.major.x = element_blank(),
+          axis.text.x = element_blank())
 ## ggsave(filename = here("figures", "top30.png"))
