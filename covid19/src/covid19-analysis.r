@@ -16,7 +16,7 @@ require(forcats)
 
 theme_set(
     theme_minimal(
-        base_size = 14, base_family = "Roboto Condensed"
+        base_size = getOption("base_size"), base_family = "Roboto Condensed"
     ) +
     theme(
         panel.grid = element_line(size = 0.3, color = "gray95")
