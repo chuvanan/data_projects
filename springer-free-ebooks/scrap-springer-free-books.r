@@ -38,7 +38,6 @@ scrap_springer_book = function(pubs, save_to) {
             error = function(e) {
                 message(sprintf("[DEBUG] Error while downloading file: %s", link))
                 message(e)
-                return(invisible())
             }
         )
         Sys.sleep(2L) # Be polite
@@ -46,4 +45,4 @@ scrap_springer_book = function(pubs, save_to) {
 }
 
 springer_book_list = read_springer_publication()
-scrap_springer_book(springer_book_list[1, ], save_to = "~/Downloads/demo")
+scrap_springer_book(springer_book_list[6:7, ], save_to = "~/Downloads/demo")
