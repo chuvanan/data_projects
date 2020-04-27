@@ -27,7 +27,7 @@ scrap_springer_book = function(pubs, save_to) {
     ## create names for files to be downloaded
     pubs$save_as = paste0(pubs$item_title, " - ", pubs$publication_year, ".pdf")
 
-    for (i in N) {
+    for (i in seq_len(N)) {
         page = read_html(pubs$url[i])
         atags = xml_find_all(page, "//a")
         hrefs = xml_attr(atags, "href")
